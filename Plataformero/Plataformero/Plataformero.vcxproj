@@ -18,6 +18,19 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="gameplay.cpp" />
+    <ClCompile Include="juego.cpp" />
+    <ClCompile Include="pantalla.cpp" />
+    <ClCompile Include="personaje.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="gameplay.h" />
+    <ClInclude Include="juego.h" />
+    <ClInclude Include="pantalla.h" />
+    <ClInclude Include="personaje.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{DB30EA69-751E-4C12-B96B-26B42EF0BF8D}</ProjectGuid>
