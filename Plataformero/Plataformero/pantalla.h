@@ -8,6 +8,9 @@ namespace Juego
 	public:
 		Pantalla();
 		~Pantalla();
+		virtual void checkInput() = 0;
+		virtual void update() = 0;
+		virtual void draw() = 0;
 	};
 }
 #endif

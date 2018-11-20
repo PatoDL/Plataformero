@@ -10,6 +10,9 @@ namespace Juego
 	public:
 		Gameplay();
 		~Gameplay();
+		void checkInput();
+		void update();
+		void draw();
 	};
 }
 #endif
