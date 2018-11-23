@@ -66,4 +66,13 @@ namespace juego
 			window->display();
 		}
 	}
+
+	float Juego::getFrameTime() 
+	{
+		static Clock dClock;
+		float dt;
+		dt=dClock.getElapsedTime().asSeconds();
+		dClock.restart();
+		return dt;
+	}
 }
