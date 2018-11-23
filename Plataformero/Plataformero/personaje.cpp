@@ -20,11 +20,6 @@ namespace juego
 		//delete collider;
 	}
 
-	void Personaje::mover()
-	{
-		
-	}
-
 	void Personaje::setVidas(int vid)
 	{
 		cantVidas = vid;

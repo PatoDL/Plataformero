@@ -24,6 +24,8 @@ namespace juego
 			creditos,
 			gameover
 		};
+		static Clock _dClock;
+		static float _dt;
 	public:
 		Juego();
 		~Juego();
@@ -32,6 +34,7 @@ namespace juego
 		bool getInGame();
 		void ejecutar(Juego* juego);
 		static float getFrameTime();
+		void resetClock();
 	};
 }
 

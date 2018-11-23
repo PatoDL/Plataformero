@@ -64,15 +64,19 @@ namespace juego
 			pantalla[0]->update();
 			pantalla[0]->draw(juego);
 			window->display();
+
+			resetClock();
 		}
 	}
 
 	float Juego::getFrameTime() 
 	{
-		static Clock dClock;
-		float dt;
-		dt=dClock.getElapsedTime().asSeconds();
-		dClock.restart();
-		return dt;
+		_dt=_dClock.getElapsedTime().asSeconds();
+		return _dt;
+	}
+
+	void Juego::resetClock()
+	{
+		_dClock.restart();
 	}
 }
