@@ -13,7 +13,7 @@ namespace Juego
 		int cantVidas;
 		Vector2f pos;
 		Vector2f vel;
-		const float gravedad;
+		const float gravedad=2.0f;
 		Sprite sprite;
 		RectangleShape collider;
 	public:
