@@ -24,6 +24,7 @@ namespace juego
 		int getVidas();
 		void setVel(Vector2f v);
 		Vector2f getVel();
+		void setCol(Vector2f posi, Vector2f tam, Color color);
 		RectangleShape getCol();
 		Vector2f getPos();
 		void setPos(float x, float y);

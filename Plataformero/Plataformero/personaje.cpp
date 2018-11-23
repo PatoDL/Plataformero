@@ -42,6 +42,13 @@ namespace juego
 		return vel;
 	}
 
+	void Personaje::setCol(Vector2f posi, Vector2f tam, Color color)
+	{
+		collider.setPosition(posi);
+		collider.setSize(tam);
+		collider.setFillColor(color);
+	}
+
 	RectangleShape Personaje::getCol()
 	{
 		return collider;

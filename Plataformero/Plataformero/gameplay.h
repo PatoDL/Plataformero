@@ -10,6 +10,7 @@ namespace juego
 	class Gameplay : public Pantalla
 	{
 		Personaje* main;
+		Personaje* enemy;
 	public:
 		Gameplay();
 		~Gameplay();
