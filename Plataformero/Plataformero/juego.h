@@ -31,6 +31,7 @@ namespace juego
 		void setInGame(bool inGame);
 		bool getInGame();
 		void ejecutar(Juego* juego);
+		static float getFrameTime();
 	};
 }
 
