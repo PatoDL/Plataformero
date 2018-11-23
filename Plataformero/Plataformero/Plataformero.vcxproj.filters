@@ -6,6 +6,7 @@
     <ClCompile Include="pantalla.cpp" />
     <ClCompile Include="gameplay.cpp" />
     <ClCompile Include="personaje.cpp" />
+    <ClCompile Include="jugador.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Juego">
@@ -26,5 +27,6 @@
     <ClInclude Include="pantalla.h" />
     <ClInclude Include="gameplay.h" />
     <ClInclude Include="personaje.h" />
+    <ClInclude Include="jugador.h" />
   </ItemGroup>
 </Project>

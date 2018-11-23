@@ -1,10 +1,12 @@
 #include "../Plataformero/juego.h"
 
+using namespace juego;
+
 void main()
 {
-	Juego::Juego* juego = new Juego::Juego();
+	Juego* game = new Juego();
 
-	juego->ejecutar();
+	game->ejecutar(game);
 
-	delete juego;
+	delete game;
 }

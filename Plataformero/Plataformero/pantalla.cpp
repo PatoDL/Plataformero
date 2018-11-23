@@ -1,6 +1,6 @@
 #include "pantalla.h"
 
-namespace Juego
+namespace juego
 {
 	Pantalla::Pantalla()
 	{

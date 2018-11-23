@@ -6,7 +6,7 @@
 #include "SFML\Graphics\RectangleShape.hpp"
 using namespace sf;
 
-namespace Juego
+namespace juego
 {
 	class Personaje
 	{
@@ -17,8 +17,19 @@ namespace Juego
 		Sprite sprite;
 		RectangleShape collider;
 	public:
-		Personaje();
+		Personaje(float x, float y/*, Sprite spr*/);
 		~Personaje();
+		virtual void mover() = 0;
+		void setVidas(int vid);
+		int getVidas();
+		void setVel(Vector2f v);
+		Vector2f getVel();
+		RectangleShape getCol();
+		Vector2f getPos();
+		void setPos(float x, float y);
+		void setX(float x);
+		void setY(float y);
+		void update();
 	};
 }
 #endif

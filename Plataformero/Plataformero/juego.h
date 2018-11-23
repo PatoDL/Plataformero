@@ -7,7 +7,7 @@
 
 using namespace sf;
 
-namespace Juego
+namespace juego
 {
 	const int cantPantallas = 4;
 
@@ -27,9 +27,10 @@ namespace Juego
 	public:
 		Juego();
 		~Juego();
+		RenderWindow* getWindow();
 		void setInGame(bool inGame);
 		bool getInGame();
-		void ejecutar();
+		void ejecutar(Juego* juego);
 	};
 }
 

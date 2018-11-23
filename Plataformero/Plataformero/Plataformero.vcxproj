@@ -22,12 +22,14 @@
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="gameplay.cpp" />
     <ClCompile Include="juego.cpp" />
+    <ClCompile Include="jugador.cpp" />
     <ClCompile Include="pantalla.cpp" />
     <ClCompile Include="personaje.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gameplay.h" />
     <ClInclude Include="juego.h" />
+    <ClInclude Include="jugador.h" />
     <ClInclude Include="pantalla.h" />
     <ClInclude Include="personaje.h" />
   </ItemGroup>

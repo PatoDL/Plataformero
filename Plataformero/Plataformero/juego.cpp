@@ -3,13 +3,13 @@
 #include <iostream>
 #include "gameplay.h"
 
-namespace Juego
+namespace juego
 {
 	Juego::Juego()
 	{
 		_inGame = true;
 
-		window = new RenderWindow(VideoMode(200, 200), "Plataformero");
+		window = new RenderWindow(VideoMode(800, 600), "Plataformero");
 
 		for (int i = 0; i < cantPantallas; i++)
 		{
@@ -28,6 +28,11 @@ namespace Juego
 		delete window;
 	}
 
+	RenderWindow* Juego::getWindow()
+	{
+		return window;
+	}
+
 	void Juego::setInGame(bool inGame)
 	{
 		_inGame = inGame;
@@ -38,7 +43,7 @@ namespace Juego
 		return _inGame;
 	}
 
-	void Juego::ejecutar()
+	void Juego::ejecutar(Juego* juego)
 	{
 		while (getInGame())
 		{
@@ -53,9 +58,11 @@ namespace Juego
 			{
 				setInGame(false);
 			}
-
+			
 			window->clear();
-			//window->draw();
+			pantalla[0]->checkInput();
+			pantalla[0]->update();
+			pantalla[0]->draw(juego);
 			window->display();
 		}
 	}

@@ -1,8 +1,10 @@
 #ifndef PANTALLA_H
 #define PANTALLA_H
 
-namespace Juego
+namespace juego
 {
+	class Juego;
+
 	class Pantalla
 	{
 	public:
@@ -10,7 +12,7 @@ namespace Juego
 		~Pantalla();
 		virtual void checkInput() = 0;
 		virtual void update() = 0;
-		virtual void draw() = 0;
+		virtual void draw(Juego* juego) = 0;
 	};
 }
 #endif
