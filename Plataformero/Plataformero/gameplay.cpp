@@ -19,11 +19,11 @@ namespace juego
 	void Gameplay::checkInput()
 	{
 		main->mover();
-		enemy->mover();
 	}
 
 	void Gameplay::update()
 	{
+		enemy->mover();
 		main->update();
 		enemy->update();
 	}

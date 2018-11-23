@@ -1,6 +1,7 @@
 #include "jugador.h"
 
 #include "SFML\Graphics.hpp"
+#include "juego.h"
 
 using namespace std;
 
@@ -20,7 +21,7 @@ namespace juego
 	{
 		if (Keyboard::isKeyPressed(Keyboard::Down))
 		{
-			setY(getPos().y+1);
+			setY(getPos().y+50*Juego::getFrameTime());
 		}
 	}
 }

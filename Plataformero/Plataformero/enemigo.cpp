@@ -1,4 +1,5 @@
 #include "enemigo.h"
+#include "juego.h"
 
 namespace juego
 {
@@ -14,6 +15,6 @@ namespace juego
 
 	void Enemigo::mover()
 	{
-		setX(getPos().x - 0.03f);
+		setX(getPos().x - 50*Juego::getFrameTime());
 	}
 }

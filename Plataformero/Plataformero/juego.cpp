@@ -54,7 +54,7 @@ namespace juego
 					window->close();
 			}
 
-			if (Keyboard::isKeyPressed(Keyboard::Enter))
+			if (Keyboard::isKeyPressed(Keyboard::Escape))
 			{
 				setInGame(false);
 			}
