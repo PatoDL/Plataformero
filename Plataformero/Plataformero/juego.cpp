@@ -5,6 +5,9 @@
 
 namespace juego
 {
+	float Juego::_dt = 0.0f;
+	Clock Juego::_dClock;
+
 	Juego::Juego()
 	{
 		_inGame = true;
