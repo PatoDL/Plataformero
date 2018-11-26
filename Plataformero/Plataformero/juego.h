@@ -24,6 +24,8 @@ namespace juego
 			creditos,
 			gameover
 		};
+		static unsigned int _anchoPantalla;
+		static unsigned int _altoPantalla;
 		static Clock _dClock;
 		static float _dt;
 	public:
@@ -35,6 +37,10 @@ namespace juego
 		void ejecutar(Juego* juego);
 		static float getFrameTime();
 		void resetClock();
+		static int getAnchoPantalla();
+		static int getAltoPantalla();
+		static void setAnchoPantalla(unsigned int ancho);
+		static void setAltoPantalla(unsigned int alto);
 	};
 }
 

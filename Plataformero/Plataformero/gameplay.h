@@ -11,6 +11,7 @@ namespace juego
 	{
 		Personaje* main;
 		Personaje* enemy;
+		View view;
 	public:
 		Gameplay();
 		~Gameplay();

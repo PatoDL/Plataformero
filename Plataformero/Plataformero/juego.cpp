@@ -8,11 +8,14 @@ namespace juego
 	float Juego::_dt = 0.0f;
 	Clock Juego::_dClock;
 
+	unsigned int Juego::_anchoPantalla = 800;
+	unsigned int Juego::_altoPantalla = 600;
+
 	Juego::Juego()
 	{
 		_inGame = true;
 
-		window = new RenderWindow(VideoMode(800, 600), "Plataformero");
+		window = new RenderWindow(VideoMode(_anchoPantalla,_altoPantalla), "Plataformero");
 
 		for (int i = 0; i < cantPantallas; i++)
 		{
@@ -81,5 +84,23 @@ namespace juego
 	void Juego::resetClock()
 	{
 		_dClock.restart();
+	}
+
+	int Juego::getAnchoPantalla()
+	{
+		return _anchoPantalla;
+	}
+	int Juego::getAltoPantalla()
+	{
+		return _altoPantalla;
+	}
+
+	void Juego::setAnchoPantalla(unsigned int ancho)
+	{
+		_anchoPantalla=ancho;
+	}
+	void Juego::setAltoPantalla(unsigned int alto)
+	{
+		_altoPantalla=alto;
 	}
 }

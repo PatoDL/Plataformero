@@ -13,6 +13,9 @@ namespace juego
 		collider.setPosition(pos);
 		collider.setSize({40, 40});
 		collider.setFillColor(Color::Blue);
+		vel.x = v.x;
+		vel.y = v.y;
+		collider.setOrigin({ collider.getSize().x / 2, collider.getSize().y / 2 });
 	}
 
 	Personaje::~Personaje()
