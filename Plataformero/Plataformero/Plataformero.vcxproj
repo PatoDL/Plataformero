@@ -26,6 +26,7 @@
     <ClCompile Include="jugador.cpp" />
     <ClCompile Include="pantalla.cpp" />
     <ClCompile Include="personaje.cpp" />
+    <ClCompile Include="mapa.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="enemigo.h" />
@@ -34,6 +35,7 @@
     <ClInclude Include="jugador.h" />
     <ClInclude Include="pantalla.h" />
     <ClInclude Include="personaje.h" />
+    <ClInclude Include="mapa.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -96,11 +98,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)libs\STP\include;$(SolutionDir)libs\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)libs\STP\include;$(SolutionDir)libs\pugi-xml\include;$(SolutionDir)libs\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)libs\STP\lib;$(SolutionDir)libs\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>winmm.lib;gdi32.lib;opengl32.lib;freetype.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-system-d.lib;pugixml.lib;STP-d.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)libs\STP\lib;$(SolutionDir)libs\pugi-xml\lib;$(SolutionDir)libs\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>winmm.lib;gdi32.lib;opengl32.lib;freetype.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-system-d.lib;pugixml.lib;STP-d.lib;zlibd.lib;pugi-xml.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>

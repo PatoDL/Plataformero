@@ -4,6 +4,7 @@
 #include "pantalla.h"
 #include "personaje.h"
 #include "juego.h"
+#include "mapa.h"
 
 namespace juego
 {
@@ -12,6 +13,7 @@ namespace juego
 		Personaje* main;
 		Personaje* enemy;
 		View view;
+		Mapa mapa;
 	public:
 		Gameplay();
 		~Gameplay();

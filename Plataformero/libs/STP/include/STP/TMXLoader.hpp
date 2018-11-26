@@ -28,5 +28,6 @@
 #define STP_LOADER_HPP
 
 #include "STP/Core/TileMap.hpp"
+#include "Core/TileMap.hpp"
 
 #endif  // STP_LOADER_HPP

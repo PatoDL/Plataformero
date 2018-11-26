@@ -8,6 +8,7 @@
     <ClCompile Include="personaje.cpp" />
     <ClCompile Include="jugador.cpp" />
     <ClCompile Include="enemigo.cpp" />
+    <ClCompile Include="mapa.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Juego">
@@ -30,5 +31,6 @@
     <ClInclude Include="personaje.h" />
     <ClInclude Include="jugador.h" />
     <ClInclude Include="enemigo.h" />
+    <ClInclude Include="mapa.h" />
   </ItemGroup>
 </Project>
