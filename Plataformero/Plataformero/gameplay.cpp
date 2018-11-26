@@ -7,8 +7,8 @@ namespace juego
 {
 	Gameplay::Gameplay()
 	{
-		main = new Jugador(10,10);
-		enemy = new Enemigo(500, 500);
+		main = new Jugador(10, 10, {1000.f,1000.f});
+		enemy = new Enemigo(500, 500, {500.f,500.f});
 	}
 
 	Gameplay::~Gameplay()

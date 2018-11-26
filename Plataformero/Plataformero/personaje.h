@@ -17,7 +17,7 @@ namespace juego
 		Sprite sprite;
 		RectangleShape collider;
 	public:
-		Personaje(float x, float y/*, Sprite spr*/);
+		Personaje(float x, float y/*, Sprite spr*/,Vector2f v);
 		~Personaje();
 		virtual void mover() = 0;
 		void setVidas(int vid);

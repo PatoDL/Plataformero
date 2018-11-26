@@ -1,9 +1,13 @@
 #include "enemigo.h"
 #include "juego.h"
 
+#include "SFML\Graphics.hpp"
+
+using namespace sf;
+
 namespace juego
 {
-	Enemigo::Enemigo(float x, float y):Personaje(x,y)
+	Enemigo::Enemigo(float x, float y,Vector2f v):Personaje(x,y,v)
 	{
 		setCol(getCol().getPosition(), getCol().getSize(), Color::Red);
 	}
@@ -15,6 +19,6 @@ namespace juego
 
 	void Enemigo::mover()
 	{
-		setX(getPos().x - 50*Juego::getFrameTime());
+		setX(getPos().x - getVel().x*Juego::getFrameTime());
 	}
 }

@@ -4,7 +4,7 @@
 
 namespace juego
 {
-	Personaje::Personaje(float x, float y/*, Sprite spr*/)
+	Personaje::Personaje(float x, float y/*, Sprite spr*/,Vector2f v)
 	{
 		pos.x = x;
 		pos.y = y;
