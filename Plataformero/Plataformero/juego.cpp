@@ -5,7 +5,7 @@
 
 namespace juego
 {
-	float Juego::_dt = 0.0f;
+	Time Juego::_dt;
 	Clock Juego::_dClock;
 
 	unsigned int Juego::_anchoPantalla = 800;
@@ -77,13 +77,13 @@ namespace juego
 
 	float Juego::getFrameTime() 
 	{
-		_dt=_dClock.getElapsedTime().asSeconds();
-		return _dt;
+		//_dt=_dClock.getElapsedTime();
+		return _dt.asSeconds();
 	}
 
 	void Juego::resetClock()
 	{
-		_dClock.restart();
+		_dt=_dClock.restart();
 	}
 
 	int Juego::getAnchoPantalla()

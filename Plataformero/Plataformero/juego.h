@@ -27,7 +27,7 @@ namespace juego
 		static unsigned int _anchoPantalla;
 		static unsigned int _altoPantalla;
 		static Clock _dClock;
-		static float _dt;
+		static Time _dt;
 	public:
 		Juego();
 		~Juego();
