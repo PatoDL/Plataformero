@@ -265,7 +265,7 @@
   <object id="119" type="pinches" x="2889" y="582.25" width="13.25" height="25.5"/>
   <object id="120" type="piso" x="1504" y="1504" width="160" height="96"/>
   <object id="121" type="piso" x="1568" y="1472" width="96" height="32"/>
-  <object id="123" x="2505.25" y="2023.25" width="12.5" height="24.5"/>
+  <object id="123" type="pinches" x="2505.25" y="2023.25" width="12.5" height="24.5"/>
   <object id="124" type="pinches" x="2921.5" y="1831.25" width="44" height="24"/>
  </objectgroup>
 </map>
