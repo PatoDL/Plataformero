@@ -13,7 +13,7 @@ namespace juego
 		Personaje* main;
 		Personaje* enemy;
 		View view;
-		Mapa mapa;
+		Mapa* map;
 	public:
 		Gameplay();
 		~Gameplay();
