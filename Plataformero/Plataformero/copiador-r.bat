@@ -12,5 +12,6 @@ xcopy "%solutiondir%libs\STP\bin\STP.dll" "%target%" /E /Y /S
 xcopy "%solutiondir%libs\STP\bin\zlib.dll" "%target%" /E /Y /S
 mkdir "%target%res\assets"
 xcopy "%solutiondir%res\assets" "%target%res\assets" /E /Y /S
+xcopy "%solutiondir%libs\TGUI-0.8\bin" "%target%" /E /Y /S
 
 echo Copia finalizada
