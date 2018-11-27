@@ -18,7 +18,7 @@ namespace juego {
 	public:
 		Mapa();
 		~Mapa();
-		TileMap getTileMap();
+		TileMap* getTileMap();
 	};
 }
 #endif

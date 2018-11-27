@@ -6,6 +6,7 @@ namespace juego {
 		result = doc.load_file("res/assets/mapa.tmx"); // Locates the file to be used.
 		objeto = doc.child("map").child("objectgroup");
 		tMap = new TileMap("res/assets/mapa.tmx");
+		 
 	}
 
 
@@ -14,8 +15,8 @@ namespace juego {
 
 	}
 
-	TileMap Mapa::getTileMap()
+	TileMap* Mapa::getTileMap()
 	{
-		return *tMap;
+		return tMap;
 	}
 }
