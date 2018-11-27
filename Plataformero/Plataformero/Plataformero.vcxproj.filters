@@ -9,6 +9,7 @@
     <ClCompile Include="jugador.cpp" />
     <ClCompile Include="enemigo.cpp" />
     <ClCompile Include="mapa.cpp" />
+    <ClCompile Include="menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Juego">
@@ -32,5 +33,6 @@
     <ClInclude Include="jugador.h" />
     <ClInclude Include="enemigo.h" />
     <ClInclude Include="mapa.h" />
+    <ClInclude Include="menu.h" />
   </ItemGroup>
 </Project>

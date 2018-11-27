@@ -19,6 +19,8 @@ namespace juego
 	Gameplay::~Gameplay()
 	{
 		delete main;
+		delete map;
+		delete enemy;
 	}
 
 	void Gameplay::checkInput()
