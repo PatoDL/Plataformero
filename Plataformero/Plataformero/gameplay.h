@@ -5,9 +5,11 @@
 #include "personaje.h"
 #include "juego.h"
 #include "mapa.h"
+#include "colisiones.h"
 #include "TGUI/TGUI.hpp"
 
 using namespace tgui;
+
 
 namespace juego
 {
@@ -18,6 +20,7 @@ namespace juego
 		View view;
 		Mapa* map;
 		Button::Ptr pause;
+		Colisiones colisiones;
 	public:
 		Gameplay();
 		~Gameplay();
@@ -26,6 +29,7 @@ namespace juego
 		void update();
 		void draw(Juego* juego);
 		void deInit();
+		void posicionarCamara();
 	};
 }
 #endif

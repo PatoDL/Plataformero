@@ -20,7 +20,7 @@ namespace juego
 	{
 		tex.loadFromFile("res/assets/char.png");
 
-		pos = { 100,100 };
+		pos = { x,y };
 
 		sprite.setTexture(tex);
 		sprite.setPosition(pos);
@@ -29,10 +29,15 @@ namespace juego
 
 		src.top = 0;
 		src.left = 0;
-		src.width = sprite.getLocalBounds().width/3;
+		src.width = sprite.getLocalBounds().width / 3;
 		src.height = sprite.getLocalBounds().height;
 
 		sprite.setTextureRect(src);
+		
+		setColSize({ static_cast<float> (sprite.getTextureRect().width), static_cast<float>(sprite.getTextureRect().height) });
+		sprite.setOrigin(sprite.getTextureRect().width / 2, sprite.getTextureRect().height / 2);
+		setColOrigin(sprite.getOrigin());
+				
 		enAire = false;
 		cambio = false;
 	}
@@ -70,6 +75,7 @@ namespace juego
 	void Jugador::update()
 	{
 		sprite.setPosition(pos);
+		Personaje::update();
 
 		if (cambio)
 		{
@@ -91,5 +97,10 @@ namespace juego
 	void Jugador::draw()
 	{
 		Juego::getWindow()->draw(sprite);
+	}
+
+	Jugador Jugador::getJug()
+	{
+		return *this;
 	}
 }

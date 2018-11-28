@@ -55,7 +55,8 @@ namespace juego
 	{
 		for (int i = 0; i < cantPantallas; i++)
 		{
-			delete pantalla[i];
+			if (pantalla[i] != NULL)
+				delete pantalla[i];
 		}
 		delete window;
 	}
@@ -121,7 +122,6 @@ namespace juego
 
 	float Juego::getFrameTime() 
 	{
-		//_dt=_dClock.getElapsedTime();
 		return _dt.asSeconds();
 	}
 

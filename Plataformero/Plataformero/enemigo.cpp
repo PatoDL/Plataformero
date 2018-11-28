@@ -7,9 +7,11 @@ using namespace sf;
 
 namespace juego
 {
-	Enemigo::Enemigo(float x, float y,Vector2f v):Personaje(x,y,v)
+	Enemigo::Enemigo(float x, float y, Vector2f v) :Personaje(x, y, v)
 	{
-		setCol(getCol().getPosition(), getCol().getSize(), Color::Red);
+		setColPos(getCol().getPosition());
+		setColSize({40.0f, 40.0f});
+		setColColor(Color::Red);
 	}
 
 
