@@ -11,11 +11,12 @@ namespace juego
 
 	Gameplay::Gameplay()
 	{
-		main = new Jugador(10, 10, { 500.f,500.f });
+		main = new Jugador(10, 10, { 250.f,250.f });
 		enemy = new Enemigo(20, 30, { 100.f,10.f });
 		map = new Mapa;
 		view.setSize(static_cast<float>(Juego::getAnchoPantalla()/2.5f), static_cast<float>(Juego::getAnchoPantalla()/2.5f));
 		view.setCenter(main->getPos());
+		map->crearPlataformas();
 	}
 
 	Gameplay::~Gameplay()
@@ -27,9 +28,9 @@ namespace juego
 
 	void Gameplay::init()
 	{
-		main = new Jugador(10, 10, { 500.f,500.f });
+		/*main = new Jugador(10, 10, { 100.f,100.f });
 		enemy = new Enemigo(500, 500, { 500.f,500.f });
-		map = new Mapa;
+		map = new Mapa;*/
 		view.setSize(static_cast<float>(Juego::getAnchoPantalla() / 2.5f), static_cast<float>(Juego::getAnchoPantalla() / 2.5f));
 		view.setCenter(main->getPos());
 	}
@@ -41,17 +42,36 @@ namespace juego
 
 	void Gameplay::update()
 	{
+		colisiones.procesarJugadorPlataformas((Jugador*)main,map);
 		enemy->mover();
 		main->update();
 		enemy->update();
+		posicionarCamara();
+	}
 
-		if (main->getPos().x <= view.getSize().x/2) 
+	void Gameplay::draw(Juego* juego)
+	{
+		juego->getWindow()->setView(view);
+		map->getTileMap()->ShowObjects(true);
+		juego->getWindow()->draw(*map->getTileMap());
+		for (int i = 0; i < maxPlataformas; i++) 
+		{
+			juego->getWindow()->draw(map->getPlataforma(i));
+		}
+		juego->getWindow()->draw(main->getCol());
+		juego->getWindow()->draw(enemy->getCol());
+		main->draw();
+	}
+
+	void Gameplay::posicionarCamara()
+	{
+		if (main->getPos().x <= view.getSize().x / 2)
 		{
 			if (main->getPos().y <= view.getSize().y / 2)
 			{
 				view.setCenter(view.getSize().x / 2, view.getSize().y / 2);
 			}
-			else if(main->getPos().y >=map->getTileMap()->GetHeight()*tam_tiles - view.getSize().y / 2)
+			else if (main->getPos().y >= map->getTileMap()->GetHeight()*tam_tiles - view.getSize().y / 2)
 			{
 				view.setCenter(view.getSize().x / 2, map->getTileMap()->GetHeight()*tam_tiles - view.getSize().y / 2);
 			}
@@ -59,7 +79,7 @@ namespace juego
 			{
 				view.setCenter(view.getSize().x / 2, main->getPos().y);
 			}
-			
+
 		}
 		else if (main->getPos().x >= map->getTileMap()->GetWidth()*tam_tiles - view.getSize().x / 2)
 		{
@@ -84,19 +104,9 @@ namespace juego
 		{
 			view.setCenter(main->getPos().x, map->getTileMap()->GetHeight()*tam_tiles - view.getSize().y / 2);
 		}
-		else 
+		else
 		{
 			view.setCenter(main->getPos());
 		}
-	}
-
-	void Gameplay::draw(Juego* juego)
-	{
-		juego->getWindow()->setView(view);
-		map->getTileMap()->ShowObjects(true);
-		juego->getWindow()->draw(*map->getTileMap());
-		juego->getWindow()->draw(main->getCol());
-		juego->getWindow()->draw(enemy->getCol());
-		main->draw();
 	}
 }

@@ -98,4 +98,9 @@ namespace juego
 	{
 		Juego::getWindow()->draw(sprite);
 	}
+
+	Jugador Jugador::getJug()
+	{
+		return *this;
+	}
 }

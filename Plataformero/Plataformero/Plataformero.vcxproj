@@ -110,7 +110,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)libs\TGUI-0.8\lib;$(SolutionDir)libs\STP\lib;$(SolutionDir)libs\pugi-xml\lib;$(SolutionDir)libs\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>winmm.lib;gdi32.lib;opengl32.lib;freetype.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-system-d.lib;pugixml.lib;STP-d.lib;zlibd.lib;pugi-xml.lib;tgui-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>winmm.lib;gdi32.lib;opengl32.lib;freetype.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-system-d.lib;STP-d.lib;zlibd.lib;pugi-xml.lib;tgui-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>

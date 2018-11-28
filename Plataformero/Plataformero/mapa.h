@@ -3,9 +3,13 @@
 
 #include "pugixml.hpp"
 #include "STP/TMXLoader.hpp"
+#include "SFML/Graphics.hpp"
 
 using namespace pugi;
 using namespace tmx;
+using namespace sf;
+
+const int maxPlataformas=104;
 
 namespace juego {
 	class Mapa
@@ -15,10 +19,14 @@ namespace juego {
 		xml_parse_result result; // Locates the file to be used.
 		xml_node objeto;
 		TileMap* tMap;
+		RectangleShape plataformas[maxPlataformas];
 	public:
 		Mapa();
 		~Mapa();
 		TileMap* getTileMap();
+		void crearPlataformas();
+		RectangleShape getPlataforma(int i);
+		Mapa &getMapa();
 	};
 }
 #endif

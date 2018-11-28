@@ -16,6 +16,7 @@ namespace juego
 		void mover();
 		void update();
 		void draw();
+		Jugador getJug();
 	};
 }
 
