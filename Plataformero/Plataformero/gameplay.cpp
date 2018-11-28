@@ -54,10 +54,6 @@ namespace juego
 		juego->getWindow()->setView(view);
 		map->getTileMap()->ShowObjects(true);
 		juego->getWindow()->draw(*map->getTileMap());
-		for (int i = 0; i < maxPlataformas; i++) 
-		{
-			juego->getWindow()->draw(map->getPlataforma(i));
-		}
 		juego->getWindow()->draw(main->getCol());
 		juego->getWindow()->draw(enemy->getCol());
 		main->draw();

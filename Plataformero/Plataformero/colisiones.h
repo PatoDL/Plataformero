@@ -23,12 +23,12 @@ namespace juego {
 		~Colisiones();
 		vecColisiones getColision();
 		void procesarJugadorPlataformas(Jugador* jug, Mapa* mapa);
-		bool colisionaAbajo(Jugador* jug, Mapa* mapa, int i);
-		bool colisionaArriba(Jugador* jug, Mapa* mapa, int i);		//CON RESPECTO AL PERSONAJE
-		bool colisionaIzq(Jugador* jug, Mapa* mapa, int i);
-		bool colisionaDer(Jugador* jug, Mapa* mapa, int i);
-		bool jugadorEnPlataformaX(Jugador* jug, Mapa* mapa, int i);
-		bool jugadorEnPlataformaY(Jugador* jug, Mapa* mapa, int i);
+		bool colisionaAbajo(Jugador* jug,RectangleShape plataforma);
+		bool colisionaArriba(Jugador* jug, RectangleShape plataforma);		//CON RESPECTO AL PERSONAJE
+		bool colisionaIzq(Jugador* jug, RectangleShape plataforma);
+		bool colisionaDer(Jugador* jug, RectangleShape plataforma);
+		bool jugadorEnPlataformaX(Jugador* jug, RectangleShape plataforma);
+		bool jugadorEnPlataformaY(Jugador* jug, RectangleShape plataforma);
 	};
 }
 

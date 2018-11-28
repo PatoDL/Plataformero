@@ -23,81 +23,79 @@ namespace juego {
 	{
 		for (int i = 0; i < maxPlataformas; i++)
 		{
-			if (mapa->getPlataforma(i).getGlobalBounds().intersects(jug->getCol().getGlobalBounds()))
+			RectangleShape plataforma = mapa->getPlataforma(i);
+
+			if (plataforma.getGlobalBounds().intersects(jug->getCol().getGlobalBounds()))
 			{
-				
 				//ABAJO
-				if (colisionaAbajo(jug, mapa, i) && !jugadorEnPlataformaY(jug, mapa, i)  && jugadorEnPlataformaX(jug,mapa,i))
+				if (colisionaAbajo(jug,plataforma) && !jugadorEnPlataformaY(jug, plataforma)  && jugadorEnPlataformaX(jug, plataforma))
 				{
-					jug->setY(mapa->getPlataforma(i).getPosition().y - mapa->getPlataforma(i).getSize().y / 2 - jug->getCol().getSize().y / 2);
+					jug->setY(plataforma.getPosition().y - plataforma.getSize().y / 2 - jug->getCol().getSize().y / 2);
 					posColision._abajo = true;
 					std::cout << "abajo" << std::endl;
 				}
 				//ARRIBA
-				else if (colisionaArriba(jug, mapa, i) && !jugadorEnPlataformaY(jug, mapa, i) && jugadorEnPlataformaX(jug, mapa, i))
+				else if (colisionaArriba(jug, plataforma) && !jugadorEnPlataformaY(jug, plataforma) && jugadorEnPlataformaX(jug, plataforma))
 				{
-					jug->setY(mapa->getPlataforma(i).getPosition().y + mapa->getPlataforma(i).getSize().y / 2 + jug->getCol().getSize().y / 2);
+					jug->setY(plataforma.getPosition().y + plataforma.getSize().y / 2 + jug->getCol().getSize().y / 2);
 					posColision._arriba = true;
 					std::cout << "ariba" << std::endl;
 				}
 				else
 				{
 					//IZQUIERDA
-					if (colisionaIzq(jug, mapa, i))
+					if (colisionaIzq(jug, plataforma))
 					{
-						jug->setX(mapa->getPlataforma(i).getPosition().x + mapa->getPlataforma(i).getSize().x / 2 + jug->getCol().getSize().x / 2);
+						jug->setX(plataforma.getPosition().x + plataforma.getSize().x / 2 + jug->getCol().getSize().x / 2);
 						posColision._izq = true;
 						std::cout << "izq" << std::endl;
 					}
 					//DERECHA
-					else if (colisionaDer(jug, mapa, i))
+					else if (colisionaDer(jug, plataforma))
 					{
-						jug->setX(mapa->getPlataforma(i).getPosition().x - mapa->getPlataforma(i).getSize().x / 2 - jug->getCol().getSize().x / 2);
+						jug->setX(plataforma.getPosition().x - plataforma.getSize().x / 2 - jug->getCol().getSize().x / 2);
 						posColision._der = true;
 						std::cout << "der" << std::endl;
 					}
-
-
-					
 				}
 				
 			}
 		}
 	}
 
-	bool Colisiones::colisionaAbajo(Jugador* jug, Mapa* mapa, int i)
+	bool Colisiones::colisionaAbajo(Jugador* jug, RectangleShape plataforma)
 	{
-		return (jug->getPos().y + jug->getCol().getSize().y / 2 >= mapa->getPlataforma(i).getPosition().y - mapa->getPlataforma(i).getSize().y / 2 &&
-			jug->getPos().y < mapa->getPlataforma(i).getPosition().y);
+		return (jug->getPos().y + jug->getCol().getSize().y / 2 >= plataforma.getPosition().y - plataforma.getSize().y / 2 &&
+			jug->getPos().y < plataforma.getPosition().y);
 	}
 
-	bool Colisiones::colisionaArriba(Jugador* jug, Mapa* mapa, int i)
+	bool Colisiones::colisionaArriba(Jugador* jug, RectangleShape plataforma)
 	{
-		return (jug->getPos().y - jug->getCol().getSize().y / 2 <= mapa->getPlataforma(i).getPosition().y + mapa->getPlataforma(i).getSize().y / 2 && 
-			jug->getPos().y > mapa->getPlataforma(i).getPosition().y);
+		return (jug->getPos().y - jug->getCol().getSize().y / 2 <= plataforma.getPosition().y + plataforma.getSize().y / 2 &&
+			jug->getPos().y > plataforma.getPosition().y);
 	}
 
-	bool Colisiones::colisionaDer(Jugador* jug, Mapa* mapa, int i)
+	bool Colisiones::colisionaDer(Jugador* jug, RectangleShape plataforma)
 	{
-		return (jug->getPos().x + jug->getCol().getSize().x / 2 >= mapa->getPlataforma(i).getPosition().x - mapa->getPlataforma(i).getSize().x / 2 &&
-			jug->getPos().x < mapa->getPlataforma(i).getPosition().x);
+		return (jug->getPos().x + jug->getCol().getSize().x / 2 >= plataforma.getPosition().x - plataforma.getSize().x / 2 &&
+			jug->getPos().x < plataforma.getPosition().x);
 	}
 
-	bool Colisiones::colisionaIzq(Jugador* jug, Mapa* mapa, int i)
+	bool Colisiones::colisionaIzq(Jugador* jug, RectangleShape plataforma)
 	{
-		return (jug->getPos().x - jug->getCol().getSize().x / 2 <= mapa->getPlataforma(i).getPosition().x + mapa->getPlataforma(i).getSize().x / 2 &&
-			jug->getPos().x > mapa->getPlataforma(i).getPosition().x);
+		return (jug->getPos().x - jug->getCol().getSize().x / 2 <= plataforma.getPosition().x + plataforma.getSize().x / 2 &&
+			jug->getPos().x > plataforma.getPosition().x);
 	}
 
-	bool Colisiones::jugadorEnPlataformaX(Jugador* jug, Mapa* mapa, int i)		//chequeo que la pos x del personaje no se puperponga con el alto de la plataforma
+	bool Colisiones::jugadorEnPlataformaX(Jugador* jug, RectangleShape plataforma)		//chequeo que la pos x del personaje no se puperponga con el alto de la plataforma
 	{
-		return (jug->getPos().x - jug->getCol().getSize().x/4< mapa->getPlataforma(i).getPosition().x + mapa->getPlataforma(i).getSize().x / 2 &&
-			jug->getPos().x + jug->getCol().getSize().x / 4 > mapa->getPlataforma(i).getPosition().x - mapa->getPlataforma(i).getSize().x / 2);
+		return (jug->getPos().x - jug->getCol().getSize().x/4< plataforma.getPosition().x + plataforma.getSize().x / 2 &&
+			jug->getPos().x + jug->getCol().getSize().x / 4 > plataforma.getPosition().x - plataforma.getSize().x / 2);
 	}
 
-	bool Colisiones::jugadorEnPlataformaY(Jugador* jug, Mapa* mapa, int i)		//chequeo que la pos x del personaje no se puperponga con el ancho de la plataforma
+	bool Colisiones::jugadorEnPlataformaY(Jugador* jug, RectangleShape plataforma)		//chequeo que la pos x del personaje no se puperponga con el ancho de la plataforma
 	{
-		return (jug->getPos().y - jug->getCol().getSize().y / 6 < mapa->getPlataforma(i).getPosition().y + mapa->getPlataforma(i).getSize().y / 2 &&
-			jug->getPos().y + jug->getCol().getSize().y / 6 > mapa->getPlataforma(i).getPosition().y - mapa->getPlataforma(i).getSize().y / 2);
+		return (jug->getPos().y - jug->getCol().getSize().y / 6 < plataforma.getPosition().y + plataforma.getSize().y / 2 &&
+			jug->getPos().y + jug->getCol().getSize().y / 6 > plataforma.getPosition().y - plataforma.getSize().y / 2);
 	}
 }
