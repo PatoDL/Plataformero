@@ -2,8 +2,6 @@
 #define PERSONAJE_H
 
 #include "SFML\Graphics.hpp"
-#include "SFML\Graphics\Sprite.hpp"
-#include "SFML\Graphics\RectangleShape.hpp"
 using namespace sf;
 
 namespace juego
@@ -16,7 +14,7 @@ namespace juego
 	private:
 		int cantVidas;
 		sf::Vector2f vel;
-		const float gravedad=2.0f;
+		const float gravedad=98.0f*4;
 		RectangleShape collider;
 	public:
 		Personaje(float x, float y/*, Sprite spr*/,sf::Vector2f v);
@@ -38,6 +36,8 @@ namespace juego
 		void setY(float y);
 		virtual void update();
 		virtual void draw();
+		void aplicarGravedad();
+		float getGravedad();
 	};
 }
 #endif

@@ -4,6 +4,7 @@
 #include "SFML/Graphics/Sprite.hpp"
 #include "SFML/Graphics/Texture.hpp"
 #include "juego.h"
+#include "colisiones.h"
 
 using namespace std;
 
@@ -40,6 +41,10 @@ namespace juego
 				
 		enAire = false;
 		cambio = false;
+
+		posColision = { false,false,false,false };
+		enSalto = false;
+		velSalto = getVel().y;
 	}
 
 
@@ -50,30 +55,49 @@ namespace juego
 
 	void Jugador::mover()
 	{
-		if (Keyboard::isKeyPressed(Keyboard::Down))
-		{
-			setY(getPos().y + getVel().y*Juego::getFrameTime());
-			cambio = true;
-			enAire = false;
-		}
 		if (Keyboard::isKeyPressed(Keyboard::Up))
 		{
-			setY(getPos().y - getVel().y*Juego::getFrameTime());
-			cambio = true;
-			enAire = true;
+			if (!posColision._arriba && !enSalto && posColision._abajo) 
+			{
+				cambio = true;
+				enAire = true;
+				enSalto = true;
+			}
+			posColision._abajo = false;
+			
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Left))
 		{
-			setX(getPos().x - getVel().x*Juego::getFrameTime());
+			if (!posColision._izq) 
+			{
+				setX(getPos().x - getVel().x*Juego::getFrameTime());
+			}
+			posColision._der = false;
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Right))
 		{
-			setX(getPos().x + getVel().x*Juego::getFrameTime());
+			if (!posColision._der)
+			{
+				setX(getPos().x + getVel().x*Juego::getFrameTime());
+			}
+			posColision._izq = false;
+		}
+
+		if (enSalto)
+		{
+			velSalto -= getGravedad() * Juego::getFrameTime();
+			setY(getPos().y - velSalto * Juego::getFrameTime());
+		}
+		else
+		{
+			velSalto = getVel().y;
 		}
 	}
 
 	void Jugador::update()
 	{
+		if(!posColision._abajo && !enSalto)
+			aplicarGravedad();
 		sprite.setPosition(pos);
 		Personaje::update();
 
@@ -102,5 +126,45 @@ namespace juego
 	Jugador Jugador::getJug()
 	{
 		return *this;
+	}
+
+	vecColisiones Jugador::getColision()
+	{
+		return posColision;
+	}
+
+	void Jugador::setPosColision(vecColisiones vec)
+	{
+		posColision = vec;
+	}
+
+	void Jugador::setPosColisionPiso(bool col)
+	{
+		posColision._abajo=col;
+	}
+
+	void Jugador::setPosColisionTecho(bool col)
+	{
+		posColision._arriba=col;
+	}
+
+	void Jugador::setPosColisionIzq(bool col)
+	{
+		posColision._izq = col;
+	}
+
+	void Jugador::setPosColisionDer(bool col)
+	{
+		posColision._der = col;
+	}
+
+	bool Jugador::getEnSalto()
+	{
+		return enSalto;
+	}
+
+	void Jugador::setEnSalto(bool piso)
+	{
+		enSalto = piso;
 	}
 }

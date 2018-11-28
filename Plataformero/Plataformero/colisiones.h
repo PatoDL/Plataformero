@@ -6,22 +6,11 @@
 #include "mapa.h"
 
 namespace juego {
-	struct vecColisiones
-	{
-		bool _izq;
-		bool _der;
-		bool _abajo;
-		bool _arriba;
-	};
-
 	class Colisiones
 	{
-	private:
-		vecColisiones posColision;
 	public:
 		Colisiones();
 		~Colisiones();
-		vecColisiones getColision();
 		void procesarJugadorPlataformas(Jugador* jug, Mapa* mapa);
 		bool colisionaAbajo(Jugador* jug,RectangleShape plataforma);
 		bool colisionaArriba(Jugador* jug, RectangleShape plataforma);		//CON RESPECTO AL PERSONAJE
