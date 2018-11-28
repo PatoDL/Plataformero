@@ -8,8 +8,20 @@ using namespace sf;
 
 namespace juego
 {
+	struct vecColisiones
+	{
+		bool _izq;
+		bool _der;
+		bool _abajo;
+		bool _arriba;
+	};
+
+
 	class Jugador : public Personaje
 	{
+	private:
+		vecColisiones posColision;
+		bool enSalto;
 	public:
 		Jugador(float x, float y, sf::Vector2f v);
 		~Jugador();
@@ -17,6 +29,14 @@ namespace juego
 		void update();
 		void draw();
 		Jugador getJug();
+		vecColisiones getColision();
+		void setPosColision(vecColisiones vec);
+		void setPosColisionPiso(bool col);
+		void setPosColisionTecho(bool col);
+		void setPosColisionIzq(bool col);
+		void setPosColisionDer(bool col);
+		bool getEnSalto();
+		void setEnSalto(bool salto);
 	};
 }
 

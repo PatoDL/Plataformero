@@ -95,4 +95,9 @@ namespace juego
 	{
 		
 	}
+
+	void Personaje::aplicarGravedad()
+	{
+		setY(pos.y + gravedad * Juego::getFrameTime());
+	}
 }
