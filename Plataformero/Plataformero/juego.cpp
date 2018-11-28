@@ -15,6 +15,7 @@ namespace juego
 	RenderWindow *Juego::window = new RenderWindow(VideoMode(_anchoPantalla, _altoPantalla), "Plataformero");
 
 	Estados Juego::estadoActual = menu;
+	Estados Juego::estadoAnterior = gameplay;
 
 	Juego::Juego()
 	{
@@ -55,6 +56,8 @@ namespace juego
 
 	void Juego::ejecutar(Juego* juego)
 	{
+		pantalla[menu]->init();
+		pantalla[menu]->draw(juego);
 		while (getInGame())
 		{
 			sf::Event event;
@@ -70,18 +73,18 @@ namespace juego
 			}
 			
 			window->clear();
-			if (estadoActual == menu)
+
+			
+			for (int i = 0; i < cantPantallas; i++)
 			{
-				pantalla[menu]->checkInput();
-				pantalla[menu]->update();
-				pantalla[menu]->draw(juego);
+				if (i == estadoActual)
+				{
+					pantalla[i]->checkInput();
+					pantalla[i]->update();
+					pantalla[i]->draw(juego);
+				}
 			}
-			if (estadoActual == gameplay)
-			{
-				pantalla[gameplay]->checkInput();
-				pantalla[gameplay]->update();
-				pantalla[gameplay]->draw(juego);
-			}
+			
 			window->display();
 
 			resetClock();
@@ -124,6 +127,7 @@ namespace juego
 
 	void Juego::setEstadoActual(Estados e)
 	{
+		estadoAnterior = estadoActual;
 		estadoActual = e;
 	}
 }

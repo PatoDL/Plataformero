@@ -17,6 +17,7 @@ namespace juego
 	public:
 		Gameplay();
 		~Gameplay();
+		void init();
 		void checkInput();
 		void update();
 		void draw(Juego* juego);

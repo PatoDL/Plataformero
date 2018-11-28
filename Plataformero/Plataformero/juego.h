@@ -28,6 +28,7 @@ namespace juego
 		static unsigned int _altoPantalla;
 		static RenderWindow* window;
 		static Estados estadoActual;
+		static Estados estadoAnterior;
 		static Clock _dClock;
 		static Time _dt;
 	public:

@@ -10,15 +10,18 @@ using namespace sf;
 
 namespace juego
 {
+	const int cantBotones = 3;
+
 	class Menu:public Pantalla
 	{
 		Font font;
 		tgui::Gui* gui;
-		tgui::Button::Ptr button = tgui::Button::create();
-		tgui::EditBox::Ptr editBox = tgui::EditBox::create();
+		tgui::Button::Ptr button[cantBotones];
+		tgui::EditBox::Ptr editBox[cantBotones];
 	public:
 		Menu();
 		~Menu();
+		void init();
 		void checkInput();
 		void update();
 		void draw(Juego* juego);
