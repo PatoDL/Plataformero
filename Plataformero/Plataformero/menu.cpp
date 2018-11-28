@@ -13,9 +13,6 @@ namespace juego
 
 	Menu::Menu()
 	{
-		gui = new tgui::Gui();
-		gui->setTarget(*Juego::getWindow());
-		
 		for (int i = 0; i < cantBotones; i++)
 		{
 			button[i] = NULL;
@@ -29,12 +26,6 @@ namespace juego
 	{
 	}
 
-	static void signalHandler()
-	{
-		std::cout << "Button pressed" << std::endl;
-	}
-
-
 	void Menu::init()
 	{
 		for (int i = 0; i < cantBotones; i++)
@@ -42,17 +33,11 @@ namespace juego
 			button[i]=tgui::Button::create();
 		}
 
-		Font font;
-		static tgui::Theme theme{ "res/assets/themes/BabyBlue.txt" };
-		if (!font.loadFromFile("res/assets/fuentes/ANTQUAB.ttf"))
-		{
-			//error
-		}
+		
 		String* texto[cantBotones];
 		texto[0] = new String("Jugar");
 		texto[1] = new String("Creditos");
 		texto[2] = new String("Salir");
-		gui->setFont(font);
 		tgui::Layout2d* size = new tgui::Layout2d(Vector2f{ 120,60 });
 
 		int distanciaBotones = 60;
@@ -63,7 +48,7 @@ namespace juego
 			{
 				button[i]->setText(*texto[i]);
 
-				button[i]->setRenderer(theme.getRenderer("Button"));
+				button[i]->setRenderer(Juego::getTheme().getRenderer("Button"));
 				//tgui::ButtonRenderer(theme.getRenderer("Button")).setBackgroundColor(sf::Color::Red);
 
 				button[i]->setTextSize(40);
@@ -110,21 +95,12 @@ namespace juego
 		{
 			if (button[i] != NULL)
 			{
-				gui->add(button[i]);
+				Juego::getGui()->add(button[i]);
 			}
 		}
 
-		if (Juego::getInGame())
-		{
-			for (int i = 0; i < cantBotones; i++)
-			{
-				button[0]->connect("Pressed", signalHandler);
-				if (button[i]->isFocused())
-				{
-					std::cout << "ahre";
-				}
-			}
-		}
+		button[0]->connect("pressed", [&]() { Juego::setEstadoActual(gameplay); });
+		button[2]->connect("pressed", [&]() {Juego::setInGame(false); });
 	}
 
 	void Menu::checkInput()
@@ -142,6 +118,17 @@ namespace juego
 
 	void Menu::draw(Juego* juego)
 	{
-		gui->draw();
+		
+	}
+
+	void Menu::deInit()
+	{
+		for (int i = 0; i < cantBotones; i++)
+		{
+			if (button[i] != NULL)
+			{
+				button[i]->setVisible(false);
+			}
+		}
 	}
 }

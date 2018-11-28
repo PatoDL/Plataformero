@@ -5,6 +5,8 @@
 #include "enemigo.h"
 #include "mapa.h"
 
+using namespace tgui;
+
 namespace juego
 {
 	const int tam_tiles = 32;
@@ -33,6 +35,13 @@ namespace juego
 		map = new Mapa;*/
 		view.setSize(static_cast<float>(Juego::getAnchoPantalla() / 2.5f), static_cast<float>(Juego::getAnchoPantalla() / 2.5f));
 		view.setCenter(main->getPos());
+		pause = tgui::Button::create();
+
+		pause->setSize(40, 40);
+		pause->setText("xd");
+		pause->setPosition(Juego::getAnchoPantalla() - pause->getSize().x*1.5f, pause->getSize().y / 2);
+		pause->setRenderer(Juego::getTheme().getRenderer("Button"));
+		Juego::getGui()->add(pause);
 	}
 
 	void Gameplay::checkInput()
@@ -104,5 +113,12 @@ namespace juego
 		{
 			view.setCenter(main->getPos());
 		}
+
+		pause->setPosition(Juego::getAnchoPantalla() - pause->getSize().x*1.5f, pause->getSize().y / 2);
+	}
+
+	void Gameplay::deInit()
+	{
+		pause->setVisible(false);
 	}
 }

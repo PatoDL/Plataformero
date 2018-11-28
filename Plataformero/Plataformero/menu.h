@@ -14,8 +14,6 @@ namespace juego
 
 	class Menu:public Pantalla
 	{
-		Font font;
-		tgui::Gui* gui;
 		tgui::Button::Ptr button[cantBotones];
 		tgui::EditBox::Ptr editBox[cantBotones];
 	public:
@@ -25,6 +23,7 @@ namespace juego
 		void checkInput();
 		void update();
 		void draw(Juego* juego);
+		void deInit();
 	};
 }
 #endif

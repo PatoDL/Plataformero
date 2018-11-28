@@ -81,7 +81,7 @@ namespace juego
 		{
 			if (enAire)
 			{
-				src.left = original.width / 3;
+				src.left = src.width;
 			}
 			else
 			{
