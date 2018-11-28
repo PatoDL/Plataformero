@@ -9,6 +9,14 @@ using namespace sf;
 
 namespace juego
 {
+	enum Estados
+	{
+		gameplay,
+		menu,
+		creditos,
+		gameover
+	};
+
 	const int cantPantallas = 4;
 
 	class Juego
@@ -16,22 +24,16 @@ namespace juego
 	private:
 		bool _inGame;
 		Pantalla* pantalla[cantPantallas];
-		RenderWindow* window;
-		enum Estados
-		{
-			menu,
-			gameplay,
-			creditos,
-			gameover
-		};
 		static unsigned int _anchoPantalla;
 		static unsigned int _altoPantalla;
+		static RenderWindow* window;
+		static Estados estadoActual;
 		static Clock _dClock;
 		static Time _dt;
 	public:
 		Juego();
 		~Juego();
-		RenderWindow* getWindow();
+		static RenderWindow* getWindow();
 		void setInGame(bool inGame);
 		bool getInGame();
 		void ejecutar(Juego* juego);
@@ -41,6 +43,8 @@ namespace juego
 		static int getAltoPantalla();
 		static void setAnchoPantalla(unsigned int ancho);
 		static void setAltoPantalla(unsigned int alto);
+		static Estados getEstadoActual();
+		static void setEstadoActual(Estados e);
 	};
 }
 

@@ -15,6 +15,7 @@ namespace juego
 
 	Jugador::~Jugador()
 	{
+
 	}
 
 	void Jugador::mover()

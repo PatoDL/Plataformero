@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "gameplay.h"
+#include "menu.h"
 
 namespace juego
 {
@@ -11,18 +12,21 @@ namespace juego
 	unsigned int Juego::_anchoPantalla = 800;
 	unsigned int Juego::_altoPantalla = 600;
 
+	RenderWindow *Juego::window = new RenderWindow(VideoMode(_anchoPantalla, _altoPantalla), "Plataformero");
+
+	Estados Juego::estadoActual = menu;
+
 	Juego::Juego()
 	{
 		_inGame = true;
-
-		window = new RenderWindow(VideoMode(_anchoPantalla,_altoPantalla), "Plataformero");
 
 		for (int i = 0; i < cantPantallas; i++)
 		{
 			pantalla[i] = NULL;
 		}
 
-		pantalla[0] = new Gameplay();
+		pantalla[gameplay] = new Gameplay();
+		pantalla[menu] = new Menu();
 	}
 
 	Juego::~Juego()
@@ -66,9 +70,18 @@ namespace juego
 			}
 			
 			window->clear();
-			pantalla[0]->checkInput();
-			pantalla[0]->update();
-			pantalla[0]->draw(juego);
+			if (estadoActual == menu)
+			{
+				pantalla[menu]->checkInput();
+				pantalla[menu]->update();
+				pantalla[menu]->draw(juego);
+			}
+			if (estadoActual == gameplay)
+			{
+				pantalla[gameplay]->checkInput();
+				pantalla[gameplay]->update();
+				pantalla[gameplay]->draw(juego);
+			}
 			window->display();
 
 			resetClock();
@@ -102,5 +115,15 @@ namespace juego
 	void Juego::setAltoPantalla(unsigned int alto)
 	{
 		_altoPantalla=alto;
+	}
+
+	Estados Juego::getEstadoActual()
+	{
+		return estadoActual;
+	}
+
+	void Juego::setEstadoActual(Estados e)
+	{
+		estadoActual = e;
 	}
 }
