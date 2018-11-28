@@ -26,12 +26,6 @@ namespace juego
 	{
 	}
 
-	static void signalHandler()
-	{
-		std::cout << "Button pressed" << std::endl;
-	}
-
-
 	void Menu::init()
 	{
 		for (int i = 0; i < cantBotones; i++)
@@ -39,17 +33,11 @@ namespace juego
 			button[i]=tgui::Button::create();
 		}
 
-		Font font;
-		static tgui::Theme theme{ "res/assets/themes/BabyBlue.txt" };
-		if (!font.loadFromFile("res/assets/fuentes/ANTQUAB.ttf"))
-		{
-			//error
-		}
+		
 		String* texto[cantBotones];
 		texto[0] = new String("Jugar");
 		texto[1] = new String("Creditos");
 		texto[2] = new String("Salir");
-		Juego::getGui()->setFont(font);
 		tgui::Layout2d* size = new tgui::Layout2d(Vector2f{ 120,60 });
 
 		int distanciaBotones = 60;
@@ -60,7 +48,7 @@ namespace juego
 			{
 				button[i]->setText(*texto[i]);
 
-				button[i]->setRenderer(theme.getRenderer("Button"));
+				button[i]->setRenderer(Juego::getTheme().getRenderer("Button"));
 				//tgui::ButtonRenderer(theme.getRenderer("Button")).setBackgroundColor(sf::Color::Red);
 
 				button[i]->setTextSize(40);

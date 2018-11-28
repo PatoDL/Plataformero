@@ -1,6 +1,7 @@
 #include "juego.h"
 
 #include <iostream>
+#include "SFML/Graphics.hpp"
 #include "gameplay.h"
 #include "menu.h"
 
@@ -9,6 +10,10 @@ namespace juego
 	bool Juego::_inGame = true;
 
 	tgui::Gui* Juego::gui = new tgui::Gui();
+
+	tgui::Theme Juego::theme;
+
+	sf::Font Juego::mainFont;
 
 	Pantalla* Juego::pantalla[cantPantallas];
 
@@ -34,6 +39,12 @@ namespace juego
 		pantalla[menu] = new Menu();
 		
 		gui->setTarget(*window);
+		theme.load("res/assets/themes/BabyBlue.txt");
+		if (!mainFont.loadFromFile("res/assets/fuentes/ANTQUAB.ttf"))
+		{
+			//error
+		}
+		gui->setFont(mainFont);
 	}
 
 	Juego::~Juego()
@@ -82,7 +93,6 @@ namespace juego
 			
 			window->clear();
 
-			pantalla[menu]->update();
 			for (int i = 0; i < cantPantallas; i++)
 			{
 				if (i == estadoActual)
@@ -140,10 +150,21 @@ namespace juego
 		estadoAnterior = estadoActual;
 		pantalla[estadoAnterior]->deInit();
 		estadoActual = e;
+		pantalla[estadoActual]->init();
 	}
 
 	tgui::Gui* Juego::getGui()
 	{
 		return gui;
+	}
+
+	tgui::Theme Juego::getTheme()
+	{
+		return theme;
+	}
+
+	sf::Font Juego::getFont()
+	{
+		return mainFont;
 	}
 }

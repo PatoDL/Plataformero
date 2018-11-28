@@ -34,6 +34,8 @@ namespace juego
 		static Clock _dClock;
 		static Time _dt;
 		static tgui::Gui* gui;
+		static tgui::Theme theme;
+		static sf::Font mainFont;
 	public:
 		Juego();
 		~Juego();
@@ -50,6 +52,8 @@ namespace juego
 		static Estados getEstadoActual();
 		static void setEstadoActual(Estados e);
 		static tgui::Gui* getGui();
+		static tgui::Theme getTheme();
+		static sf::Font getFont();
 	};
 }
 

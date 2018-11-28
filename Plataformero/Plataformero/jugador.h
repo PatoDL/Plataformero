@@ -11,7 +11,7 @@ namespace juego
 	class Jugador : public Personaje
 	{
 	public:
-		Jugador(float x, float y, Vector2f v);
+		Jugador(float x, float y, sf::Vector2f v);
 		~Jugador();
 		void mover();
 		void update();

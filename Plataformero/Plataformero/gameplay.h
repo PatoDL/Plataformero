@@ -5,6 +5,9 @@
 #include "personaje.h"
 #include "juego.h"
 #include "mapa.h"
+#include "TGUI/TGUI.hpp"
+
+using namespace tgui;
 
 namespace juego
 {
@@ -14,6 +17,7 @@ namespace juego
 		Personaje* enemy;
 		View view;
 		Mapa* map;
+		Button::Ptr pause;
 	public:
 		Gameplay();
 		~Gameplay();

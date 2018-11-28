@@ -14,7 +14,6 @@ namespace juego
 
 	class Menu:public Pantalla
 	{
-		Font font;
 		tgui::Button::Ptr button[cantBotones];
 		tgui::EditBox::Ptr editBox[cantBotones];
 	public:
