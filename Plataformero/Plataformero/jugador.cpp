@@ -1,5 +1,6 @@
 #include "jugador.h"
 
+#include <iostream>
 #include "SFML\Graphics.hpp"
 #include "SFML/Graphics/Sprite.hpp"
 #include "SFML/Graphics/Texture.hpp"
@@ -13,10 +14,11 @@ using namespace sf;
 namespace juego
 {
 	Texture tex;
-	static bool cambio;
-	static bool enAire;
 	IntRect src;
 	IntRect original;
+	bool caminandoDer;
+	bool caminandoIzq;
+	float tiempoAnimacion;
 	Jugador::Jugador(float x, float y, Vector2f v) :Personaje(x, y, v)
 	{
 		tex.loadFromFile("res/assets/char.png");
@@ -30,7 +32,7 @@ namespace juego
 
 		src.top = 0;
 		src.left = 0;
-		src.width = sprite.getLocalBounds().width / 3;
+		src.width = sprite.getLocalBounds().width / 5;
 		src.height = sprite.getLocalBounds().height;
 
 		sprite.setTextureRect(src);
@@ -39,8 +41,9 @@ namespace juego
 		sprite.setOrigin(sprite.getTextureRect().width / 2, sprite.getTextureRect().height / 2);
 		setColOrigin(sprite.getOrigin());
 				
-		enAire = false;
-		cambio = false;
+		caminandoDer = false;
+		caminandoIzq = false;
+		tiempoAnimacion = 0;
 
 		posColision = { false,false,false,false };
 		enSalto = false;
@@ -59,8 +62,6 @@ namespace juego
 		{
 			if (!posColision._arriba && !enSalto && posColision._abajo) 
 			{
-				cambio = true;
-				enAire = true;
 				enSalto = true;
 			}
 			posColision._abajo = false;
@@ -71,6 +72,7 @@ namespace juego
 			if (!posColision._izq) 
 			{
 				setX(getPos().x - getVel().x*Juego::getFrameTime());
+				caminandoIzq = true;
 			}
 			posColision._der = false;
 		}
@@ -79,6 +81,7 @@ namespace juego
 			if (!posColision._der)
 			{
 				setX(getPos().x + getVel().x*Juego::getFrameTime());
+				caminandoDer = true;
 			}
 			posColision._izq = false;
 		}
@@ -101,21 +104,58 @@ namespace juego
 		sprite.setPosition(pos);
 		Personaje::update();
 
-		if (cambio)
-		{
-			if (enAire)
+		tiempoAnimacion += Juego::getFrameTime();
+		cout << tiempoAnimacion << endl;
+		
+			if (enSalto)
 			{
-				src.left = src.width;
+				src.left = src.width*3;
+			}
+			else if (caminandoDer)
+			{
+				sprite.setScale(1, 1);
+				if (tiempoAnimacion>0.15f)
+				{
+					src.left = src.width;
+				}
+				else
+				{
+					src.left = src.width*2;
+				}
+			}
+			else if (caminandoIzq)
+			{
+				sprite.setScale(-1, 1);
+				if (tiempoAnimacion>0.15f)
+				{
+					src.left = src.width;
+				}
+				else
+				{
+					src.left = src.width * 2;
+				}
+				
 			}
 			else
 			{
 				src.left = 0;
 			}
 
+			if (caminandoDer)
+			{
+				caminandoDer = false;
+			}
+			if (caminandoIzq)
+			{
+				caminandoIzq = false;
+			}
+
 			sprite.setTextureRect(src);
 
-			cambio = false;
-		}
+			if (tiempoAnimacion > 0.3f)
+			{
+				tiempoAnimacion = 0;
+			}
 	}
 
 	void Jugador::draw()

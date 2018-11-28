@@ -64,7 +64,7 @@ namespace juego
 		juego->getWindow()->setView(view);
 		map->getTileMap()->ShowObjects(false);
 		juego->getWindow()->draw(*map->getTileMap());
-		juego->getWindow()->draw(main->getCol());
+		//juego->getWindow()->draw(main->getCol());
 		juego->getWindow()->draw(enemy->getCol());
 		main->draw();
 	}
