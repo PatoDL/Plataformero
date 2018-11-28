@@ -99,4 +99,9 @@ namespace juego
 		juego->getWindow()->draw(enemy->getCol());
 		main->draw();
 	}
+
+	void Gameplay::deInit()
+	{
+
+	}
 }

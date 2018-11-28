@@ -5,6 +5,8 @@
 
 #include "SFML/Graphics.hpp"
 
+#include "TGUI/Gui.hpp"
+
 using namespace sf;
 
 namespace juego
@@ -23,7 +25,7 @@ namespace juego
 	{
 	private:
 		static bool _inGame;
-		Pantalla* pantalla[cantPantallas];
+		static Pantalla* pantalla[cantPantallas];
 		static unsigned int _anchoPantalla;
 		static unsigned int _altoPantalla;
 		static RenderWindow* window;
@@ -31,6 +33,7 @@ namespace juego
 		static Estados estadoAnterior;
 		static Clock _dClock;
 		static Time _dt;
+		static tgui::Gui* gui;
 	public:
 		Juego();
 		~Juego();
@@ -46,6 +49,7 @@ namespace juego
 		static void setAltoPantalla(unsigned int alto);
 		static Estados getEstadoActual();
 		static void setEstadoActual(Estados e);
+		static tgui::Gui* getGui();
 	};
 }
 

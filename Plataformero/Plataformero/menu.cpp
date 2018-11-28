@@ -13,9 +13,6 @@ namespace juego
 
 	Menu::Menu()
 	{
-		gui = new tgui::Gui();
-		gui->setTarget(*Juego::getWindow());
-		
 		for (int i = 0; i < cantBotones; i++)
 		{
 			button[i] = NULL;
@@ -52,7 +49,7 @@ namespace juego
 		texto[0] = new String("Jugar");
 		texto[1] = new String("Creditos");
 		texto[2] = new String("Salir");
-		gui->setFont(font);
+		Juego::getGui()->setFont(font);
 		tgui::Layout2d* size = new tgui::Layout2d(Vector2f{ 120,60 });
 
 		int distanciaBotones = 60;
@@ -110,21 +107,12 @@ namespace juego
 		{
 			if (button[i] != NULL)
 			{
-				gui->add(button[i]);
+				Juego::getGui()->add(button[i]);
 			}
 		}
 
-		if (Juego::getInGame())
-		{
-			for (int i = 0; i < cantBotones; i++)
-			{
-				button[0]->connect("Pressed", signalHandler);
-				if (button[i]->isFocused())
-				{
-					std::cout << "ahre";
-				}
-			}
-		}
+		button[0]->connect("pressed", [&]() { Juego::setEstadoActual(gameplay); });
+		button[2]->connect("pressed", [&]() {Juego::setInGame(false); });
 	}
 
 	void Menu::checkInput()
@@ -142,6 +130,17 @@ namespace juego
 
 	void Menu::draw(Juego* juego)
 	{
-		gui->draw();
+		
+	}
+
+	void Menu::deInit()
+	{
+		for (int i = 0; i < cantBotones; i++)
+		{
+			if (button[i] != NULL)
+			{
+				button[i]->setVisible(false);
+			}
+		}
 	}
 }

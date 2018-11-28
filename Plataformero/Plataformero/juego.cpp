@@ -8,6 +8,10 @@ namespace juego
 {
 	bool Juego::_inGame = true;
 
+	tgui::Gui* Juego::gui = new tgui::Gui();
+
+	Pantalla* Juego::pantalla[cantPantallas];
+
 	Time Juego::_dt;
 	Clock Juego::_dClock;
 
@@ -28,6 +32,8 @@ namespace juego
 
 		pantalla[gameplay] = new Gameplay();
 		pantalla[menu] = new Menu();
+		
+		gui->setTarget(*window);
 	}
 
 	Juego::~Juego()
@@ -65,6 +71,8 @@ namespace juego
 			{
 				if (event.type == sf::Event::Closed)
 					window->close();
+
+				gui->handleEvent(event);
 			}
 
 			if (Keyboard::isKeyPressed(Keyboard::Escape))
@@ -85,6 +93,8 @@ namespace juego
 				}
 			}
 			
+			gui->draw();
+
 			window->display();
 
 			resetClock();
@@ -128,6 +138,12 @@ namespace juego
 	void Juego::setEstadoActual(Estados e)
 	{
 		estadoAnterior = estadoActual;
+		pantalla[estadoAnterior]->deInit();
 		estadoActual = e;
+	}
+
+	tgui::Gui* Juego::getGui()
+	{
+		return gui;
 	}
 }

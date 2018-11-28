@@ -21,6 +21,7 @@ namespace juego
 		void checkInput();
 		void update();
 		void draw(Juego* juego);
+		void deInit();
 	};
 }
 #endif
