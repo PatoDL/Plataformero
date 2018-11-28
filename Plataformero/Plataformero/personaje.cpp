@@ -11,11 +11,11 @@ namespace juego
 		pos.y = y;
 		cantVidas = 1;
 		collider.setPosition(pos);
-		collider.setSize({40, 40});
+		//collider.setSize({40, 40});
 		collider.setFillColor(Color::Blue);
 		vel.x = v.x;
 		vel.y = v.y;
-		collider.setOrigin({ collider.getSize().x / 2, collider.getSize().y / 2 });
+		//collider.setOrigin({ collider.getSize().x / 2, collider.getSize().y / 2 });
 	}
 
 	Personaje::~Personaje()
@@ -40,11 +40,24 @@ namespace juego
 		return vel;
 	}
 
-	void Personaje::setCol(Vector2f posi, Vector2f tam, Color color)
+	void Personaje::setColPos(Vector2f posi)
 	{
 		collider.setPosition(posi);
+	}
+
+	void Personaje::setColSize(Vector2f tam)
+	{
 		collider.setSize(tam);
+	}
+
+	void Personaje::setColColor(Color color)
+	{
 		collider.setFillColor(color);
+	}
+
+	void Personaje::setColOrigin(Vector2f ori)
+	{
+		collider.setOrigin(ori);
 	}
 
 	RectangleShape Personaje::getCol()

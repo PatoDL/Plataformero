@@ -11,8 +11,8 @@ namespace juego
 
 	Gameplay::Gameplay()
 	{
-		main = new Jugador(10, 10, { 1000.f,1000.f });
-		enemy = new Enemigo(500, 500, { 500.f,500.f });
+		main = new Jugador(10, 10, { 500.f,500.f });
+		enemy = new Enemigo(20, 30, { 100.f,10.f });
 		map = new Mapa;
 		view.setSize(static_cast<float>(Juego::getAnchoPantalla()/2.5f), static_cast<float>(Juego::getAnchoPantalla()/2.5f));
 		view.setCenter(main->getPos());
@@ -27,7 +27,7 @@ namespace juego
 
 	void Gameplay::init()
 	{
-		main = new Jugador(10, 10, { 1000.f,1000.f });
+		main = new Jugador(10, 10, { 500.f,500.f });
 		enemy = new Enemigo(500, 500, { 500.f,500.f });
 		map = new Mapa;
 		view.setSize(static_cast<float>(Juego::getAnchoPantalla() / 2.5f), static_cast<float>(Juego::getAnchoPantalla() / 2.5f));
