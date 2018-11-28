@@ -93,17 +93,14 @@ namespace juego
 			}
 		}
 
-		button[0]->connect("pressed", [&]() { Juego::setEstadoActual(gameplay); });
-		button[1]->connect("pressed", [&]() { Juego::setEstadoActual(opciones); });
+		button[0]->connect("pressed", [&]() { Juego::setEstadoActual(gameplay,false); });
+		button[1]->connect("pressed", [&]() { Juego::setEstadoActual(opciones,false); });
 		button[2]->connect("pressed", [&]() {Juego::setInGame(false); });
 	}
 
 	void Menu::checkInput()
 	{
-		if (Keyboard::isKeyPressed(Keyboard::N))
-		{
-			Juego::setEstadoActual(gameplay);
-		}
+		
 	}
 
 	void Menu::update()

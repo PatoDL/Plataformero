@@ -52,7 +52,7 @@ namespace juego
 		static void setAnchoPantalla(unsigned int ancho);
 		static void setAltoPantalla(unsigned int alto);
 		static Estados getEstadoActual();
-		static void setEstadoActual(Estados e);
+		static void setEstadoActual(Estados e, bool reinicio);
 		static tgui::Gui* getGui();
 		static tgui::Theme getTheme();
 		static sf::Font getFont();

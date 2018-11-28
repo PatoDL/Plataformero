@@ -25,10 +25,12 @@ namespace juego
 	
 	void Pausa::init()
 	{
-		
+
 		fondo.setPosition({ 0,0 });
-		fondo.setSize({ static_cast<float>( Juego::getAnchoPantalla()),static_cast<float>(Juego::getAltoPantalla()) });
+		fondo.setSize({ static_cast<float>(Juego::getAnchoPantalla()),static_cast<float>(Juego::getAltoPantalla()) });
 		fondo.setFillColor(sf::Color(0, 0, 0, 170));
+		fondo.setPosition({ Juego::getWindow()->getView().getCenter().x - fondo.getSize().x/2,
+			Juego::getWindow()->getView().getCenter().y - fondo.getSize().y/2 });
 
 		for (int i = 0; i < cantBotonesPausa; i++)
 		{
@@ -66,7 +68,6 @@ namespace juego
 				}
 			}
 		}
-
 		for (int i = 0; i < cantBotonesPausa; i++)
 		{
 			if (botonP[i] != NULL)
@@ -91,6 +92,11 @@ namespace juego
 					botonP[i]->setPosition(Juego::getAnchoPantalla() / 2 - botonP[i]->getSize().x / 2, Juego::getAltoPantalla() / 2 -y/2);
 				}
 			}
+
+			botonP[despausaB]->connect("pressed", [&]() {Juego::setEstadoActual(gameplay, false); });
+			botonP[menuB]->connect("pressed", [&]() {Juego::setEstadoActual(menu,false); });
+			botonP[reiniciarB]->connect("pressed", [&]() {Juego::setEstadoActual(gameplay, true); });
+			
 		}
 
 		for (int i = 0; i < cantBotonesPausa; i++)
@@ -109,7 +115,7 @@ namespace juego
 
 	void Pausa::update()
 	{
-
+		
 	}
 
 	void Pausa::draw(Juego* juego)
