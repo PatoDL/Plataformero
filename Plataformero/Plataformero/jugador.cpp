@@ -11,18 +11,30 @@ using namespace sf;
 
 namespace juego
 {
-
 	Texture tex;
-	Jugador::Jugador(float x, float y, Vector2f v):Personaje(x,y,v)
+	static bool cambio;
+	static bool enAire;
+	IntRect src;
+	IntRect original;
+	Jugador::Jugador(float x, float y, Vector2f v) :Personaje(x, y, v)
 	{
-		
-
 		tex.loadFromFile("res/assets/char.png");
+
+		pos = { 100,100 };
 
 		sprite.setTexture(tex);
 		sprite.setPosition(pos);
 
-		sprite.setTextureRect(sf::IntRect(0, 0, sprite.getLocalBounds().width / 3, sprite.getLocalBounds().height));
+		original = sprite.getTextureRect();
+
+		src.top = 0;
+		src.left = 0;
+		src.width = sprite.getLocalBounds().width/3;
+		src.height = sprite.getLocalBounds().height;
+
+		sprite.setTextureRect(src);
+		enAire = false;
+		cambio = false;
 	}
 
 
@@ -36,10 +48,14 @@ namespace juego
 		if (Keyboard::isKeyPressed(Keyboard::Down))
 		{
 			setY(getPos().y + getVel().y*Juego::getFrameTime());
+			cambio = true;
+			enAire = false;
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Up))
 		{
 			setY(getPos().y - getVel().y*Juego::getFrameTime());
+			cambio = true;
+			enAire = true;
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Left))
 		{
@@ -54,6 +70,22 @@ namespace juego
 	void Jugador::update()
 	{
 		sprite.setPosition(pos);
+
+		if (cambio)
+		{
+			if (enAire)
+			{
+				src.left = original.width / 3;
+			}
+			else
+			{
+				src.left = 0;
+			}
+
+			sprite.setTextureRect(src);
+
+			cambio = false;
+		}
 	}
 
 	void Jugador::draw()
