@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="colisiones.cpp" />
     <ClCompile Include="enemigo.cpp" />
     <ClCompile Include="gameplay.cpp" />
     <ClCompile Include="juego.cpp" />
@@ -30,6 +31,7 @@
     <ClCompile Include="mapa.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="colisiones.h" />
     <ClInclude Include="enemigo.h" />
     <ClInclude Include="gameplay.h" />
     <ClInclude Include="juego.h" />
