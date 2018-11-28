@@ -10,6 +10,8 @@
     <ClCompile Include="enemigo.cpp" />
     <ClCompile Include="mapa.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="opciones.cpp" />
+    <ClCompile Include="pausa.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Juego">
@@ -34,5 +36,7 @@
     <ClInclude Include="enemigo.h" />
     <ClInclude Include="mapa.h" />
     <ClInclude Include="menu.h" />
+    <ClInclude Include="opciones.h" />
+    <ClInclude Include="pausa.h" />
   </ItemGroup>
 </Project>

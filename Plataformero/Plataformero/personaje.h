@@ -11,24 +11,24 @@ namespace juego
 	class Personaje
 	{
 	protected:
-		Sprite sprite;
-		Vector2f pos;
+		sf::Sprite sprite;
+		sf::Vector2f pos;
 	private:
 		int cantVidas;
-		Vector2f vel;
+		sf::Vector2f vel;
 		const float gravedad=2.0f;
 		RectangleShape collider;
 	public:
-		Personaje(float x, float y/*, Sprite spr*/,Vector2f v);
+		Personaje(float x, float y/*, Sprite spr*/,sf::Vector2f v);
 		~Personaje();
 		virtual void mover() = 0;
 		void setVidas(int vid);
 		int getVidas();
-		void setVel(Vector2f v);
-		Vector2f getVel();
-		void setCol(Vector2f posi, Vector2f tam, Color color);
+		void setVel(sf::Vector2f v);
+		sf::Vector2f getVel();
+		void setCol(sf::Vector2f posi, sf::Vector2f tam, sf::Color color);
 		RectangleShape getCol();
-		Vector2f getPos();
+		sf::Vector2f getPos();
 		void setPos(float x, float y);
 		void setX(float x);
 		void setY(float y);

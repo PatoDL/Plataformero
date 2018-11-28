@@ -4,6 +4,8 @@
 #include "SFML/Graphics.hpp"
 #include "gameplay.h"
 #include "menu.h"
+#include "opciones.h"
+#include "pausa.h"
 
 namespace juego
 {
@@ -37,6 +39,8 @@ namespace juego
 
 		pantalla[gameplay] = new Gameplay();
 		pantalla[menu] = new Menu();
+		pantalla[opciones] = new Opciones();
+		pantalla[pausa] = new Pausa();
 		
 		gui->setTarget(*window);
 		theme.load("res/assets/themes/BabyBlue.txt");
@@ -99,6 +103,10 @@ namespace juego
 				{
 					pantalla[i]->checkInput();
 					pantalla[i]->update();
+					if (i == pausa)
+					{
+						pantalla[gameplay]->draw(juego);
+					}
 					pantalla[i]->draw(juego);
 				}
 			}
@@ -134,10 +142,12 @@ namespace juego
 	void Juego::setAnchoPantalla(unsigned int ancho)
 	{
 		_anchoPantalla=ancho;
+		window->setSize({ _anchoPantalla, _altoPantalla });
 	}
 	void Juego::setAltoPantalla(unsigned int alto)
 	{
 		_altoPantalla=alto;
+		window->setSize({ _anchoPantalla, _altoPantalla });
 	}
 
 	Estados Juego::getEstadoActual()
