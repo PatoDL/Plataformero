@@ -10,7 +10,12 @@
     <ClCompile Include="enemigo.cpp" />
     <ClCompile Include="mapa.cpp" />
     <ClCompile Include="menu.cpp" />
+<<<<<<< HEAD
+    <ClCompile Include="opciones.cpp" />
+    <ClCompile Include="pausa.cpp" />
+=======
     <ClCompile Include="colisiones.cpp" />
+>>>>>>> f06b1c0e9f9c78452bbf74de3a9c432240db80ac
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Juego">
@@ -35,6 +40,11 @@
     <ClInclude Include="enemigo.h" />
     <ClInclude Include="mapa.h" />
     <ClInclude Include="menu.h" />
+<<<<<<< HEAD
+    <ClInclude Include="opciones.h" />
+    <ClInclude Include="pausa.h" />
+=======
     <ClInclude Include="colisiones.h" />
+>>>>>>> f06b1c0e9f9c78452bbf74de3a9c432240db80ac
   </ItemGroup>
 </Project>

@@ -26,7 +26,9 @@
     <ClCompile Include="juego.cpp" />
     <ClCompile Include="jugador.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="opciones.cpp" />
     <ClCompile Include="pantalla.cpp" />
+    <ClCompile Include="pausa.cpp" />
     <ClCompile Include="personaje.cpp" />
     <ClCompile Include="mapa.cpp" />
   </ItemGroup>
@@ -37,7 +39,9 @@
     <ClInclude Include="juego.h" />
     <ClInclude Include="jugador.h" />
     <ClInclude Include="menu.h" />
+    <ClInclude Include="opciones.h" />
     <ClInclude Include="pantalla.h" />
+    <ClInclude Include="pausa.h" />
     <ClInclude Include="personaje.h" />
     <ClInclude Include="mapa.h" />
   </ItemGroup>

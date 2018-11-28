@@ -5,12 +5,6 @@
 
 namespace juego
 {
-	enum EstadoBoton
-	{
-		apretado,
-		suelto
-	};
-
 	Menu::Menu()
 	{
 		for (int i = 0; i < cantBotones; i++)
@@ -100,6 +94,7 @@ namespace juego
 		}
 
 		button[0]->connect("pressed", [&]() { Juego::setEstadoActual(gameplay); });
+		button[1]->connect("pressed", [&]() { Juego::setEstadoActual(opciones); });
 		button[2]->connect("pressed", [&]() {Juego::setInGame(false); });
 	}
 

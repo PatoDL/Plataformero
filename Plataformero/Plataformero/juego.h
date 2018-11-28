@@ -16,10 +16,12 @@ namespace juego
 		gameplay,
 		menu,
 		creditos,
-		gameover
+		gameover,
+		opciones,
+		pausa
 	};
 
-	const int cantPantallas = 4;
+	const int cantPantallas = 6;
 
 	class Juego
 	{

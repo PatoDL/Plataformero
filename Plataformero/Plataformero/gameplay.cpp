@@ -41,6 +41,7 @@ namespace juego
 		pause->setText("xd");
 		pause->setPosition(Juego::getAnchoPantalla() - pause->getSize().x*1.5f, pause->getSize().y / 2);
 		pause->setRenderer(Juego::getTheme().getRenderer("Button"));
+		pause->connect("pressed", [&]() {Juego::setEstadoActual(pausa); });
 		Juego::getGui()->add(pause);
 	}
 

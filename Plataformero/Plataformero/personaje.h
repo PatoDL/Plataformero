@@ -17,17 +17,18 @@ namespace juego
 		const float gravedad=98.0f*3;
 		RectangleShape collider;
 	public:
-		Personaje(float x, float y/*, Sprite spr*/, sf::Vector2f v);
+		Personaje(float x, float y/*, Sprite spr*/,sf::Vector2f v);
 		~Personaje();
 		virtual void mover() = 0;
 		void setVidas(int vid);
 		int getVidas();
-		void setVel(sf::Vector2f v);
-		sf::Vector2f getVel();
-		void setColPos(sf::Vector2f posi);
-		void setColSize(sf::Vector2f tam);
-		void setColColor(sf::Color color);
-		void setColOrigin(sf::Vector2f ori);
+		void setCol(sf::Vector2f posi, sf::Vector2f tam, sf::Color color);
+		void setVel(Vector2f v);
+		Vector2f getVel();
+		void setColPos(Vector2f posi);
+		void setColSize(Vector2f tam);
+		void setColColor(Color color);
+		void setColOrigin(Vector2f ori);
 		RectangleShape getCol();
 		sf::Vector2f getPos();
 		void setPos(float x, float y);
