@@ -44,6 +44,7 @@ namespace juego
 
 		posColision = { false,false,false,false };
 		enSalto = false;
+		velSalto = getVel().y;
 	}
 
 
@@ -56,11 +57,11 @@ namespace juego
 	{
 		if (Keyboard::isKeyPressed(Keyboard::Up))
 		{
-			if (!posColision._arriba) 
+			if (!posColision._arriba && !enSalto && posColision._abajo) 
 			{
-				setY(getPos().y - getVel().y*Juego::getFrameTime());
 				cambio = true;
 				enAire = true;
+				enSalto = true;
 			}
 			posColision._abajo = false;
 			
@@ -81,11 +82,21 @@ namespace juego
 			}
 			posColision._izq = false;
 		}
+
+		if (enSalto)
+		{
+			velSalto -= getGravedad() * Juego::getFrameTime();
+			setY(getPos().y - velSalto * Juego::getFrameTime());
+		}
+		else
+		{
+			velSalto = getVel().y;
+		}
 	}
 
 	void Jugador::update()
 	{
-		if(!posColision._abajo)
+		if(!posColision._abajo && !enSalto)
 			aplicarGravedad();
 		sprite.setPosition(pos);
 		Personaje::update();

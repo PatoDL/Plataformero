@@ -100,4 +100,9 @@ namespace juego
 	{
 		setY(pos.y + gravedad * Juego::getFrameTime());
 	}
+
+	float Personaje::getGravedad()
+	{
+		return gravedad;
+	}
 }

@@ -22,6 +22,7 @@ namespace juego
 	private:
 		vecColisiones posColision;
 		bool enSalto;
+		float velSalto;
 	public:
 		Jugador(float x, float y, sf::Vector2f v);
 		~Jugador();
