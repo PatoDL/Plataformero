@@ -97,6 +97,6 @@ namespace juego
 		juego->getWindow()->draw(*map->getTileMap());
 		juego->getWindow()->draw(main->getCol());
 		juego->getWindow()->draw(enemy->getCol());
-
+		main->draw();
 	}
 }

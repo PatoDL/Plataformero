@@ -11,6 +11,7 @@ namespace juego
 		Enemigo(float x, float y,Vector2f v);
 		~Enemigo();
 		void mover();
+		void draw();
 	};
 }
 #endif

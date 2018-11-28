@@ -22,7 +22,7 @@ namespace juego
 	class Juego
 	{
 	private:
-		bool _inGame;
+		static bool _inGame;
 		Pantalla* pantalla[cantPantallas];
 		static unsigned int _anchoPantalla;
 		static unsigned int _altoPantalla;
@@ -35,8 +35,8 @@ namespace juego
 		Juego();
 		~Juego();
 		static RenderWindow* getWindow();
-		void setInGame(bool inGame);
-		bool getInGame();
+		static void setInGame(bool inGame);
+		static bool getInGame();
 		void ejecutar(Juego* juego);
 		static float getFrameTime();
 		void resetClock();

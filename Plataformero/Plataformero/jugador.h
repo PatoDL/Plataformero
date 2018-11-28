@@ -14,6 +14,8 @@ namespace juego
 		Jugador(float x, float y, Vector2f v);
 		~Jugador();
 		void mover();
+		void update();
+		void draw();
 	};
 }
 

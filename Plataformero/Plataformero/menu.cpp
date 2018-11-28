@@ -29,6 +29,12 @@ namespace juego
 	{
 	}
 
+	static void signalHandler()
+	{
+		std::cout << "Button pressed" << std::endl;
+	}
+
+
 	void Menu::init()
 	{
 		for (int i = 0; i < cantBotones; i++)
@@ -58,6 +64,7 @@ namespace juego
 				button[i]->setText(*texto[i]);
 
 				button[i]->setRenderer(theme.getRenderer("Button"));
+				//tgui::ButtonRenderer(theme.getRenderer("Button")).setBackgroundColor(sf::Color::Red);
 
 				button[i]->setTextSize(40);
 				if (texto[i]->getSize() > 5)
@@ -106,6 +113,18 @@ namespace juego
 				gui->add(button[i]);
 			}
 		}
+
+		if (Juego::getInGame())
+		{
+			for (int i = 0; i < cantBotones; i++)
+			{
+				button[0]->connect("Pressed", signalHandler);
+				if (button[i]->isFocused())
+				{
+					std::cout << "ahre";
+				}
+			}
+		}
 	}
 
 	void Menu::checkInput()
@@ -118,7 +137,7 @@ namespace juego
 
 	void Menu::update()
 	{
-
+		
 	}
 
 	void Menu::draw(Juego* juego)

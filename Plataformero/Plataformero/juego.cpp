@@ -6,11 +6,13 @@
 
 namespace juego
 {
+	bool Juego::_inGame = true;
+
 	Time Juego::_dt;
 	Clock Juego::_dClock;
 
-	unsigned int Juego::_anchoPantalla = 800;
-	unsigned int Juego::_altoPantalla = 600;
+	unsigned int Juego::_anchoPantalla = 1200;
+	unsigned int Juego::_altoPantalla = 800;
 
 	RenderWindow *Juego::window = new RenderWindow(VideoMode(_anchoPantalla, _altoPantalla), "Plataformero");
 
@@ -19,8 +21,6 @@ namespace juego
 
 	Juego::Juego()
 	{
-		_inGame = true;
-
 		for (int i = 0; i < cantPantallas; i++)
 		{
 			pantalla[i] = NULL;
@@ -74,7 +74,7 @@ namespace juego
 			
 			window->clear();
 
-			
+			pantalla[menu]->update();
 			for (int i = 0; i < cantPantallas; i++)
 			{
 				if (i == estadoActual)

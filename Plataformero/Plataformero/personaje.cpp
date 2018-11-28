@@ -1,15 +1,15 @@
 #include "personaje.h"
 
 #include "SFML\Graphics\Sprite.hpp"
+#include "juego.h"
 
 namespace juego
 {
-	Personaje::Personaje(float x, float y/*, Sprite spr*/,Vector2f v)
+	Personaje::Personaje(float x, float y,Vector2f v)
 	{
 		pos.x = x;
 		pos.y = y;
 		cantVidas = 1;
-		//sprite = spr;
 		collider.setPosition(pos);
 		collider.setSize({40, 40});
 		collider.setFillColor(Color::Blue);
@@ -76,5 +76,10 @@ namespace juego
 	void Personaje::update()
 	{
 		collider.setPosition(pos);
+	}
+
+	void Personaje::draw()
+	{
+		
 	}
 }

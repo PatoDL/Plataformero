@@ -21,4 +21,9 @@ namespace juego
 	{
 		setX(getPos().x - getVel().x*Juego::getFrameTime());
 	}
+
+	void Enemigo::draw()
+	{
+
+	}
 }

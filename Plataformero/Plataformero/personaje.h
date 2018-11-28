@@ -10,11 +10,13 @@ namespace juego
 {
 	class Personaje
 	{
-		int cantVidas;
+	protected:
+		Sprite sprite;
 		Vector2f pos;
+	private:
+		int cantVidas;
 		Vector2f vel;
 		const float gravedad=2.0f;
-		Sprite sprite;
 		RectangleShape collider;
 	public:
 		Personaje(float x, float y/*, Sprite spr*/,Vector2f v);
@@ -30,7 +32,8 @@ namespace juego
 		void setPos(float x, float y);
 		void setX(float x);
 		void setY(float y);
-		void update();
+		virtual void update();
+		virtual void draw();
 	};
 }
 #endif
