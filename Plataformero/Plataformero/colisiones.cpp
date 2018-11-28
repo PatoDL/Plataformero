@@ -1,6 +1,6 @@
 #include "colisiones.h"
 
-#include <iostream>
+#include "juego.h"
 
 namespace juego {
 	Colisiones::Colisiones()
@@ -27,36 +27,39 @@ namespace juego {
 
 			if (plataforma.getGlobalBounds().intersects(jug->getCol().getGlobalBounds()))
 			{
-				//ABAJO
-				if (colisionaAbajo(jug,plataforma) && !jugadorEnPlataformaY(jug, plataforma)  && jugadorEnPlataformaX(jug, plataforma))
+				if (mapa->getTipoPlataforma(i) == piso) 
 				{
-					jug->setY(plataforma.getPosition().y - plataforma.getSize().y / 2 - jug->getCol().getSize().y / 2);
-					posColision._abajo = true;
-					std::cout << "abajo" << std::endl;
-				}
-				//ARRIBA
-				else if (colisionaArriba(jug, plataforma) && !jugadorEnPlataformaY(jug, plataforma) && jugadorEnPlataformaX(jug, plataforma))
-				{
-					jug->setY(plataforma.getPosition().y + plataforma.getSize().y / 2 + jug->getCol().getSize().y / 2);
-					posColision._arriba = true;
-					std::cout << "ariba" << std::endl;
+					//ABAJO
+					if (colisionaAbajo(jug, plataforma) && !jugadorEnPlataformaY(jug, plataforma) && jugadorEnPlataformaX(jug, plataforma))
+					{
+						jug->setY(plataforma.getPosition().y - plataforma.getSize().y / 2 - jug->getCol().getSize().y / 2);
+						posColision._abajo = true;
+					}
+					//ARRIBA
+					else if (colisionaArriba(jug, plataforma) && !jugadorEnPlataformaY(jug, plataforma) && jugadorEnPlataformaX(jug, plataforma))
+					{
+						jug->setY(plataforma.getPosition().y + plataforma.getSize().y / 2 + jug->getCol().getSize().y / 2);
+						posColision._arriba = true;
+					}
+					else
+					{
+						//IZQUIERDA
+						if (colisionaIzq(jug, plataforma))
+						{
+							jug->setX(plataforma.getPosition().x + plataforma.getSize().x / 2 + jug->getCol().getSize().x / 2);
+							posColision._izq = true;
+						}
+						//DERECHA
+						else if (colisionaDer(jug, plataforma))
+						{
+							jug->setX(plataforma.getPosition().x - plataforma.getSize().x / 2 - jug->getCol().getSize().x / 2);
+							posColision._der = true;
+						}
+					}
 				}
 				else
 				{
-					//IZQUIERDA
-					if (colisionaIzq(jug, plataforma))
-					{
-						jug->setX(plataforma.getPosition().x + plataforma.getSize().x / 2 + jug->getCol().getSize().x / 2);
-						posColision._izq = true;
-						std::cout << "izq" << std::endl;
-					}
-					//DERECHA
-					else if (colisionaDer(jug, plataforma))
-					{
-						jug->setX(plataforma.getPosition().x - plataforma.getSize().x / 2 - jug->getCol().getSize().x / 2);
-						posColision._der = true;
-						std::cout << "der" << std::endl;
-					}
+					Juego::setInGame(false);
 				}
 				
 			}
