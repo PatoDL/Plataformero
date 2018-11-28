@@ -15,6 +15,7 @@ namespace juego
 		int cantVidas;
 		sf::Vector2f vel;
 		const float gravedad=98.0f*4;
+		float velCaida;
 		RectangleShape collider;
 	public:
 		Personaje(float x, float y/*, Sprite spr*/,sf::Vector2f v);
@@ -38,6 +39,8 @@ namespace juego
 		virtual void draw();
 		void aplicarGravedad();
 		float getGravedad();
+		float getVelCaida();
+		void setVelCaida(float vel);
 	};
 }
 #endif

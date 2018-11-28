@@ -11,11 +11,10 @@ namespace juego
 		pos.y = y;
 		cantVidas = 1;
 		collider.setPosition(pos);
-		//collider.setSize({40, 40});
 		collider.setFillColor(Color::Blue);
 		vel.x = v.x;
 		vel.y = v.y;
-		//collider.setOrigin({ collider.getSize().x / 2, collider.getSize().y / 2 });
+		velCaida = 0.0f;
 	}
 
 	Personaje::~Personaje()
@@ -98,11 +97,22 @@ namespace juego
 
 	void Personaje::aplicarGravedad()
 	{
-		setY(pos.y + gravedad * Juego::getFrameTime());
+		setVelCaida(velCaida + gravedad / 4 * Juego::getFrameTime());
+		setY(pos.y + velCaida*Juego::getFrameTime());
 	}
 
 	float Personaje::getGravedad()
 	{
 		return gravedad;
+	}
+
+	float Personaje::getVelCaida()
+	{
+		return velCaida;
+	}
+
+	void Personaje::setVelCaida(float vel)
+	{
+		velCaida = vel;
 	}
 }

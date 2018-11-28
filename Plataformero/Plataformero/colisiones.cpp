@@ -32,14 +32,14 @@ namespace juego {
 					//ABAJO
 					if (colisionaAbajo(jug, plataforma) && !jugadorEnPlataformaY(jug, plataforma) && jugadorEnPlataformaX(jug, plataforma))
 					{
-						jug->setY(plataforma.getGlobalBounds().top - jug->getCol().getSize().y / 2 + difColisionY);//(plataforma.getPosition().y - plataforma.getSize().y / 2 - jug->getCol().getSize().y / 2);
+						jug->setY(plataforma.getGlobalBounds().top - jug->getCol().getSize().y / 2 + difColisionY);
 						jug->setPosColisionPiso(true);
 						jug->setEnSalto(false);
 					}
 					//ARRIBA
 					else if (colisionaArriba(jug, plataforma) && !jugadorEnPlataformaY(jug, plataforma) && jugadorEnPlataformaX(jug, plataforma))
 					{
-						jug->setY(plataforma.getPosition().y + plataforma.getSize().y / 2 + jug->getCol().getSize().y / 2 - difColisionY);
+						jug->setY(plataforma.getGlobalBounds().top - plataforma.getGlobalBounds().height + jug->getCol().getSize().y / 2 - difColisionY);
 						jug->setPosColisionTecho(true);
 					}
 					else
@@ -47,13 +47,13 @@ namespace juego {
 						//IZQUIERDA
 						if (colisionaIzq(jug, plataforma) && !jugadorEnPlataformaX(jug, plataforma))
 						{
-							jug->setX(plataforma.getPosition().x + plataforma.getSize().x / 2 + jug->getCol().getSize().x / 2 - difColisionX);
+							jug->setX(plataforma.getGlobalBounds().left + plataforma.getGlobalBounds().width + jug->getCol().getSize().x / 2 - difColisionX);
 							jug->setPosColisionIzq(true);
 						}
 						//DERECHA
 						else if (colisionaDer(jug, plataforma) && !jugadorEnPlataformaX(jug, plataforma))
 						{
-							jug->setX(plataforma.getPosition().x - plataforma.getSize().x / 2 - jug->getCol().getSize().x / 2 + difColisionX);
+							jug->setX(plataforma.getGlobalBounds().left - jug->getCol().getSize().x / 2 + difColisionX);
 							jug->setPosColisionDer(true);
 						}
 					}
@@ -64,25 +64,6 @@ namespace juego {
 				}
 				
 			}
-			//else
-			//{
-			//	if (jug->getColision()._abajo)
-			//	{
-			//		jug->setPosColisionPiso(false);
-			//	}
-			//	if (jug->getColision()._arriba)
-			//	{
-			//		jug->setPosColisionTecho(false);
-			//	}
-			//	if (jug->getColision()._izq)
-			//	{
-			//		jug->setPosColisionIzq(false);
-			//	}
-			//	if (jug->getColision()._der)
-			//	{
-			//		jug->setPosColisionDer(false);
-			//	}
-			//}
 		}
 	}
 
