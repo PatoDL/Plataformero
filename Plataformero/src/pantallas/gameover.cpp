@@ -89,6 +89,7 @@ namespace juego
 			if (botonGO[i] != NULL)
 			{
 				Juego::getGui()->add(botonGO[i]);
+				botonGO[i]->setVisible(true);
 			}
 		}
 	}
@@ -100,7 +101,7 @@ namespace juego
 
 	void Gameover::actualizar()
 	{
-
+		
 	}
 
 	void Gameover::dibujar(Juego* juego)

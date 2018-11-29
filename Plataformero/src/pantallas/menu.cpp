@@ -14,8 +14,6 @@ namespace juego
 		{
 			button[i] = NULL;
 		}
-
-		
 	}
 
 
