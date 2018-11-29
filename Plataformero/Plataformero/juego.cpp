@@ -179,7 +179,7 @@ namespace juego
 				pantalla[estadoActual]->inicializar();
 			}
 
-			if (estadoActual == menu&&estadoAnterior==gameover)
+			if (estadoActual == menu&&estadoAnterior==gameover && reinicio)
 			{
 				pantalla[gameplay]->inicializar();
 			}

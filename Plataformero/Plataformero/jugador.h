@@ -51,6 +51,8 @@ namespace juego
 		void setEnSalto(bool salto);
 		void setVelSalto(float vel);
 		void atacar();
+		void setDash(bool b);
+		bool getDash();
 	};
 }
 

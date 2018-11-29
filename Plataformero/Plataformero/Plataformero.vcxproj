@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\libs\pugi-xml\lib\pugixml.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="colisiones.cpp" />
     <ClCompile Include="enemigo.cpp" />
@@ -116,7 +117,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)libs\TGUI-0.8\lib;$(SolutionDir)libs\STP\lib;$(SolutionDir)libs\pugi-xml\lib;$(SolutionDir)libs\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>winmm.lib;gdi32.lib;opengl32.lib;freetype.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-system-d.lib;STP-d.lib;zlibd.lib;pugi-xml.lib;tgui-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>winmm.lib;gdi32.lib;opengl32.lib;freetype.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-system-d.lib;STP-d.lib;zlibd.lib;tgui-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
@@ -153,9 +154,10 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>winmm.lib;gdi32.lib;opengl32.lib;freetype.lib;sfml-graphics.lib;sfml-window.lib;sfml-system.lib;STP.lib;zlib.lib;pugi-xml-r.lib;tgui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>winmm.lib;gdi32.lib;opengl32.lib;freetype.lib;sfml-graphics.lib;sfml-window.lib;sfml-system.lib;STP.lib;zlib.lib;tgui.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)libs\STP\lib;$(SolutionDir)libs\pugi-xml\lib;$(SolutionDir)libs\TGUI-0.8\lib;$(SolutionDir)libs\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+      <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
       <Command>$(ProjectDir)copiador-r.bat "$(SolutionDir)" "$(TargetDir)"</Command>

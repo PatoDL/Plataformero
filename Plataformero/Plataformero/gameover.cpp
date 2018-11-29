@@ -79,7 +79,7 @@ namespace juego
 				}
 			}
 
-			botonGO[jugarGO]->connect("pressed", [&]() {Juego::setEstadoActual(gameplay, false); });
+			botonGO[jugarGO]->connect("pressed", [&]() {Juego::setEstadoActual(gameplay, true); });
 			botonGO[menuGO]->connect("pressed", [&]() {Juego::setEstadoActual(menu, false); });
 
 		}

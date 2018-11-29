@@ -14,6 +14,7 @@
     <ClCompile Include="personaje.cpp" />
     <ClCompile Include="mapa.cpp" />
     <ClCompile Include="gameover.cpp" />
+    <ClCompile Include="..\libs\pugi-xml\lib\pugixml.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="colisiones.h" />
