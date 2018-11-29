@@ -8,18 +8,19 @@
 #include "colisiones.h"
 #include "TGUI/TGUI.hpp"
 
-using namespace tgui;
+//using namespace tgui;
 
+const int cantEnemigos=5;
 
 namespace juego
 {
 	class Gameplay : public Pantalla
 	{
 		Personaje* jugador;
-		Personaje* enemigo;
+		Personaje* enemigo[cantEnemigos];
 		View view;
 		Mapa* map;
-		Button::Ptr botonPausa;
+		tgui::Button::Ptr botonPausa;
 		Colisiones colisiones;
 	public:
 		Gameplay();
@@ -30,6 +31,7 @@ namespace juego
 		void dibujar(Juego* juego);
 		void desinicializar();
 		void posicionarCamara();
+		void crearEnemigos(Mapa* map);
 	};
 }
 #endif

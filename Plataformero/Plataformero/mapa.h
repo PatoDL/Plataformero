@@ -4,6 +4,7 @@
 #include "pugixml.hpp"
 #include "STP/TMXLoader.hpp"
 #include "SFML/Graphics.hpp"
+//#include "gameplay.h"
 
 using namespace pugi;
 using namespace tmx;
@@ -23,6 +24,8 @@ namespace juego {
 		TileMap* tMap;
 		RectangleShape plataformas[maxPlataformas];
 		tiposPlataforma tipoPlat[maxPlataformas];
+		bool tieneEnemigo[maxPlataformas];
+		int platConEnemigo[5];
 	public:
 		Mapa();
 		~Mapa();
@@ -31,6 +34,7 @@ namespace juego {
 		RectangleShape getPlataforma(int i);
 		Mapa &getMapa();
 		tiposPlataforma getTipoPlataforma(int i);
+		int getPlatConEnemigo(int i);
 	};
 }
 #endif

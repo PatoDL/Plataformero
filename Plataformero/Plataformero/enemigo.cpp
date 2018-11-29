@@ -14,7 +14,7 @@ namespace juego
 
 	Enemigo::Enemigo(float x, float y, Vector2f v) :Personaje(x, y, v)
 	{
-		setColPos(getCol().getPosition());
+		//setColPos(getCol().getPosition());
 		setColSize({40.0f, 40.0f});
 		setColColor(Color::Red);
 		if (!tex.loadFromFile("res/assets/bug.png"))
@@ -40,6 +40,8 @@ namespace juego
 		
 		sprite.setTextureRect(src);
 		sprite.setPosition(pos);
+		sprite.setOrigin(sprite.getGlobalBounds().height, (sprite.getGlobalBounds().width / 2));
+		setColOrigin(sprite.getOrigin());
 	}
 
 	void Enemigo::mover()
@@ -73,5 +75,14 @@ namespace juego
 	void Enemigo::dibujar()
 	{
 		Juego::getWindow()->draw(sprite);
+	}
+
+	void Enemigo::chequearEnPlataforma(Mapa* map, int i)
+	{
+		if (getPos().x <= map->getPlataforma(map->getPlatConEnemigo(i)).getGlobalBounds().left || 
+			getPos().x >= map->getPlataforma(map->getPlatConEnemigo(i)).getGlobalBounds().left+ map->getPlataforma(map->getPlatConEnemigo(i)).getGlobalBounds().width)
+		{
+			setVel({ getVel().x*-1, getVel().y });
+		}
 	}
 }

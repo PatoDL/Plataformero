@@ -162,110 +162,530 @@
 </data>
  </layer>
  <objectgroup id="5" name="Capa de Objetos 1">
-  <object id="6" type="piso" x="1" y="2113" width="671" height="288"/>
-  <object id="7" type="piso" x="736" y="2048" width="512" height="352"/>
-  <object id="8" type="piso" x="1348" y="1984.01" width="512.208" height="415.001"/>
-  <object id="9" type="piso" x="1952.02" y="1952" width="64.3125" height="448.333"/>
-  <object id="10" type="piso" x="2080.41" y="2048.49" width="127.675" height="351.693"/>
-  <object id="11" type="piso" x="2399.15" y="2048" width="129.091" height="352.333"/>
-  <object id="12" type="piso" x="2624" y="2016" width="31.9167" height="384"/>
-  <object id="13" type="piso" x="2656.05" y="1984.22" width="94.625" height="414.849"/>
-  <object id="14" type="piso" x="2688.33" y="1952.33" width="32" height="32.3333"/>
-  <object id="15" type="piso" x="2720.33" y="1920" width="31.3333" height="65"/>
-  <object id="16" type="piso" x="2848" y="1856.24" width="350.667" height="544.424"/>
-  <object id="17" type="piso" x="3104.12" y="1792.31" width="95.2122" height="64.3636"/>
-  <object id="18" type="piso" x="3136" y="1728.06" width="63.6667" height="64.2425"/>
-  <object id="19" type="piso" x="3168" y="1664.33" width="31.6667" height="63.606"/>
-  <object id="20" type="piso" x="3104.5" y="1600.5" width="32" height="32.5"/>
-  <object id="21" type="piso" x="2848" y="1536.23" width="224" height="95.2727"/>
-  <object id="22" type="piso" x="3071.5" y="1568" width="33" height="63.5"/>
-  <object id="24" type="piso" x="2465" y="1504.44" width="350.938" height="127.563"/>
-  <object id="26" type="piso" x="2272" y="1472" width="544.061" height="32.3333"/>
-  <object id="27" type="piso" x="2240" y="1440" width="31.8182" height="31.9091"/>
-  <object id="28" type="piso" x="2208" y="1407.94" width="32.0625" height="32.1875"/>
-  <object id="30" type="piso" x="1728" y="1408" width="448" height="160"/>
-  <object id="31" type="piso" x="1760" y="1376" width="384" height="32"/>
-  <object id="32" type="piso" x="1792" y="1344" width="320" height="32"/>
-  <object id="33" type="piso" x="1824" y="1312" width="256" height="32"/>
-  <object id="34" type="piso" x="2048" y="1568" width="96" height="32"/>
-  <object id="35" type="piso" x="2048" y="1600" width="64" height="32"/>
-  <object id="36" type="piso" x="1760" y="1632" width="320" height="32"/>
-  <object id="37" type="piso" x="1696" y="1664" width="96" height="32"/>
-  <object id="38" type="piso" x="1632" y="1696" width="96" height="32"/>
-  <object id="39" type="piso" x="1568" y="1728" width="96" height="32"/>
-  <object id="40" type="piso" x="1504" y="1696" width="96" height="32"/>
-  <object id="41" type="piso" x="1472" y="1664" width="96" height="32"/>
-  <object id="42" type="piso" x="1440.09" y="1632.22" width="32" height="63.9583"/>
-  <object id="43" type="piso" x="1184" y="1568.15" width="256" height="63.6667"/>
-  <object id="44" type="piso" x="1120" y="1568" width="64" height="32"/>
-  <object id="45" type="piso" x="1088" y="1536" width="64" height="32"/>
-  <object id="46" type="piso" x="1088" y="1344" width="32" height="192"/>
-  <object id="47" type="piso" x="1088" y="1312" width="576" height="32"/>
-  <object id="48" type="piso" x="960" y="1248" width="64" height="96"/>
-  <object id="49" type="piso" x="480" y="1280" width="480" height="64"/>
-  <object id="50" type="piso" x="480" y="1248" width="128" height="32"/>
-  <object id="51" type="piso" x="800" y="1248" width="128" height="32"/>
-  <object id="52" type="piso" x="320" y="1184" width="128" height="64"/>
-  <object id="53" type="piso" x="0" y="1152" width="256" height="64"/>
-  <object id="54" type="piso" x="0" y="1120" width="64" height="32"/>
-  <object id="55" type="piso" x="96" y="1120" width="64" height="32"/>
-  <object id="56" type="piso" x="192" y="1120" width="64" height="32"/>
-  <object id="57" type="piso" x="0" y="1056" width="32" height="32"/>
-  <object id="58" type="piso" x="96" y="992.208" width="160" height="31.7917"/>
-  <object id="59" type="piso" x="288" y="928.125" width="128" height="31.875"/>
-  <object id="60" type="piso" x="480" y="864" width="128" height="64"/>
-  <object id="61" type="piso" x="672" y="832" width="416" height="64"/>
-  <object id="62" type="piso" x="736" y="800" width="352" height="32"/>
-  <object id="63" type="piso" x="864" y="768" width="224" height="32"/>
-  <object id="64" type="piso" x="1184" y="736" width="64.3333" height="96"/>
-  <object id="66" type="piso" x="1248" y="768" width="192" height="64"/>
-  <object id="67" type="piso" x="1408" y="736" width="32" height="32"/>
-  <object id="68" type="piso" x="1280" y="736" width="96" height="32"/>
-  <object id="69" type="piso" x="1312" y="704" width="32" height="32"/>
-  <object id="70" type="piso" x="1568" y="768" width="672" height="32"/>
-  <object id="71" type="piso" x="1568" y="736" width="288" height="32"/>
-  <object id="72" type="piso" x="1568" y="704" width="160" height="32"/>
-  <object id="73" type="piso" x="1792" y="704" width="32" height="32"/>
-  <object id="74" type="piso" x="1920" y="736" width="320" height="32"/>
-  <object id="75" type="piso" x="2176" y="704" width="64" height="32"/>
-  <object id="76" type="piso" x="2080" y="704" width="64" height="32"/>
-  <object id="77" type="piso" x="1984" y="704" width="64" height="32"/>
-  <object id="78" type="piso" x="2272" y="672" width="96" height="96"/>
-  <object id="79" type="piso" x="2368" y="704" width="320" height="64"/>
-  <object id="80" type="piso" x="2624" y="672" width="64" height="32"/>
-  <object id="82" type="piso" x="2496" y="672" width="96" height="32"/>
-  <object id="83" type="piso" x="2400" y="672" width="64" height="32"/>
-  <object id="84" type="piso" x="2752" y="608" width="224" height="96"/>
-  <object id="85" type="piso" x="3040" y="576" width="160" height="32"/>
-  <object id="86" type="piso" x="3072" y="544" width="128" height="32"/>
-  <object id="87" type="piso" x="2208" y="2080" width="192" height="320"/>
-  <object id="89" type="pinches" x="2208" y="2058" width="192" height="22"/>
-  <object id="92" type="pinches" x="2603" y="1440.33" width="106.333" height="31"/>
-  <object id="93" type="pinches" x="928" y="1252.5" width="30.5" height="27.5"/>
-  <object id="94" type="pinches" x="608" y="1253" width="191.5" height="27"/>
-  <object id="95" type="pinches" x="160" y="1128" width="31" height="24"/>
-  <object id="96" type="pinches" x="65" y="1129" width="31" height="23"/>
-  <object id="98" type="pinches" x="808.333" y="773" width="14" height="27.3333"/>
-  <object id="100" type="pinches" x="1001.33" y="743.333" width="43.3333" height="24.6667"/>
-  <object id="101" type="pinches" x="1248" y="739.333" width="31.6667" height="28.6667"/>
-  <object id="102" type="pinches" x="1376" y="740.667" width="31.6667" height="27.3333"/>
-  <object id="103" type="pinches" x="1641.67" y="680.667" width="45" height="23"/>
-  <object id="104" type="pinches" x="1728" y="708.333" width="64" height="27.6667"/>
-  <object id="105" type="pinches" x="1856" y="741.333" width="64" height="26.6667"/>
-  <object id="106" type="pinches" x="1960.67" y="707.333" width="23.6667" height="28.3333"/>
-  <object id="107" type="pinches" x="2048" y="709.333" width="32.3333" height="26.6667"/>
-  <object id="108" type="pinches" x="2144" y="707.5" width="32" height="28.5"/>
-  <object id="111" type="pinches" x="2215.5" y="678.75" width="16.25" height="24.75"/>
-  <object id="112" type="pinches" x="2368.67" y="676.667" width="31.3333" height="27.3333"/>
-  <object id="113" type="pinches" x="2464" y="678" width="32" height="26"/>
-  <object id="114" type="pinches" x="2592" y="678" width="32.6667" height="26"/>
-  <object id="116" type="pinches" x="3047.33" y="550.667" width="24.6667" height="25.3333"/>
-  <object id="118" type="pinches" x="2793.04" y="583.208" width="14" height="24.75"/>
-  <object id="119" type="pinches" x="2889" y="582.25" width="13.25" height="25.5"/>
-  <object id="120" type="piso" x="1504" y="1504" width="160" height="96"/>
-  <object id="121" type="piso" x="1568" y="1472" width="96" height="32"/>
-  <object id="123" type="pinches" x="2505.25" y="2023.25" width="12.5" height="24.5"/>
-  <object id="124" type="pinches" x="2921.5" y="1831.25" width="44" height="24"/>
-  <object id="126" type="pinches" x="1151.67" y="1541" width="32" height="27"/>
+  <object id="6" type="piso" x="1" y="2113" width="671" height="288">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="7" type="piso" x="736" y="2048" width="512" height="352">
+   <properties>
+    <property name="enemigo" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="8" type="piso" x="1348" y="1984.01" width="512.208" height="415.001">
+   <properties>
+    <property name="enemigo" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="9" type="piso" x="1952.02" y="1952" width="64.3125" height="448.333">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="10" type="piso" x="2080.41" y="2048.49" width="127.675" height="351.693">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="11" type="piso" x="2399.15" y="2048" width="129.091" height="352.333">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="12" type="piso" x="2624" y="2016" width="31.9167" height="384">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="13" type="piso" x="2656.05" y="1984.22" width="94.625" height="414.849">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="14" type="piso" x="2688.33" y="1952.33" width="32" height="32.3333">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="15" type="piso" x="2720.33" y="1920" width="31.3333" height="65">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="16" type="piso" x="2848" y="1856.24" width="350.667" height="544.424">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="17" type="piso" x="3104.12" y="1792.31" width="95.2122" height="64.3636">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="18" type="piso" x="3136" y="1728.06" width="63.6667" height="64.2425">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="19" type="piso" x="3168" y="1664.33" width="31.6667" height="63.606">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="20" type="piso" x="3104.5" y="1600.5" width="32" height="32.5">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="21" type="piso" x="2848" y="1536.23" width="224" height="95.2727">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="22" type="piso" x="3071.5" y="1568" width="33" height="63.5">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="24" type="piso" x="2465" y="1504.44" width="350.938" height="127.563">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="26" type="piso" x="2272" y="1472" width="544.061" height="32.3333">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="27" type="piso" x="2240" y="1440" width="31.8182" height="31.9091">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="28" type="piso" x="2208" y="1407.94" width="32.0625" height="32.1875">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="30" type="piso" x="1728" y="1408" width="448" height="160">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="31" type="piso" x="1760" y="1376" width="384" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="32" type="piso" x="1792" y="1344" width="320" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="33" type="piso" x="1824" y="1312" width="256" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="34" type="piso" x="2048" y="1568" width="96" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="35" type="piso" x="2048" y="1600" width="64" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="36" type="piso" x="1760" y="1632" width="320" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="37" type="piso" x="1696" y="1664" width="96" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="38" type="piso" x="1632" y="1696" width="96" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="39" type="piso" x="1568" y="1728" width="96" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="40" type="piso" x="1504" y="1696" width="96" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="41" type="piso" x="1472" y="1664" width="96" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="42" type="piso" x="1440.09" y="1632.22" width="32" height="63.9583">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="43" type="piso" x="1184" y="1568.15" width="256" height="63.6667">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="44" type="piso" x="1120" y="1568" width="64" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="45" type="piso" x="1088" y="1536" width="64" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="46" type="piso" x="1088" y="1344" width="32" height="192">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="47" type="piso" x="1088" y="1312" width="576" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="48" type="piso" x="960" y="1248" width="64" height="96">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="49" type="piso" x="480" y="1280" width="480" height="64">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="50" type="piso" x="480" y="1248" width="128" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="51" type="piso" x="800" y="1248" width="128" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="52" type="piso" x="320" y="1184" width="128" height="64">
+   <properties>
+    <property name="enemigo" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="53" type="piso" x="0" y="1152" width="256" height="64">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="54" type="piso" x="0" y="1120" width="64" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="55" type="piso" x="96" y="1120" width="64" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="56" type="piso" x="192" y="1120" width="64" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="57" type="piso" x="0" y="1056" width="32" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="58" type="piso" x="96" y="992.208" width="160" height="31.7917">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="59" type="piso" x="288" y="928.125" width="128" height="31.875">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="60" type="piso" x="480" y="864" width="128" height="64">
+   <properties>
+    <property name="enemigo" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="61" type="piso" x="672" y="832" width="416" height="64">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="62" type="piso" x="736" y="800" width="352" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="63" type="piso" x="864" y="768" width="224" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="64" type="piso" x="1184" y="736" width="64.3333" height="96">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="66" type="piso" x="1248" y="768" width="192" height="64">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="67" type="piso" x="1408" y="736" width="32" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="68" type="piso" x="1280" y="736" width="96" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="69" type="piso" x="1312" y="704" width="32" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="70" type="piso" x="1568" y="768" width="672" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="71" type="piso" x="1568" y="736" width="288" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="72" type="piso" x="1568" y="704" width="160" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="73" type="piso" x="1792" y="704" width="32" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="74" type="piso" x="1920" y="736" width="320" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="75" type="piso" x="2176" y="704" width="64" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="76" type="piso" x="2080" y="704" width="64" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="77" type="piso" x="1984" y="704" width="64" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="78" type="piso" x="2272" y="672" width="96" height="96">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="79" type="piso" x="2368" y="704" width="320" height="64">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="80" type="piso" x="2624" y="672" width="64" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="82" type="piso" x="2496" y="672" width="96" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="83" type="piso" x="2400" y="672" width="64" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="84" type="piso" x="2752" y="608" width="224" height="96">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="85" type="piso" x="3040" y="576" width="160" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="86" type="piso" x="3072" y="544" width="128" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="87" type="piso" x="2208" y="2080" width="192" height="320">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="89" type="pinches" x="2208" y="2058" width="192" height="22">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="92" type="pinches" x="2603" y="1440.33" width="106.333" height="31">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="93" type="pinches" x="928" y="1252.5" width="30.5" height="27.5">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="94" type="pinches" x="608" y="1253" width="191.5" height="27">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="95" type="pinches" x="160" y="1128" width="31" height="24">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="96" type="pinches" x="65" y="1129" width="31" height="23">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="98" type="pinches" x="808.333" y="773" width="14" height="27.3333">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="100" type="pinches" x="1001.33" y="743.333" width="43.3333" height="24.6667">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="101" type="pinches" x="1248" y="739.333" width="31.6667" height="28.6667">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="102" type="pinches" x="1376" y="740.667" width="31.6667" height="27.3333">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="103" type="pinches" x="1641.67" y="680.667" width="45" height="23">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="104" type="pinches" x="1728" y="708.333" width="64" height="27.6667">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="105" type="pinches" x="1856" y="741.333" width="64" height="26.6667">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="106" type="pinches" x="1960.67" y="707.333" width="23.6667" height="28.3333">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="107" type="pinches" x="2048" y="709.333" width="32.3333" height="26.6667">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="108" type="pinches" x="2144" y="707.5" width="32" height="28.5">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="111" type="pinches" x="2215.5" y="678.75" width="16.25" height="24.75">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="112" type="pinches" x="2368.67" y="676.667" width="31.3333" height="27.3333">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="113" type="pinches" x="2464" y="678" width="32" height="26">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="114" type="pinches" x="2592" y="678" width="32.6667" height="26">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="116" type="pinches" x="3047.33" y="550.667" width="24.6667" height="25.3333">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="118" type="pinches" x="2793.04" y="583.208" width="14" height="24.75">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="119" type="pinches" x="2889" y="582.25" width="13.25" height="25.5">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="120" type="piso" x="1504" y="1504" width="160" height="96">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="121" type="piso" x="1568" y="1472" width="96" height="32">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="123" type="pinches" x="2505.25" y="2023.25" width="12.5" height="24.5">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="124" type="pinches" x="2921.5" y="1831.25" width="44" height="24">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="126" type="pinches" x="1151.67" y="1541" width="32" height="27">
+   <properties>
+    <property name="enemigo" type="bool" value="false"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

@@ -5,7 +5,7 @@
 #include "enemigo.h"
 #include "mapa.h"
 
-using namespace tgui;
+//using namespace tgui;
 
 namespace juego
 {
@@ -14,11 +14,14 @@ namespace juego
 	Gameplay::Gameplay()
 	{
 		jugador = new Jugador(90, 2000, { 150.f,250.f });
-		enemigo = new Enemigo(90, 1800, { 100.f,10.f });
+		//enemigo = new Enemigo(90, 1800, { 100.f,10.f });
 		map = new Mapa;
+		map->crearPlataformas();
+		crearEnemigos(map);
 		view.setSize(static_cast<float>(Juego::getAnchoPantalla()/2.5f), static_cast<float>(Juego::getAnchoPantalla()/2.5f));
 		view.setCenter(jugador->getPos());
-		map->crearPlataformas();
+		
+		
 	}
 
 	Gameplay::~Gameplay()
@@ -36,7 +39,10 @@ namespace juego
 		view.setSize(static_cast<float>(Juego::getAnchoPantalla() / 2.5f), static_cast<float>(Juego::getAnchoPantalla() / 2.5f));
 		view.setCenter(jugador->getPos());
 		jugador->inicializar();
-		enemigo->inicializar();
+		for (int i = 0; i < cantEnemigos; i++)
+		{
+			enemigo[i]->inicializar();
+		}
 		botonPausa = tgui::Button::create();
 		botonPausa->setSize(40, 40);
 		botonPausa->setText("P");
@@ -55,10 +61,15 @@ namespace juego
 	void Gameplay::actualizar()
 	{
 		colisiones.procesarColisiones(static_cast<Jugador*>(jugador), map);
-		enemigo->mover();
+		for (int i = 0; i < cantEnemigos; i++)
+		{
+			static_cast<Enemigo*>(enemigo[i])->chequearEnPlataforma(map,i);
+			enemigo[i]->mover();
+			enemigo[i]->actualizar();
+		}
 		jugador->actualizar();
 		posicionarCamara();
-		enemigo->actualizar();
+		
 	}
 
 	void Gameplay::dibujar(Juego* juego)
@@ -69,7 +80,10 @@ namespace juego
 		//juego->getWindow()->dibujar(jugador->getCol());
 		//juego->getWindow()->dibujar(enemigo->getCol());
 		jugador->dibujar();
-		enemigo->dibujar();
+		for (int i = 0; i < cantEnemigos; i++)
+		{
+			enemigo[i]->dibujar();
+		}
 	}
 
 	void Gameplay::posicionarCamara()
@@ -124,5 +138,16 @@ namespace juego
 	void Gameplay::desinicializar()
 	{
 		botonPausa->setVisible(false);
+	}
+
+	void Gameplay::crearEnemigos(Mapa* map)
+	{
+		for (int i = 0; i < cantEnemigos; i++)
+		{
+			float posX= map->getPlataforma(map->getPlatConEnemigo(i)).getPosition().x;
+			float posY = map->getPlataforma(map->getPlatConEnemigo(i)).getPosition().y - map->getPlataforma(map->getPlatConEnemigo(i)).getSize().y / 2;
+
+			enemigo[i] = new Enemigo(posX, posY, { 200.0f,200.0f });
+		}
 	}
 }
