@@ -8,6 +8,7 @@
 namespace juego
 {
 	const int tam_tiles = 32;
+	bool Gameplay::ganador = false;
 
 	Gameplay::Gameplay()
 	{
@@ -16,9 +17,7 @@ namespace juego
 		map->crearPlataformas();
 		crearEnemigos(map);
 		view.setSize(static_cast<float>(Juego::getAnchoPantalla()/2.5f), static_cast<float>(Juego::getAnchoPantalla()/2.5f));
-		view.setCenter(jugador->getPos());
-		
-		
+		view.setCenter(jugador->getPos());	
 	}
 
 	Gameplay::~Gameplay()
@@ -47,7 +46,7 @@ namespace juego
 		botonPausa->setRenderer(Juego::getTheme().getRenderer("Button"));
 		botonPausa->connect("pressed", [&]() {Juego::setEstadoActual(pausa, false); });
 		Juego::getGui()->add(botonPausa);
-		ganador = false;
+		setGanador(false);
 	}
 
 	void Gameplay::chequearInput()
