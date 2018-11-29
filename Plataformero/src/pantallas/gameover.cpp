@@ -1,11 +1,12 @@
 #include "gameover.h"
 
-#include "juego/juego.h"
-
 #include "TGUI/TGUI.hpp"
+#include "gameplay.h"
+#include "juego/juego.h"
 
 namespace juego
 {
+	static Text* resultado;
 	Gameover::Gameover()
 	{
 		for (int i = 0; i < cantBotonesMenu; i++)
@@ -26,12 +27,28 @@ namespace juego
 
 	void Gameover::inicializar()
 	{
+		resultado = new Text();
 		String* texto[cantBotonesMenu];
 		texto[0] = new String("Volver a Jugar");
 		texto[1] = new String("Volver al Menu");
 		tgui::Layout2d* size = new tgui::Layout2d(sf::Vector2f{ 120,60 });
 
 		int distanciaBotones = 60;
+		
+		resultado->setFont(*Juego::getGui()->getFont());
+
+		
+		if (Gameplay::getGanador())
+		{
+			resultado->setString("Ganaste!");
+		}
+		else
+		{
+			resultado->setString("Perdiste");
+		}
+		resultado->setFillColor(sf::Color::Yellow);
+		resultado->setCharacterSize(80);
+		resultado->setPosition(Juego::getAnchoPantalla() / 2 /*- resultado->getString().getSize() / 2 * resultado->getCharacterSize()*/, Juego::getAltoPantalla() / 5);
 
 		for (int i = 0; i < cantBotonesMenu; i++)
 		{
@@ -106,7 +123,7 @@ namespace juego
 
 	void Gameover::dibujar(Juego* juego)
 	{
-
+		Juego::getWindow()->draw(*resultado);
 	}
 
 	void Gameover::desinicializar()

@@ -9,6 +9,8 @@ namespace juego
 {
 	const int tam_tiles = 32;
 
+	bool Gameplay::ganador = false;
+
 	Gameplay::Gameplay()
 	{
 		jugador = new Jugador(90, 2000, { 150.f,250.f });
@@ -47,7 +49,6 @@ namespace juego
 		botonPausa->setRenderer(Juego::getTheme().getRenderer("Button"));
 		botonPausa->connect("pressed", [&]() {Juego::setEstadoActual(pausa, false); });
 		Juego::getGui()->add(botonPausa);
-		ganador = false;
 	}
 
 	void Gameplay::chequearInput()

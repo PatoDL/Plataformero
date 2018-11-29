@@ -218,6 +218,6 @@ namespace juego
 
 	void Juego::dibujarVersion()
 	{
-		getWindow()->draw(version);
+		window->draw(version);
 	}
 }
