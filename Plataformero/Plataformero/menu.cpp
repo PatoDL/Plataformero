@@ -27,12 +27,18 @@ namespace juego
 			button[i]=tgui::Button::create();
 		}
 
-		
+		version.setString("v0.1");
+		version.setCharacterSize(40);
+		version.setFillColor(Color::White);
+		version.setFont(*Juego::getGui()->getFont());
+		version.setPosition((Juego::getAnchoPantalla()-version.getString().getSize()*120/5) - 20, 20);
+		//version.setStyle(sf::Text::Bold | sf::Text::Underlined);
+
 		String* texto[cantBotones];
 		texto[0] = new String("Jugar");
-		texto[1] = new String("Creditos");
+		texto[1] = new String("Opciones");
 		texto[2] = new String("Salir");
-		tgui::Layout2d* size = new tgui::Layout2d(Vector2f{ 120,60 });
+		tgui::Layout2d* size = new tgui::Layout2d(Vector2f{ 120,60 }); //tamaño estandar
 
 		int distanciaBotones = 60;
 
@@ -45,7 +51,7 @@ namespace juego
 				button[i]->setRenderer(Juego::getTheme().getRenderer("Button"));
 				//tgui::ButtonRenderer(theme.getRenderer("Button")).setBackgroundColor(sf::Color::Red);
 
-				button[i]->setTextSize(40);
+				button[i]->setTextSize(40); //tamaño estandar
 				if (texto[i]->getSize() > 5)
 				{
 					button[i]->setSize(texto[i]->getSize() * 120 / 5, size->y);
@@ -110,7 +116,7 @@ namespace juego
 
 	void Menu::dibujar(Juego* juego)
 	{
-		
+		Juego::getWindow()->draw(version);
 	}
 
 	void Menu::desinicializar()
