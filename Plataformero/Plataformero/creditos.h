@@ -3,10 +3,15 @@
 
 #include "pantalla.h"
 
+#include "TGUI/TGUI.hpp"
+
+using namespace tgui;
+
 namespace juego
 {
 	class Creditos :public Pantalla
 	{
+		Button::Ptr atras;
 	public:
 		Creditos();
 		~Creditos();

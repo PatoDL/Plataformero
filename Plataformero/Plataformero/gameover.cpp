@@ -11,6 +11,11 @@ namespace juego
 		{
 			botonGO[i] = NULL;
 		}
+
+		for (int i = 0; i < cantBotonesMenu; i++)
+		{
+			botonGO[i] = tgui::Button::create();
+		}
 	}
 
 
@@ -20,11 +25,6 @@ namespace juego
 
 	void Gameover::inicializar()
 	{
-		for (int i = 0; i < cantBotonesMenu; i++)
-		{
-			botonGO[i] = tgui::Button::create();
-		}
-
 		String* texto[cantBotonesMenu];
 		texto[0] = new String("Volver a Jugar");
 		texto[1] = new String("Volver al Menu");
@@ -78,11 +78,10 @@ namespace juego
 					botonGO[i]->setPosition(Juego::getAnchoPantalla() / 2 - botonGO[i]->getSize().x / 2, Juego::getAltoPantalla() / 2 - y / 2);
 				}
 			}
-
-			botonGO[jugarGO]->connect("pressed", [&]() {Juego::setEstadoActual(gameplay, true); });
-			botonGO[menuGO]->connect("pressed", [&]() {Juego::setEstadoActual(menu, false); });
-
 		}
+
+		botonGO[jugarGO]->connect("pressed", [&]() {Juego::setEstadoActual(gameplay, true); });
+		botonGO[menuGO]->connect("pressed", [&]() {Juego::setEstadoActual(menu, false); });
 
 		for (int i = 0; i < cantBotonesMenu; i++)
 		{

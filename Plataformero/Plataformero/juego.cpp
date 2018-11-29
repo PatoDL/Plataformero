@@ -7,6 +7,7 @@
 #include "opciones.h"
 #include "pausa.h"
 #include "gameover.h"
+#include "creditos.h"
 
 namespace juego
 {
@@ -45,6 +46,7 @@ namespace juego
 		pantalla[opciones] = new Opciones();
 		pantalla[pausa] = new Pausa();
 		pantalla[gameover] = new Gameover();
+		pantalla[creditos] = new Creditos();
 		
 		gui->setTarget(*window);
 		theme.load("res/assets/themes/BabyBlue.txt");
@@ -110,7 +112,7 @@ namespace juego
 
 			for (int i = 0; i < cantPantallas; i++)
 			{
-				if (i == estadoActual)
+				if (i == estadoActual && pantalla[i]!=NULL)
 				{
 					pantalla[i]->chequearInput();
 					pantalla[i]->actualizar();
@@ -187,9 +189,13 @@ namespace juego
 				pantalla[estadoActual]->inicializar();
 			}
 
-			if (estadoActual == menu&&estadoAnterior==gameover && reinicio)
+			if ((estadoActual == menu&&estadoAnterior==gameover && reinicio))
 			{
 				pantalla[gameplay]->inicializar();
+			}
+			else if (estadoActual == menu && estadoAnterior == pausa)
+			{
+				pantalla[gameplay]->desinicializar();
 			}
 			//estadoAnterior = estadoActual;
 		}

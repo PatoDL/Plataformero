@@ -106,6 +106,7 @@ namespace juego
 
 		button[0]->connect("pressed", [&]() { Juego::setEstadoActual(gameplay,false); });
 		button[1]->connect("pressed", [&]() { Juego::setEstadoActual(opciones,false); });
+		button[2]->connect("pressed", [&]() {Juego::setEstadoActual(creditos, false); });
 		button[3]->connect("pressed", [&]() {Juego::setInGame(false); });
 	}
 

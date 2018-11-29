@@ -13,8 +13,8 @@ namespace juego
 {
 	enum Estados
 	{
-		gameplay,
 		menu,
+		gameplay,
 		creditos,
 		gameover,
 		opciones,
