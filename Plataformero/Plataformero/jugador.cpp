@@ -19,6 +19,7 @@ namespace juego
 	bool caminandoDer;
 	bool caminandoIzq;
 	float tiempoAnimacion;
+	float timer;
 	Jugador::Jugador(float x, float y, Vector2f v) :Personaje(x, y, v)
 	{
 		tex.loadFromFile("res/assets/char.png");
@@ -32,7 +33,7 @@ namespace juego
 
 		src.top = 0;
 		src.left = 0;
-		src.width = sprite.getLocalBounds().width / 5;
+		src.width = sprite.getLocalBounds().width / 6;
 		src.height = sprite.getLocalBounds().height;
 
 		sprite.setTextureRect(src);
@@ -44,9 +45,9 @@ namespace juego
 		caminandoDer = false;
 		caminandoIzq = false;
 		tiempoAnimacion = 0;
-
+		timer = 0.0f;
 		posColision = { false,false,false,false };
-		enSalto = false;
+		enSalto = true;
 		velSalto = getVel().y;
 	}
 
@@ -105,30 +106,46 @@ namespace juego
 		Personaje::update();
 
 		tiempoAnimacion += Juego::getFrameTime();
-		cout << tiempoAnimacion << endl;
+		timer += Juego::getFrameTime();
 		
 			if (enSalto)
 			{
-				src.left = src.width*3;
+				src.left = src.width*4;
 			}
 			else if (caminandoDer)
 			{
 				sprite.setScale(1, 1);
-				if (tiempoAnimacion>0.15f)
+				if (tiempoAnimacion<0.10f)
 				{
 					src.left = src.width;
 				}
+				else if (tiempoAnimacion<0.20f)
+				{
+					src.left = src.width * 2;
+				}
+				else if (tiempoAnimacion<0.30f)
+				{
+					src.left = src.width * 3;
+				}
 				else
 				{
-					src.left = src.width*2;
+					src.left = src.width * 2;
 				}
 			}
 			else if (caminandoIzq)
 			{
 				sprite.setScale(-1, 1);
-				if (tiempoAnimacion>0.15f)
+				if (tiempoAnimacion<0.10f)
 				{
 					src.left = src.width;
+				}
+				else if (tiempoAnimacion<0.20f)
+				{
+					src.left = src.width * 2;
+				}
+				else if (tiempoAnimacion<0.30f)
+				{
+					src.left = src.width * 3;
 				}
 				else
 				{
@@ -152,9 +169,13 @@ namespace juego
 
 			sprite.setTextureRect(src);
 
-			if (tiempoAnimacion > 0.3f)
+			if (tiempoAnimacion > 0.4f)
 			{
 				tiempoAnimacion = 0;
+			}
+			if (timer > 2&&timer<3)
+			{
+				enSalto = false;
 			}
 	}
 
