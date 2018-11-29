@@ -1,4 +1,4 @@
-![logo](logo\logo.png)
+![logo](/logo/logo.png)
 
 This is a simple platformer game made in C++ with SFML library. 
 
@@ -6,11 +6,11 @@ You only have to run, jump and dash to kill the enemies.
 
 These are some screenshots of the game:
 
-![screenshot-1](screenshots\screenshot-1.png)
+![screenshot-1](/screenshots/screenshot-1.png)
 
 
 
-![screenshot-1](screenshots\screenshot-2.png)
+![screenshot-1](/screenshots/screenshot-2.png)
 
 
 
