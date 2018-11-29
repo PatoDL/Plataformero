@@ -14,7 +14,7 @@ namespace juego
 	{
 	}
 
-	void Opciones::init()
+	void Opciones::inicializar()
 	{
 		atras = Button::create();
 		atras->setText("Atras");
@@ -35,24 +35,24 @@ namespace juego
 		Juego::getGui()->add(atras);
 	}
 
-	void Opciones::checkInput() 
+	void Opciones::chequearInput() 
 	{
 
 	}
 
-	void Opciones::update()
+	void Opciones::actualizar()
 	{
 		setResolucion800x600->setSize(Juego::getAnchoPantalla() *100/1200, Juego::getAltoPantalla() *50/800);
 		setResolucion800x600->setPosition(Juego::getAnchoPantalla() / 2 - setResolucion800x600->getSize().x / 2,
 			Juego::getAltoPantalla() / 2 - setResolucion800x600->getSize().y / 2);
 	}
 
-	void Opciones::draw(Juego* juego)
+	void Opciones::dibujar(Juego* juego)
 	{
 
 	}
 
-	void Opciones::deInit()
+	void Opciones::desinicializar()
 	{
 		atras->setVisible(false);
 		setResolucion800x600->setVisible(false);

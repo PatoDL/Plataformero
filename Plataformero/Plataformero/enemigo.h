@@ -12,10 +12,10 @@ namespace juego
 	public:
 		Enemigo(float x, float y,sf::Vector2f v);
 		~Enemigo();
-		void init();
+		void inicializar();
 		void mover();
-		void update();
-		void draw();
+		void actualizar();
+		void dibujar();
 	};
 }
 #endif

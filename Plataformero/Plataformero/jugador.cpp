@@ -33,7 +33,7 @@ namespace juego
 
 		sprite.setTextureRect(src);
 
-		init();
+		inicializar();
 	}
 
 
@@ -42,7 +42,7 @@ namespace juego
 
 	}
 
-	void Jugador::init()
+	void Jugador::inicializar()
 	{
 		setColSize({ static_cast<float> (sprite.getTextureRect().width), static_cast<float>(sprite.getTextureRect().height) });
 		sprite.setOrigin(sprite.getTextureRect().width / 2, sprite.getTextureRect().height / 2);
@@ -115,12 +115,12 @@ namespace juego
 		}
 	}
 
-	void Jugador::update()
+	void Jugador::actualizar()
 	{
 		if (!posColision._abajo && !enSalto)
 			aplicarGravedad();
 		sprite.setPosition(pos);
-		Personaje::update();
+		Personaje::actualizar();
 
 		tiempoAnimacion += Juego::getFrameTime();
 		timer += Juego::getFrameTime();
@@ -196,7 +196,7 @@ namespace juego
 			}
 	}
 
-	void Jugador::draw()
+	void Jugador::dibujar()
 	{
 		Juego::getWindow()->draw(sprite);
 

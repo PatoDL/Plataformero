@@ -31,15 +31,15 @@ namespace juego
 		bool miraDer;
 		float timerEntreDash;
 		float timerPosiciones;
-		Sprite sprDash[cantSprDash];	//guarda el sprite y su poosicion para dibujar el dash
+		sf::Sprite sprDash[cantSprDash];	//guarda el sprite y su poosicion para dibujar el dash
 		bool sprActivo[cantSprDash];
 	public:
 		Jugador(float x, float y, sf::Vector2f v);
 		~Jugador();
-		void init();
+		void inicializar();
 		void mover();
-		void update();
-		void draw();
+		void actualizar();
+		void dibujar();
 		Jugador getJug();
 		vecColisiones getColision();
 		void setPosColision(vecColisiones vec);

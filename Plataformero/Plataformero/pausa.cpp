@@ -23,7 +23,7 @@ namespace juego
 	{
 	}
 	
-	void Pausa::init()
+	void Pausa::inicializar()
 	{
 
 		fondo.setPosition({ 0,0 });
@@ -108,22 +108,22 @@ namespace juego
 		}
 	}
 
-	void Pausa::checkInput()
+	void Pausa::chequearInput()
 	{
 
 	}
 
-	void Pausa::update()
+	void Pausa::actualizar()
 	{
 		
 	}
 
-	void Pausa::draw(Juego* juego)
+	void Pausa::dibujar(Juego* juego)
 	{
 		Juego::getWindow()->draw(fondo);
 	}
 
-	void Pausa::deInit()
+	void Pausa::desinicializar()
 	{
 		for (int i = 0; i < cantBotonesPausa; i++)
 		{

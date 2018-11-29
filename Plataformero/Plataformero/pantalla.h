@@ -10,11 +10,11 @@ namespace juego
 	public:
 		Pantalla();
 		~Pantalla();
-		virtual void init() = 0;
-		virtual void checkInput() = 0;
-		virtual void update() = 0;
-		virtual void draw(Juego* juego) = 0;
-		virtual void deInit() = 0;
+		virtual void inicializar() = 0;
+		virtual void chequearInput() = 0;
+		virtual void actualizar() = 0;
+		virtual void dibujar(Juego* juego) = 0;
+		virtual void desinicializar() = 0;
 	};
 }
 #endif

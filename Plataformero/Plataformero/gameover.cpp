@@ -18,7 +18,7 @@ namespace juego
 	{
 	}
 
-	void Gameover::init()
+	void Gameover::inicializar()
 	{
 		for (int i = 0; i < cantBotonesMenu; i++)
 		{
@@ -93,22 +93,22 @@ namespace juego
 		}
 	}
 
-	void Gameover::checkInput()
+	void Gameover::chequearInput()
 	{
 
 	}
 
-	void Gameover::update()
+	void Gameover::actualizar()
 	{
 
 	}
 
-	void Gameover::draw(Juego* juego)
+	void Gameover::dibujar(Juego* juego)
 	{
 
 	}
 
-	void Gameover::deInit()
+	void Gameover::desinicializar()
 	{
 		for (int i = 0; i < cantBotonesMenu; i++)
 		{

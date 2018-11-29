@@ -16,7 +16,7 @@ namespace juego
 
 	tgui::Theme Juego::theme;
 
-	sf::Font Juego::mainFont;
+	sf::Font Juego::_fuente;
 
 	Pantalla* Juego::pantalla[cantPantallas];
 
@@ -46,11 +46,11 @@ namespace juego
 		
 		gui->setTarget(*window);
 		theme.load("res/assets/themes/BabyBlue.txt");
-		if (!mainFont.loadFromFile("res/assets/fuentes/ANTQUAB.ttf"))
+		if (!_fuente.loadFromFile("res/assets/fuentes/ANTQUAB.ttf"))
 		{
 			//error
 		}
-		gui->setFont(mainFont);
+		gui->setFont(_fuente);
 	}
 
 	Juego::~Juego()
@@ -80,8 +80,8 @@ namespace juego
 
 	void Juego::ejecutar(Juego* juego)
 	{
-		pantalla[menu]->init();
-		pantalla[menu]->draw(juego);
+		pantalla[menu]->inicializar();
+		pantalla[menu]->dibujar(juego);
 		while (getInGame())
 		{
 			sf::Event event;
@@ -104,13 +104,13 @@ namespace juego
 			{
 				if (i == estadoActual)
 				{
-					pantalla[i]->checkInput();
-					pantalla[i]->update();
+					pantalla[i]->chequearInput();
+					pantalla[i]->actualizar();
 					if (estadoActual == pausa)
 					{
-						pantalla[gameplay]->draw(juego);
+						pantalla[gameplay]->dibujar(juego);
 					}
-					pantalla[i]->draw(juego);
+					pantalla[i]->dibujar(juego);
 				}
 			}
 			
@@ -165,18 +165,23 @@ namespace juego
 		{
 			if (e != pausa)
 			{
-				pantalla[estadoAnterior]->deInit();
+				pantalla[estadoAnterior]->desinicializar();
 			}
 			if (estadoActual == gameplay)
 			{
 				if (estadoAnterior != pausa || reinicio)
 				{
-					pantalla[estadoActual]->init();
+					pantalla[estadoActual]->inicializar();
 				}
 			}
 			else
 			{
-				pantalla[estadoActual]->init();
+				pantalla[estadoActual]->inicializar();
+			}
+
+			if (estadoActual == menu&&estadoAnterior==gameover)
+			{
+				pantalla[gameplay]->inicializar();
 			}
 			//estadoAnterior = estadoActual;
 		}
@@ -192,8 +197,8 @@ namespace juego
 		return theme;
 	}
 
-	sf::Font Juego::getFont()
+	sf::Font Juego::getFuente()
 	{
-		return mainFont;
+		return _fuente;
 	}
 }

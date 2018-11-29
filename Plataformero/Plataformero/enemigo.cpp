@@ -35,7 +35,7 @@ namespace juego
 	{
 	}
 
-	void Enemigo::init()
+	void Enemigo::inicializar()
 	{
 		
 		sprite.setTextureRect(src);
@@ -47,7 +47,7 @@ namespace juego
 		setX(getPos().x - getVel().x*Juego::getFrameTime());
 	}
 
-	void Enemigo::update()
+	void Enemigo::actualizar()
 	{
 		tiempoAnimacion += Juego::getFrameTime();
 
@@ -70,7 +70,7 @@ namespace juego
 		sprite.setPosition(pos);
 	}
 
-	void Enemigo::draw()
+	void Enemigo::dibujar()
 	{
 		Juego::getWindow()->draw(sprite);
 	}

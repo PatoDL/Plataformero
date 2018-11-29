@@ -9,6 +9,12 @@ namespace juego
 {
 	const int cantBotonesMenu = 2;
 
+	enum EstadosGO
+	{
+		ganaste,
+		perdiste
+	};
+
 	enum BotonesGO
 	{
 		jugarGO,
@@ -21,11 +27,11 @@ namespace juego
 	public:
 		Gameover();
 		~Gameover();
-		void init();
-		void checkInput();
-		void update();
-		void draw(Juego* juego);
-		void deInit();
+		void inicializar();
+		void chequearInput();
+		void actualizar();
+		void dibujar(Juego* juego);
+		void desinicializar();
 	};
 }
 #endif

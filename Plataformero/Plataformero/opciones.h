@@ -16,11 +16,11 @@ namespace juego
 	public:
 		Opciones();
 		~Opciones();
-		void init();
-		void checkInput();
-		void update();
-		void draw(Juego* juego);
-		void deInit();
+		void inicializar();
+		void chequearInput();
+		void actualizar();
+		void dibujar(Juego* juego);
+		void desinicializar();
 	};
 }
 #endif

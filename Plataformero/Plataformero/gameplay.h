@@ -15,20 +15,20 @@ namespace juego
 {
 	class Gameplay : public Pantalla
 	{
-		Personaje* main;
-		Personaje* enemy;
+		Personaje* jugador;
+		Personaje* enemigo;
 		View view;
 		Mapa* map;
-		Button::Ptr pause;
+		Button::Ptr botonPausa;
 		Colisiones colisiones;
 	public:
 		Gameplay();
 		~Gameplay();
-		void init();
-		void checkInput();
-		void update();
-		void draw(Juego* juego);
-		void deInit();
+		void inicializar();
+		void chequearInput();
+		void actualizar();
+		void dibujar(Juego* juego);
+		void desinicializar();
 		void posicionarCamara();
 	};
 }

@@ -85,12 +85,12 @@ namespace juego
 		pos.y = y;
 	}
 
-	void Personaje::update()
+	void Personaje::actualizar()
 	{
 		collider.setPosition(pos);
 	}
 
-	void Personaje::draw()
+	void Personaje::dibujar()
 	{
 		
 	}

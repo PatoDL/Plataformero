@@ -20,7 +20,7 @@ namespace juego
 	{
 	}
 
-	void Menu::init()
+	void Menu::inicializar()
 	{
 		for (int i = 0; i < cantBotones; i++)
 		{
@@ -98,22 +98,22 @@ namespace juego
 		button[2]->connect("pressed", [&]() {Juego::setInGame(false); });
 	}
 
-	void Menu::checkInput()
+	void Menu::chequearInput()
 	{
 		
 	}
 
-	void Menu::update()
+	void Menu::actualizar()
 	{
 		
 	}
 
-	void Menu::draw(Juego* juego)
+	void Menu::dibujar(Juego* juego)
 	{
 		
 	}
 
-	void Menu::deInit()
+	void Menu::desinicializar()
 	{
 		for (int i = 0; i < cantBotones; i++)
 		{

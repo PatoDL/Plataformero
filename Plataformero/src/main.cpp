@@ -3,11 +3,13 @@
 
 using namespace juego;
 
-void main()
+int main()
 {
-	Juego* game = new Juego();
+	Juego* j = new Juego();
 
-	game->ejecutar(game);
+	j->ejecutar(j);
 
-	delete game;
+	delete j;
+
+	return 0;
 }
