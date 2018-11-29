@@ -8,6 +8,10 @@ namespace juego
 {
 
 	static Texture tex;
+	static String* texto[cantBotones];
+	static tgui::Layout2d* size = new tgui::Layout2d(Vector2f{ 120,60 }); //tamaño estandar
+	static int distanciaBotones = 60;
+
 	Menu::Menu()
 	{
 		for (int i = 0; i < cantBotones; i++)
@@ -19,6 +23,14 @@ namespace juego
 
 	Menu::~Menu()
 	{
+		for (int i = 0; i < cantBotones; i++)
+		{
+			if (texto[i] != NULL)
+			{
+				delete texto[i];
+				texto[i] = NULL;
+			}
+		}
 	}
 
 	void Menu::inicializar()
@@ -39,14 +51,11 @@ namespace juego
 		logo.setScale(1.3f, 1.3f);
 		logo.setPosition(static_cast<float>(Juego::getAnchoPantalla() / 2 - logo.getTexture()->getSize().x/2*logo.getScale().x), static_cast<float>( Juego::getAltoPantalla() / 5));
 
-		String* texto[cantBotones];
+		
 		texto[0] = new String("Jugar");
 		texto[1] = new String("Opciones");
 		texto[2] = new String("Creditos");
 		texto[3] = new String("Salir");
-		tgui::Layout2d* size = new tgui::Layout2d(Vector2f{ 120,60 }); //tamaño estandar
-
-		int distanciaBotones = 60;
 
 		for (int i = 0; i < cantBotones; i++)
 		{
@@ -134,6 +143,11 @@ namespace juego
 			if (button[i] != NULL)
 			{
 				button[i]->setVisible(false);
+				button[i] = NULL;
+			}
+			if (texto[i] != NULL)
+			{
+				texto[i] = NULL;
 			}
 		}
 	}
