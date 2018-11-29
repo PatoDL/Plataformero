@@ -58,6 +58,10 @@ namespace juego {
 						}
 					}
 				}
+				else if (mapa->getTipoPlataforma(i) == llegada)
+				{
+					Juego::setEstadoActual(gameover, false);
+				}
 				else
 				{
 					Juego::setEstadoActual(gameover, false);

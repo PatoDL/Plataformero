@@ -30,8 +30,10 @@ namespace juego {
 			plataformas[j].setOrigin(sf::Vector2f(i->attribute("width").as_int() / 2.f, i->attribute("height").as_int() / 2.f));
 			if (tipo == "piso")
 				tipoPlat[j] = piso;
-			else
+			else if(tipo=="pinches")
 				tipoPlat[j] = pinches;
+			else
+				tipoPlat[j] = llegada;
 			if (i->child("properties").child("property").attribute("value").as_bool())
 			{
 				tieneEnemigo[j] = true;
