@@ -1,5 +1,4 @@
 #include "../Plataformero/juego.h"
-#include "TGUI/TGUI.hpp"
 
 using namespace juego;
 

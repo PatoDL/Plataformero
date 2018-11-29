@@ -1,7 +1,9 @@
 #include "enemigo.h"
-#include "juego.h"
 
 #include <iostream>
+
+#include "juego.h"
+
 #include "SFML\Graphics.hpp"
 
 using namespace sf;

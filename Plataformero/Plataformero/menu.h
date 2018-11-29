@@ -3,6 +3,7 @@
 
 #include "pantalla.h"
 #include "juego.h"
+
 #include "TGUI/TGUI.hpp"
 #include "SFML/Graphics.hpp"
 

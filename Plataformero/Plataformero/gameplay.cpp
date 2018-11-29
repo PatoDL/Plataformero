@@ -5,8 +5,6 @@
 #include "enemigo.h"
 #include "mapa.h"
 
-//using namespace tgui;
-
 namespace juego
 {
 	const int tam_tiles = 32;
@@ -14,7 +12,6 @@ namespace juego
 	Gameplay::Gameplay()
 	{
 		jugador = new Jugador(90, 2000, { 150.f,250.f });
-		//enemigo = new Enemigo(90, 1800, { 100.f,10.f });
 		map = new Mapa;
 		map->crearPlataformas();
 		crearEnemigos(map);
@@ -36,9 +33,6 @@ namespace juego
 
 	void Gameplay::inicializar()
 	{
-		/*jugador = new Jugador(10, 10, { 100.f,100.f });
-		enemigo = new Enemigo(500, 500, { 500.f,500.f });
-		map = new Mapa;*/
 		view.setSize(static_cast<float>(Juego::getAnchoPantalla() / 2.5f), static_cast<float>(Juego::getAnchoPantalla() / 2.5f));
 		view.setCenter(jugador->getPos());
 		jugador->inicializar();
@@ -91,8 +85,6 @@ namespace juego
 		juego->getWindow()->setView(view);
 		map->getTileMap()->ShowObjects(false);
 		juego->getWindow()->draw(*map->getTileMap());
-		//juego->getWindow()->dibujar(jugador->getCol());
-		//juego->getWindow()->dibujar(enemigo->getCol());
 		jugador->dibujar();
 		for (int i = 0; i < cantEnemigos; i++)
 		{

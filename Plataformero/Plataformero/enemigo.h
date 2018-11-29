@@ -2,9 +2,9 @@
 #define ENEMIGO_H
 
 #include "personaje.h"
+#include "mapa.h"
 
 #include "SFML/Graphics.hpp"
-#include "mapa.h"
 
 const int cantEnemigos = 5;
 

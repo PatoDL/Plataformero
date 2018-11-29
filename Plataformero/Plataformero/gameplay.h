@@ -4,11 +4,12 @@
 #include "pantalla.h"
 #include "personaje.h"
 #include "juego.h"
+
 #include "mapa.h"
 #include "colisiones.h"
+
 #include "TGUI/TGUI.hpp"
 
-//const int cantEnemigos=5;
 
 namespace juego
 {

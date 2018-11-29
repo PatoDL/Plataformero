@@ -1,10 +1,11 @@
 #ifndef COLISIONES_H
 #define COLISIONES_H
 
-#include "SFML\Graphics.hpp"
 #include "jugador.h"
 #include "mapa.h"
 #include "enemigo.h"
+
+#include "SFML\Graphics.hpp"
 
 namespace juego {
 	class Colisiones

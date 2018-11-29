@@ -4,7 +4,6 @@
 #include "pantalla.h"
 
 #include "SFML/Graphics.hpp"
-
 #include "TGUI/Gui.hpp"
 
 using namespace sf;

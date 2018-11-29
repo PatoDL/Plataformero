@@ -1,9 +1,11 @@
 #include "pausa.h"
 
 #include <iostream>
+
+#include "juego.h"
+
 #include "SFML/Graphics.hpp"
 #include "TGUI/TGUI.hpp"
-#include "juego.h"
 
 namespace juego
 {
