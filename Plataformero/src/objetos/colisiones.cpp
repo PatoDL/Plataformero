@@ -49,14 +49,12 @@ namespace juego {
 						{
 							jug->setX(plataforma.getGlobalBounds().left + plataforma.getGlobalBounds().width + jug->getCol().getSize().x / 2 - difColisionX);
 							jug->setPosColisionIzq(true);
-							//jug->setDash(false);
 						}
 						//DERECHA
 						else if (colisionaDer(jug, plataforma) && (!jugadorEnPlataformaX(jug, plataforma)||jug->getDash()))
 						{
 							jug->setX(plataforma.getGlobalBounds().left - jug->getCol().getSize().x / 2 + difColisionX);
 							jug->setPosColisionDer(true);
-							//jug->setDash(false);
 						}
 					}
 				}

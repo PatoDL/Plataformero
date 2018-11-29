@@ -23,6 +23,8 @@ namespace juego
 
 	void Menu::inicializar()
 	{
+		
+
 		for (int i = 0; i < cantBotones; i++)
 		{
 			button[i]=tgui::Button::create();
