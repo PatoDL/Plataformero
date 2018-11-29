@@ -33,6 +33,7 @@ namespace juego {
 						jug->setPosColisionPiso(true);
 						jug->setEnSalto(false);
 						jug->setVelCaida(0.0f);
+						
 					}
 					//ARRIBA
 					else if (colisionaArriba(jug, plataforma) && !jugadorEnPlataformaY(jug, plataforma) && jugadorEnPlataformaX(jug, plataforma))
@@ -40,20 +41,23 @@ namespace juego {
 						jug->setY(plataforma.getGlobalBounds().top + plataforma.getGlobalBounds().height + jug->getCol().getSize().y / 2 - difColisionY);
 						jug->setPosColisionTecho(true);
 						jug->setVelSalto(-50.0f);
+						
 					}
 					else
 					{
 						//IZQUIERDA
-						if (colisionaIzq(jug, plataforma) && !jugadorEnPlataformaX(jug, plataforma))
+						if (colisionaIzq(jug, plataforma) && (!jugadorEnPlataformaX(jug, plataforma)||jug->getDash()))
 						{
 							jug->setX(plataforma.getGlobalBounds().left + plataforma.getGlobalBounds().width + jug->getCol().getSize().x / 2 - difColisionX);
 							jug->setPosColisionIzq(true);
+							//jug->setDash(false);
 						}
 						//DERECHA
-						else if (colisionaDer(jug, plataforma) && !jugadorEnPlataformaX(jug, plataforma))
+						else if (colisionaDer(jug, plataforma) && (!jugadorEnPlataformaX(jug, plataforma)||jug->getDash()))
 						{
 							jug->setX(plataforma.getGlobalBounds().left - jug->getCol().getSize().x / 2 + difColisionX);
 							jug->setPosColisionDer(true);
+							//jug->setDash(false);
 						}
 					}
 				}

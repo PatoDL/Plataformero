@@ -274,18 +274,20 @@ namespace juego
 		{
 			static int i = 0;
 			timerDash += Juego::getFrameTime();
-			if (timerDash < 0.15f)
+			if (timerDash < 0.1f)
 			{
 				
 				if (miraDer)
 				{
-					setX(getPos().x + getVel().x*Juego::getFrameTime()*multiplicadorDash);
+					if(!posColision._der)
+						setX(getPos().x + getVel().x*Juego::getFrameTime()*multiplicadorDash);
 				}
 				else
 				{
-					setX(getPos().x - getVel().x*Juego::getFrameTime()*multiplicadorDash);
+					if(!posColision._izq)
+						setX(getPos().x - getVel().x*Juego::getFrameTime()*multiplicadorDash);
 				}
-				if (timerPosiciones >= 0.15f/cantSprDash*i && i<cantSprDash)
+				if (timerPosiciones >= 0.1f/cantSprDash*i && i<cantSprDash)
 				{
 					sprDash[i] = sprite;
 					sprActivo[i] = true;
@@ -311,6 +313,21 @@ namespace juego
 		else
 		{
 			timerEntreDash -= Juego::getFrameTime();
+			for (int i = 0; i < cantSprDash; i++)
+			{
+				sprActivo[i] = false;
+			}
+			timerDash = 0.0f;			
 		}
+	}
+
+	void Jugador::setDash(bool b)
+	{
+		haceDash = b;
+	}
+
+	bool Jugador::getDash()
+	{
+		return haceDash;
 	}
 }
