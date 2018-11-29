@@ -2,88 +2,88 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
-    <ClCompile Include="colisiones.cpp">
-      <Filter>src\Objetos</Filter>
-    </ClCompile>
-    <ClCompile Include="enemigo.cpp">
-      <Filter>src\Objetos</Filter>
-    </ClCompile>
-    <ClCompile Include="jugador.cpp">
-      <Filter>src\Objetos</Filter>
-    </ClCompile>
-    <ClCompile Include="mapa.cpp">
-      <Filter>src\Objetos</Filter>
-    </ClCompile>
-    <ClCompile Include="personaje.cpp">
-      <Filter>src\Objetos</Filter>
-    </ClCompile>
-    <ClCompile Include="juego.cpp">
-      <Filter>src\Juego</Filter>
-    </ClCompile>
-    <ClCompile Include="menu.cpp">
-      <Filter>src\Pantallas</Filter>
-    </ClCompile>
-    <ClCompile Include="opciones.cpp">
-      <Filter>src\Pantallas</Filter>
-    </ClCompile>
-    <ClCompile Include="pantalla.cpp">
-      <Filter>src\Pantallas</Filter>
-    </ClCompile>
-    <ClCompile Include="pausa.cpp">
-      <Filter>src\Pantallas</Filter>
-    </ClCompile>
-    <ClCompile Include="creditos.cpp">
-      <Filter>src\Pantallas</Filter>
-    </ClCompile>
-    <ClCompile Include="gameover.cpp">
-      <Filter>src\Pantallas</Filter>
-    </ClCompile>
-    <ClCompile Include="gameplay.cpp">
-      <Filter>src\Pantallas</Filter>
-    </ClCompile>
     <ClCompile Include="..\libs\pugi-xml\lib\pugixml.cpp">
       <Filter>src\Libs</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\juego\juego.cpp">
+      <Filter>src\Juego</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\pantallas\creditos.cpp">
+      <Filter>src\Pantallas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\pantallas\gameover.cpp">
+      <Filter>src\Pantallas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\pantallas\gameplay.cpp">
+      <Filter>src\Pantallas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\pantallas\menu.cpp">
+      <Filter>src\Pantallas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\pantallas\opciones.cpp">
+      <Filter>src\Pantallas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\pantallas\pantalla.cpp">
+      <Filter>src\Pantallas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\pantallas\pausa.cpp">
+      <Filter>src\Pantallas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\objetos\colisiones.cpp">
+      <Filter>src\Objetos</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\objetos\enemigo.cpp">
+      <Filter>src\Objetos</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\objetos\jugador.cpp">
+      <Filter>src\Objetos</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\objetos\mapa.cpp">
+      <Filter>src\Objetos</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\objetos\personaje.cpp">
+      <Filter>src\Objetos</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="colisiones.h">
-      <Filter>src\Objetos</Filter>
-    </ClInclude>
-    <ClInclude Include="enemigo.h">
-      <Filter>src\Objetos</Filter>
-    </ClInclude>
-    <ClInclude Include="jugador.h">
-      <Filter>src\Objetos</Filter>
-    </ClInclude>
-    <ClInclude Include="mapa.h">
-      <Filter>src\Objetos</Filter>
-    </ClInclude>
-    <ClInclude Include="personaje.h">
-      <Filter>src\Objetos</Filter>
-    </ClInclude>
-    <ClInclude Include="juego.h">
+    <ClInclude Include="..\src\juego\juego.h">
       <Filter>src\Juego</Filter>
     </ClInclude>
-    <ClInclude Include="menu.h">
+    <ClInclude Include="..\src\pantallas\creditos.h">
       <Filter>src\Pantallas</Filter>
     </ClInclude>
-    <ClInclude Include="opciones.h">
+    <ClInclude Include="..\src\pantallas\gameover.h">
       <Filter>src\Pantallas</Filter>
     </ClInclude>
-    <ClInclude Include="pantalla.h">
+    <ClInclude Include="..\src\pantallas\gameplay.h">
       <Filter>src\Pantallas</Filter>
     </ClInclude>
-    <ClInclude Include="pausa.h">
+    <ClInclude Include="..\src\pantallas\menu.h">
       <Filter>src\Pantallas</Filter>
     </ClInclude>
-    <ClInclude Include="creditos.h">
+    <ClInclude Include="..\src\pantallas\opciones.h">
       <Filter>src\Pantallas</Filter>
     </ClInclude>
-    <ClInclude Include="gameover.h">
+    <ClInclude Include="..\src\pantallas\pantalla.h">
       <Filter>src\Pantallas</Filter>
     </ClInclude>
-    <ClInclude Include="gameplay.h">
+    <ClInclude Include="..\src\pantallas\pausa.h">
       <Filter>src\Pantallas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\objetos\colisiones.h">
+      <Filter>src\Objetos</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\objetos\enemigo.h">
+      <Filter>src\Objetos</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\objetos\jugador.h">
+      <Filter>src\Objetos</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\objetos\mapa.h">
+      <Filter>src\Objetos</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\objetos\personaje.h">
+      <Filter>src\Objetos</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

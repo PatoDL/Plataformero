@@ -1,12 +1,12 @@
 #ifndef GAMEPLAY_H
 #define GAMEPLAY_H
 
-#include "pantalla.h"
-#include "personaje.h"
-#include "juego.h"
+#include "pantallas/pantalla.h"
+#include "objetos/personaje.h"
+#include "juego/juego.h"
 
-#include "mapa.h"
-#include "colisiones.h"
+#include "objetos/mapa.h"
+#include "objetos/colisiones.h"
 
 #include "TGUI/TGUI.hpp"
 

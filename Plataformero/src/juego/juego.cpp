@@ -1,13 +1,11 @@
 #include "juego.h"
 
-#include <iostream>
-
-#include "gameplay.h"
-#include "menu.h"
-#include "opciones.h"
-#include "pausa.h"
-#include "gameover.h"
-#include "creditos.h"
+#include "pantallas/gameplay.h"
+#include "pantallas/menu.h"
+#include "pantallas/opciones.h"
+#include "pantallas/pausa.h"
+#include "pantallas/gameover.h"
+#include "pantallas/creditos.h"
 
 #include "SFML/Graphics.hpp"
 

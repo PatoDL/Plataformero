@@ -1,8 +1,6 @@
 #include "pausa.h"
 
-#include <iostream>
-
-#include "juego.h"
+#include "juego/juego.h"
 
 #include "SFML/Graphics.hpp"
 #include "TGUI/TGUI.hpp"

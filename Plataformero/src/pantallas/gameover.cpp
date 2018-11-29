@@ -1,6 +1,6 @@
 #include "gameover.h"
 
-#include "juego.h"
+#include "juego/juego.h"
 
 #include "TGUI/TGUI.hpp"
 

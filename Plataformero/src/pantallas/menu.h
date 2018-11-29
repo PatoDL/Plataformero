@@ -2,7 +2,7 @@
 #define MENU_H
 
 #include "pantalla.h"
-#include "juego.h"
+#include "juego/juego.h"
 
 #include "TGUI/TGUI.hpp"
 #include "SFML/Graphics.hpp"
@@ -16,8 +16,7 @@ namespace juego
 	class Menu:public Pantalla
 	{
 		tgui::Button::Ptr button[cantBotones];
-		tgui::EditBox::Ptr editBox[cantBotones];
-		
+		tgui::EditBox::Ptr editBox[cantBotones];		
 		sf::Sprite logo;
 	public:
 		Menu();

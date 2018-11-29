@@ -1,7 +1,7 @@
 #ifndef JUEGO_H
 #define JUEGO_H
 
-#include "pantalla.h"
+#include "pantallas/pantalla.h"
 
 #include "SFML/Graphics.hpp"
 #include "TGUI/Gui.hpp"

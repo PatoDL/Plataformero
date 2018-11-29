@@ -1,11 +1,8 @@
 #include "jugador.h"
 
-#include "juego.h"
-#include "colisiones.h"
+#include "juego/juego.h"
 
 #include "SFML\Graphics.hpp"
-#include "SFML/Graphics/Sprite.hpp"
-#include "SFML/Graphics/Texture.hpp"
 
 using namespace sf;
 

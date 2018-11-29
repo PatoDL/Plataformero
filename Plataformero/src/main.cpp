@@ -1,4 +1,4 @@
-#include "../Plataformero/juego.h"
+#include "juego/juego.h"
 
 using namespace juego;
 

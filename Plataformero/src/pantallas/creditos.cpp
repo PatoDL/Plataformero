@@ -1,6 +1,6 @@
 #include "creditos.h"
 
-#include "juego.h"
+#include "juego/juego.h"
 
 namespace juego
 {

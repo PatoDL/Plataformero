@@ -1,7 +1,5 @@
 #include "mapa.h"
 
-#include <iostream>
-
 namespace juego {
 	Mapa::Mapa()
 	{
