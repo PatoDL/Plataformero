@@ -9,10 +9,10 @@ using namespace pugi;
 using namespace tmx;
 using namespace sf;
 
-const int maxPlataformas=105;
+const int maxPlataformas=106;
 
 namespace juego {
-	enum tiposPlataforma{piso,pinches};
+	enum tiposPlataforma{piso,pinches, llegada};
 
 	class Mapa
 	{
