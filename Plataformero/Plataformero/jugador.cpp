@@ -46,7 +46,7 @@ namespace juego
 	void Jugador::inicializar()
 	{
 		setColSize({ static_cast<float> (sprite.getTextureRect().width), static_cast<float>(sprite.getTextureRect().height) });
-		sprite.setOrigin(sprite.getTextureRect().width / 2, sprite.getTextureRect().height / 2);
+		sprite.setOrigin(static_cast<float> (sprite.getTextureRect().width / 2), static_cast<float> ( sprite.getTextureRect().height / 2));
 		setColOrigin(sprite.getOrigin());
 
 		setPos(50, 1800);

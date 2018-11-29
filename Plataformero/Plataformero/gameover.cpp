@@ -69,7 +69,7 @@ namespace juego
 					int y = 0;
 					for (int i = 0; i < cantBotonesMenu; i++)
 					{
-						y += botonGO[i]->getSize().y;  //suma el tamaño de los botones y los espacios intermedios 
+						y += static_cast<int> (botonGO[i]->getSize().y);  //suma el tamaño de los botones y los espacios intermedios 
 						if (i < cantBotonesMenu - 1)	  //para centrar la posicion de los botones
 						{
 							y += distanciaBotones;

@@ -36,8 +36,8 @@ namespace juego
 		}
 
 		logo.setTexture(tex);
-		logo.setScale(1.3, 1.3);
-		logo.setPosition(Juego::getAnchoPantalla() / 2 - logo.getTexture()->getSize().x/2*logo.getScale().x, Juego::getAltoPantalla() / 5);
+		logo.setScale(1.3f, 1.3f);
+		logo.setPosition(static_cast<float>(Juego::getAnchoPantalla() / 2 - logo.getTexture()->getSize().x/2*logo.getScale().x), static_cast<float>( Juego::getAltoPantalla() / 5));
 
 		String* texto[cantBotones];
 		texto[0] = new String("Jugar");
@@ -85,7 +85,7 @@ namespace juego
 					int x = 0;
 					for (int i = 0; i < cantBotones; i++)
 					{
-						x += button[i]->getSize().x;  //suma el tamaño de los botones y los espacios intermedios 
+						x += static_cast<int> (button[i]->getSize().x);  //suma el tamaño de los botones y los espacios intermedios 
 						if (i < cantBotones - 1)	  //para centrar la posicion de los botones
 						{
 							x += distanciaBotones;

@@ -62,7 +62,7 @@ namespace juego
 		version.setCharacterSize(40);
 		version.setFillColor(sf::Color::White);
 		version.setFont(*Juego::getGui()->getFont());
-		version.setPosition((Juego::getAnchoPantalla() - version.getString().getSize() * 120 / 5) - 20, 20);
+		version.setPosition(static_cast<float> ((Juego::getAnchoPantalla() - version.getString().getSize() * 120 / 5)) - 20, 20.0f);
 	}
 
 	Juego::~Juego()
