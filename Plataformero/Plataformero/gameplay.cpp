@@ -36,7 +36,6 @@ namespace juego
 		view.setSize(static_cast<float>(Juego::getAnchoPantalla() / 2.5f), static_cast<float>(Juego::getAnchoPantalla() / 2.5f));
 		view.setCenter(main->getPos());
 		pause = tgui::Button::create();
-
 		pause->setSize(40, 40);
 		pause->setText("xd");
 		pause->setPosition(Juego::getAnchoPantalla() - pause->getSize().x*1.5f, pause->getSize().y / 2);
@@ -55,8 +54,8 @@ namespace juego
 		colisiones.procesarJugadorPlataformas((Jugador*)main,map);
 		enemy->mover();
 		main->update();
-		enemy->update();
 		posicionarCamara();
+		enemy->update();
 	}
 
 	void Gameplay::draw(Juego* juego)
@@ -67,6 +66,7 @@ namespace juego
 		//juego->getWindow()->draw(main->getCol());
 		juego->getWindow()->draw(enemy->getCol());
 		main->draw();
+		enemy->draw();
 	}
 
 	void Gameplay::posicionarCamara()

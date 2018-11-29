@@ -13,6 +13,7 @@ namespace juego
 		Enemigo(float x, float y,sf::Vector2f v);
 		~Enemigo();
 		void mover();
+		void update();
 		void draw();
 	};
 }

@@ -13,13 +13,12 @@ using namespace sf;
 
 namespace juego
 {
-	Texture tex;
-	IntRect src;
-	IntRect original;
+	static Texture tex;
+	static IntRect src;
 	bool caminandoDer;
 	bool caminandoIzq;
-	float tiempoAnimacion;
-	float timer;
+	static float tiempoAnimacion;
+	static float timer;
 	Jugador::Jugador(float x, float y, Vector2f v) :Personaje(x, y, v)
 	{
 		tex.loadFromFile("res/assets/char.png");
@@ -28,8 +27,6 @@ namespace juego
 
 		sprite.setTexture(tex);
 		sprite.setPosition(pos);
-
-		original = sprite.getTextureRect();
 
 		src.top = 0;
 		src.left = 0;
@@ -173,7 +170,7 @@ namespace juego
 			{
 				tiempoAnimacion = 0;
 			}
-			if (timer > 2&&timer<3)
+			if (timer > 2&&timer<2.5f)
 			{
 				enSalto = false;
 			}
