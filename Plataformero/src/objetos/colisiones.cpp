@@ -1,6 +1,7 @@
 #include "colisiones.h"
 
 #include "juego/juego.h"
+#include "pantallas/gameplay.h"
 
 namespace juego {
 
@@ -60,6 +61,7 @@ namespace juego {
 				}
 				else if (mapa->getTipoPlataforma(i) == llegada)
 				{
+					Gameplay::setGanador(true);
 					Juego::setEstadoActual(gameover, false);
 				}
 				else

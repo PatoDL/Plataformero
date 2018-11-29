@@ -21,7 +21,7 @@ namespace juego
 		Mapa* map;
 		tgui::Button::Ptr botonPausa;
 		Colisiones colisiones;
-		bool ganador;
+		static bool ganador;
 	public:
 		Gameplay();
 		~Gameplay();
@@ -32,8 +32,8 @@ namespace juego
 		void desinicializar();
 		void posicionarCamara();
 		void crearEnemigos(Mapa* map);
-		bool getGanador();
-		void setGanador();
+		static bool getGanador();
+		static void setGanador(bool g);
 	};
 }
 #endif

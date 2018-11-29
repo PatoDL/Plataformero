@@ -47,6 +47,7 @@ namespace juego
 		botonPausa->setRenderer(Juego::getTheme().getRenderer("Button"));
 		botonPausa->connect("pressed", [&]() {Juego::setEstadoActual(pausa, false); });
 		Juego::getGui()->add(botonPausa);
+		ganador = false;
 	}
 
 	void Gameplay::chequearInput()
@@ -158,5 +159,15 @@ namespace juego
 
 			enemigo[i] = new Enemigo(posX, posY, { -200.0f,200.0f });
 		}
+	}
+
+	bool Gameplay::getGanador()
+	{
+		return ganador;
+	}
+
+	void Gameplay::setGanador(bool g)
+	{
+		ganador = g;
 	}
 }
