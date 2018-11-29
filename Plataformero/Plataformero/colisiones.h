@@ -1,9 +1,11 @@
 #ifndef COLISIONES_H
 #define COLISIONES_H
 
-#include "SFML\Graphics.hpp"
 #include "jugador.h"
 #include "mapa.h"
+#include "enemigo.h"
+
+#include "SFML\Graphics.hpp"
 
 namespace juego {
 	class Colisiones
@@ -20,6 +22,9 @@ namespace juego {
 		bool jugadorEnPlataformaY(Jugador* jug, RectangleShape plataforma);
 		void procesarJugadorLimites(Jugador* jug, Mapa* mapa, float difColisionX,float difColisionY);
 		void procesarColisiones(Jugador* jug, Mapa* mapa);
+		void procesarJugadorEnemigo(Jugador* jug, Enemigo* enemigo);
+		void procesarDashEnemigo(Jugador* jug, Enemigo* enemigo);
+		void procesarColisionesPersonajes(Jugador* jug, Enemigo* enemigo);
 	};
 }
 

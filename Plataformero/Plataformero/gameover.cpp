@@ -1,7 +1,8 @@
 #include "gameover.h"
 
-#include "TGUI/TGUI.hpp"
 #include "juego.h"
+
+#include "TGUI/TGUI.hpp"
 
 namespace juego
 {

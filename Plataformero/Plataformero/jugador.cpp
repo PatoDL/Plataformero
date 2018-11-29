@@ -1,10 +1,11 @@
 #include "jugador.h"
 
+#include "juego.h"
+#include "colisiones.h"
+
 #include "SFML\Graphics.hpp"
 #include "SFML/Graphics/Sprite.hpp"
 #include "SFML/Graphics/Texture.hpp"
-#include "juego.h"
-#include "colisiones.h"
 
 using namespace sf;
 
@@ -329,5 +330,20 @@ namespace juego
 	bool Jugador::getDash()
 	{
 		return haceDash;
+	}
+
+	Sprite Jugador::getSprDash(int i)
+	{
+		return sprDash[i];
+	}
+
+	bool Jugador::getSprDashActivo(int i)
+	{
+		return sprActivo[i];
+	}
+
+	bool Jugador::getMiraIzq()
+	{
+		return miraIzq;
 	}
 }

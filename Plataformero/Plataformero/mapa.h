@@ -4,7 +4,6 @@
 #include "pugixml.hpp"
 #include "STP/TMXLoader.hpp"
 #include "SFML/Graphics.hpp"
-//#include "gameplay.h"
 
 using namespace pugi;
 using namespace tmx;

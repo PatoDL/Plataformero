@@ -2,6 +2,7 @@
 #define JUGADOR_H
 
 #include "personaje.h"
+
 #include "SFML\Graphics.hpp"
 
 using namespace sf;
@@ -53,6 +54,9 @@ namespace juego
 		void atacar();
 		void setDash(bool b);
 		bool getDash();
+		Sprite getSprDash(int i);
+		bool getSprDashActivo(int i);
+		bool getMiraIzq();
 	};
 }
 

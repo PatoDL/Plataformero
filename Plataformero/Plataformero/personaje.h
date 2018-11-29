@@ -2,6 +2,7 @@
 #define PERSONAJE_H
 
 #include "SFML\Graphics.hpp"
+
 using namespace sf;
 
 namespace juego

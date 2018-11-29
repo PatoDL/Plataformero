@@ -1,13 +1,15 @@
 #include "juego.h"
 
 #include <iostream>
-#include "SFML/Graphics.hpp"
+
 #include "gameplay.h"
 #include "menu.h"
 #include "opciones.h"
 #include "pausa.h"
 #include "gameover.h"
 #include "creditos.h"
+
+#include "SFML/Graphics.hpp"
 
 namespace juego
 {
