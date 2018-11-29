@@ -1,4 +1,4 @@
-# Platformer
+![logo](logo\logo.png)
 
 This is a simple platformer game made in C++ with SFML library. 
 
