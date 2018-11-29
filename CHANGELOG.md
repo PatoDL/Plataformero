@@ -1,4 +1,8 @@
-## v0.1 [2018-11-25]
+## unreleased[2018-11-29]
+### Added
+-menu logo.
+
+## v0.1 [2018-11-28]
 ### Added
 -a map with a character, some inta-killer spikes.
 -a menu with 3 options: play, options and quit.
