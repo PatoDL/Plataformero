@@ -4,6 +4,7 @@
 #include "personaje.h"
 
 #include "SFML/Graphics.hpp"
+#include "mapa.h"
 
 namespace juego
 {
@@ -16,6 +17,7 @@ namespace juego
 		void mover();
 		void actualizar();
 		void dibujar();
+		void chequearEnPlataforma(Mapa* map, int i);
 	};
 }
 #endif
