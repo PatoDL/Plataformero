@@ -14,7 +14,7 @@ namespace juego
 	Gameplay::Gameplay()
 	{
 		main = new Jugador(50, 1800, { 150.f,250.f });
-		enemy = new Enemigo(20, 30, { 100.f,10.f });
+		enemy = new Enemigo(90, 1800, { 100.f,10.f });
 		map = new Mapa;
 		view.setSize(static_cast<float>(Juego::getAnchoPantalla()/2.5f), static_cast<float>(Juego::getAnchoPantalla()/2.5f));
 		view.setCenter(main->getPos());
@@ -35,6 +35,8 @@ namespace juego
 		map = new Mapa;*/
 		view.setSize(static_cast<float>(Juego::getAnchoPantalla() / 2.5f), static_cast<float>(Juego::getAnchoPantalla() / 2.5f));
 		view.setCenter(main->getPos());
+		main->init();
+		enemy->init();
 		pause = tgui::Button::create();
 		pause->setSize(40, 40);
 		pause->setText("xd");
@@ -64,7 +66,7 @@ namespace juego
 		map->getTileMap()->ShowObjects(false);
 		juego->getWindow()->draw(*map->getTileMap());
 		//juego->getWindow()->draw(main->getCol());
-		juego->getWindow()->draw(enemy->getCol());
+		//juego->getWindow()->draw(enemy->getCol());
 		main->draw();
 		enemy->draw();
 	}

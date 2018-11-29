@@ -11,6 +11,7 @@ namespace juego
 	static Texture tex;
 	static float tiempoAnimacion;
 	static IntRect src;
+
 	Enemigo::Enemigo(float x, float y, Vector2f v) :Personaje(x, y, v)
 	{
 		setColPos(getCol().getPosition());
@@ -34,6 +35,13 @@ namespace juego
 	{
 	}
 
+	void Enemigo::init()
+	{
+		
+		sprite.setTextureRect(src);
+		sprite.setPosition(pos);
+	}
+
 	void Enemigo::mover()
 	{
 		setX(getPos().x - getVel().x*Juego::getFrameTime());
@@ -43,7 +51,7 @@ namespace juego
 	{
 		tiempoAnimacion += Juego::getFrameTime();
 
-		if (tiempoAnimacion < 0.5f)
+		if (tiempoAnimacion < 0.25f)
 		{
 			src.left = 0;
 		}
@@ -52,12 +60,14 @@ namespace juego
 			src.left = src.width;
 		}
 
-		
+		sprite.setTextureRect(src);
 
-		if (tiempoAnimacion > 1)
+		if (tiempoAnimacion > 0.5f)
 		{
 			tiempoAnimacion = 0;
 		}
+
+		sprite.setPosition(pos);
 	}
 
 	void Enemigo::draw()

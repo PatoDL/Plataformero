@@ -6,6 +6,7 @@
 #include "menu.h"
 #include "opciones.h"
 #include "pausa.h"
+#include "gameover.h"
 
 namespace juego
 {
@@ -41,6 +42,7 @@ namespace juego
 		pantalla[menu] = new Menu();
 		pantalla[opciones] = new Opciones();
 		pantalla[pausa] = new Pausa();
+		pantalla[gameover] = new Gameover();
 		
 		gui->setTarget(*window);
 		theme.load("res/assets/themes/BabyBlue.txt");

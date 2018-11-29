@@ -26,6 +26,7 @@ namespace juego
 	public:
 		Jugador(float x, float y, sf::Vector2f v);
 		~Jugador();
+		void init();
 		void mover();
 		void update();
 		void draw();

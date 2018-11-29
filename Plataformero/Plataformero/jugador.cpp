@@ -19,6 +19,7 @@ namespace juego
 	bool caminandoIzq;
 	static float tiempoAnimacion;
 	static float timer;
+
 	Jugador::Jugador(float x, float y, Vector2f v) :Personaje(x, y, v)
 	{
 		tex.loadFromFile("res/assets/char.png");
@@ -35,9 +36,22 @@ namespace juego
 
 		sprite.setTextureRect(src);
 
+		init();
+	}
+
+
+	Jugador::~Jugador()
+	{
+
+	}
+
+	void Jugador::init()
+	{
 		setColSize({ static_cast<float> (sprite.getTextureRect().width), static_cast<float>(sprite.getTextureRect().height) });
 		sprite.setOrigin(sprite.getTextureRect().width / 2, sprite.getTextureRect().height / 2);
 		setColOrigin(sprite.getOrigin());
+
+		setPos(50, 1800);
 
 		caminandoDer = false;
 		caminandoIzq = false;
@@ -46,12 +60,6 @@ namespace juego
 		posColision = { false,false,false,false };
 		enSalto = true;
 		velSalto = getVel().y;
-	}
-
-
-	Jugador::~Jugador()
-	{
-
 	}
 
 	void Jugador::mover()

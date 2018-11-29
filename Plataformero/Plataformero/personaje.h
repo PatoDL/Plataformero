@@ -20,6 +20,7 @@ namespace juego
 	public:
 		Personaje(float x, float y/*, Sprite spr*/,sf::Vector2f v);
 		~Personaje();
+		virtual void init()=0;
 		virtual void mover() = 0;
 		void setVidas(int vid);
 		int getVidas();

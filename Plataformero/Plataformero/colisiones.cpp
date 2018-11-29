@@ -63,7 +63,7 @@ namespace juego {
 				}
 				else
 				{
-					Juego::setInGame(false);
+					Juego::setEstadoActual(gameover, false);
 				}
 				
 			}

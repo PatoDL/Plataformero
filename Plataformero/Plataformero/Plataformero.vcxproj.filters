@@ -2,49 +2,31 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
-    <ClCompile Include="juego.cpp" />
-    <ClCompile Include="pantalla.cpp" />
-    <ClCompile Include="gameplay.cpp" />
-    <ClCompile Include="personaje.cpp" />
-    <ClCompile Include="jugador.cpp" />
-    <ClCompile Include="enemigo.cpp" />
-    <ClCompile Include="mapa.cpp" />
-    <ClCompile Include="menu.cpp" />
-<<<<<<< HEAD
-    <ClCompile Include="opciones.cpp" />
-    <ClCompile Include="pausa.cpp" />
-=======
     <ClCompile Include="colisiones.cpp" />
->>>>>>> f06b1c0e9f9c78452bbf74de3a9c432240db80ac
+    <ClCompile Include="enemigo.cpp" />
+    <ClCompile Include="gameplay.cpp" />
+    <ClCompile Include="juego.cpp" />
+    <ClCompile Include="jugador.cpp" />
+    <ClCompile Include="menu.cpp" />
+    <ClCompile Include="opciones.cpp" />
+    <ClCompile Include="pantalla.cpp" />
+    <ClCompile Include="pausa.cpp" />
+    <ClCompile Include="personaje.cpp" />
+    <ClCompile Include="mapa.cpp" />
+    <ClCompile Include="gameover.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Juego">
-      <UniqueIdentifier>{727a1b7c-fbec-4670-930e-7532054b343c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Juego\Menu">
-      <UniqueIdentifier>{7629c6da-4997-4a51-99dc-2a594adef5c5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Juego\Creditos">
-      <UniqueIdentifier>{24747539-c8c2-445e-86be-060b1c090427}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Juego\Gameplay">
-      <UniqueIdentifier>{a9d1c7d0-4f3f-4da8-acff-ec45f98ff38f}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="juego.h" />
-    <ClInclude Include="pantalla.h" />
-    <ClInclude Include="gameplay.h" />
-    <ClInclude Include="personaje.h" />
-    <ClInclude Include="jugador.h" />
-    <ClInclude Include="enemigo.h" />
-    <ClInclude Include="mapa.h" />
-    <ClInclude Include="menu.h" />
-<<<<<<< HEAD
-    <ClInclude Include="opciones.h" />
-    <ClInclude Include="pausa.h" />
-=======
     <ClInclude Include="colisiones.h" />
->>>>>>> f06b1c0e9f9c78452bbf74de3a9c432240db80ac
+    <ClInclude Include="enemigo.h" />
+    <ClInclude Include="gameplay.h" />
+    <ClInclude Include="juego.h" />
+    <ClInclude Include="jugador.h" />
+    <ClInclude Include="menu.h" />
+    <ClInclude Include="opciones.h" />
+    <ClInclude Include="pantalla.h" />
+    <ClInclude Include="pausa.h" />
+    <ClInclude Include="personaje.h" />
+    <ClInclude Include="mapa.h" />
+    <ClInclude Include="gameover.h" />
   </ItemGroup>
 </Project>
