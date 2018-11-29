@@ -1,6 +1,6 @@
 #include "opciones.h"
 
-#include "juego.h"
+#include "juego/juego.h"
 
 namespace juego
 {

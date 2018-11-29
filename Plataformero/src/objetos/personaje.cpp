@@ -1,8 +1,8 @@
 #include "personaje.h"
 
-#include "juego.h"
+#include "juego/juego.h"
 
-#include "SFML\Graphics\Sprite.hpp"
+//#include "SFML\Graphics\Sprite.hpp"
 
 namespace juego
 {

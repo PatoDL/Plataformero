@@ -1,8 +1,6 @@
 #include "colisiones.h"
 
-#include <iostream>
-
-#include "juego.h"
+#include "juego/juego.h"
 
 namespace juego {
 

@@ -1,9 +1,9 @@
 #include "gameplay.h"
 
-#include "jugador.h"
-#include "juego.h"
-#include "enemigo.h"
-#include "mapa.h"
+#include "objetos/jugador.h"
+#include "juego/juego.h"
+#include "objetos/enemigo.h"
+#include "objetos/mapa.h"
 
 namespace juego
 {

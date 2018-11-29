@@ -1,8 +1,6 @@
 #include "enemigo.h"
 
-#include <iostream>
-
-#include "juego.h"
+#include "juego/juego.h"
 
 #include "SFML\Graphics.hpp"
 
@@ -16,7 +14,6 @@ namespace juego
 
 	Enemigo::Enemigo(float x, float y, Vector2f v) :Personaje(x, y, v)
 	{
-		//setColPos(getCol().getPosition());
 		setColSize({40.0f, 40.0f});
 		setColColor(Color::Red);
 		if (!tex.loadFromFile("res/assets/bug.png"))
