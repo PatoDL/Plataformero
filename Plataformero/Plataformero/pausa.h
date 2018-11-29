@@ -13,9 +13,9 @@ namespace juego
 
 	enum BotonesPausa
 	{
-		reiniciarB,
+		despausaB,
 		menuB,
-		despausaB
+		reiniciarB
 	};
 
 	class Pausa :public Pantalla

@@ -22,7 +22,7 @@ namespace juego
 		atras->setTextSize(40);
 		atras->setSize(120, 60);
 		atras->setPosition(atras->getSize().x / 2, atras->getSize().y / 2);
-		atras->connect("pressed", [&]() {Juego::setEstadoActual(menu); });
+		atras->connect("pressed", [&]() {Juego::setEstadoActual(menu, false); });
 
 		setResolucion800x600 = Button::create();
 		setResolucion800x600->setSize(100,50);

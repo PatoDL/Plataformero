@@ -104,7 +104,7 @@ namespace juego
 				{
 					pantalla[i]->checkInput();
 					pantalla[i]->update();
-					if (i == pausa)
+					if (estadoActual == pausa)
 					{
 						pantalla[gameplay]->draw(juego);
 					}
@@ -155,12 +155,29 @@ namespace juego
 		return estadoActual;
 	}
 
-	void Juego::setEstadoActual(Estados e)
+	void Juego::setEstadoActual(Estados e, bool reinicio)
 	{
 		estadoAnterior = estadoActual;
-		pantalla[estadoAnterior]->deInit();
 		estadoActual = e;
-		pantalla[estadoActual]->init();
+		if (estadoActual != estadoAnterior)
+		{
+			if (e != pausa)
+			{
+				pantalla[estadoAnterior]->deInit();
+			}
+			if (estadoActual == gameplay)
+			{
+				if (estadoAnterior != pausa || reinicio)
+				{
+					pantalla[estadoActual]->init();
+				}
+			}
+			else
+			{
+				pantalla[estadoActual]->init();
+			}
+			//estadoAnterior = estadoActual;
+		}
 	}
 
 	tgui::Gui* Juego::getGui()

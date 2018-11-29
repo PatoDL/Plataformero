@@ -41,7 +41,7 @@ namespace juego
 		pause->setText("xd");
 		pause->setPosition(Juego::getAnchoPantalla() - pause->getSize().x*1.5f, pause->getSize().y / 2);
 		pause->setRenderer(Juego::getTheme().getRenderer("Button"));
-		pause->connect("pressed", [&]() {Juego::setEstadoActual(pausa); });
+		pause->connect("pressed", [&]() {Juego::setEstadoActual(pausa, false); });
 		Juego::getGui()->add(pause);
 	}
 
@@ -64,7 +64,7 @@ namespace juego
 		juego->getWindow()->setView(view);
 		map->getTileMap()->ShowObjects(false);
 		juego->getWindow()->draw(*map->getTileMap());
-		juego->getWindow()->draw(main->getCol());
+		//juego->getWindow()->draw(main->getCol());
 		juego->getWindow()->draw(enemy->getCol());
 		main->draw();
 	}
