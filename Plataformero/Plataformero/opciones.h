@@ -11,7 +11,6 @@ namespace juego
 {
 	class Opciones :public Pantalla
 	{
-		Button::Ptr setResolucion800x600;
 		Button::Ptr atras;
 	public:
 		Opciones();
