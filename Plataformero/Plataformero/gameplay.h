@@ -8,9 +8,7 @@
 #include "colisiones.h"
 #include "TGUI/TGUI.hpp"
 
-//using namespace tgui;
-
-const int cantEnemigos=5;
+//const int cantEnemigos=5;
 
 namespace juego
 {

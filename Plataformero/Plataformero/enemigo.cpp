@@ -42,6 +42,7 @@ namespace juego
 		sprite.setPosition(pos);
 		sprite.setOrigin(sprite.getGlobalBounds().height, (sprite.getGlobalBounds().width / 2));
 		setColOrigin(sprite.getOrigin());
+		estaVivo = true;
 	}
 
 	void Enemigo::mover()
@@ -79,6 +80,7 @@ namespace juego
 		}
 
 		sprite.setPosition(pos);
+		setColPos(pos);
 	}
 
 	void Enemigo::dibujar()
@@ -88,10 +90,20 @@ namespace juego
 
 	void Enemigo::chequearEnPlataforma(Mapa* map, int i)
 	{
-		if (getPos().x <= map->getPlataforma(map->getPlatConEnemigo(i)).getGlobalBounds().left || 
-			getPos().x >= map->getPlataforma(map->getPlatConEnemigo(i)).getGlobalBounds().left+ map->getPlataforma(map->getPlatConEnemigo(i)).getGlobalBounds().width)
+		if (getPos().x - getCol().getGlobalBounds().width/2 <= map->getPlataforma(map->getPlatConEnemigo(i)).getGlobalBounds().left || 
+			getPos().x + getCol().getGlobalBounds().width / 2 >= map->getPlataforma(map->getPlatConEnemigo(i)).getGlobalBounds().left+ map->getPlataforma(map->getPlatConEnemigo(i)).getGlobalBounds().width)
 		{
 			setVel({ getVel().x*-1, getVel().y });
 		}
+	}
+
+	bool Enemigo::getEstaVivo()
+	{
+		return estaVivo;
+	}
+
+	void Enemigo::setEstaVivo(bool vivo)
+	{
+		estaVivo = vivo;
 	}
 }

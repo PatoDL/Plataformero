@@ -330,4 +330,19 @@ namespace juego
 	{
 		return haceDash;
 	}
+
+	Sprite Jugador::getSprDash(int i)
+	{
+		return sprDash[i];
+	}
+
+	bool Jugador::getSprDashActivo(int i)
+	{
+		return sprActivo[i];
+	}
+
+	bool Jugador::getMiraIzq()
+	{
+		return miraIzq;
+	}
 }

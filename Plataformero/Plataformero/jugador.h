@@ -53,6 +53,9 @@ namespace juego
 		void atacar();
 		void setDash(bool b);
 		bool getDash();
+		Sprite getSprDash(int i);
+		bool getSprDashActivo(int i);
+		bool getMiraIzq();
 	};
 }
 

@@ -135,6 +135,49 @@ namespace juego {
 
 		procesarJugadorPlataformas(jug, mapa, difColisionX, difColisionY);
 		procesarJugadorLimites(jug, mapa, difColisionX, difColisionY);
-
 	}
+
+	void Colisiones::procesarJugadorEnemigo(Jugador* jug, Enemigo* enemigo)
+	{
+		if (jug->getCol().getGlobalBounds().intersects(enemigo->getCol().getGlobalBounds()))
+		{
+			Juego::setEstadoActual(gameover, false);
+		}
+		
+	}
+
+	void Colisiones::procesarDashEnemigo(Jugador* jug, Enemigo* enemigo)
+	{
+		RectangleShape colliderDash;
+
+		if (jug->getMiraIzq())
+		{
+			colliderDash.setPosition(jug->getCol().getGlobalBounds().left, jug->getCol().getGlobalBounds().top);
+			colliderDash.setSize({ jug->getSprDash(0).getGlobalBounds().left + jug->getSprDash(0).getGlobalBounds().width - jug->getCol().getGlobalBounds().left, jug->getCol().getGlobalBounds().height });
+		}
+		else
+		{
+			colliderDash.setPosition(jug->getSprDash(0).getGlobalBounds().left, jug->getSprDash(0).getGlobalBounds().top);
+			colliderDash.setSize({ jug->getCol().getGlobalBounds().left + jug->getCol().getGlobalBounds().width - jug->getSprDash(0).getGlobalBounds().left, jug->getCol().getGlobalBounds().height });
+		}
+		
+
+		if (colliderDash.getGlobalBounds().intersects(enemigo->getCol().getGlobalBounds())) 
+		{
+			enemigo->setEstaVivo(false);
+		}
+	}
+
+	void Colisiones::procesarColisionesPersonajes(Jugador* jug, Enemigo* enemigo)
+	{
+		if (jug->getDash()&&jug->getSprDashActivo(0))
+		{
+			procesarDashEnemigo(jug, enemigo);
+		}
+		else
+		{
+			procesarJugadorEnemigo(jug, enemigo);
+		}
+	}
+
 }

@@ -28,7 +28,10 @@ namespace juego
 	{
 		delete jugador;
 		delete map;
-		delete enemigo;
+		for (int i = 0; i < cantEnemigos; i++)
+		{
+			delete enemigo[i];
+		}
 	}
 
 	void Gameplay::inicializar()
@@ -45,7 +48,7 @@ namespace juego
 		}
 		botonPausa = tgui::Button::create();
 		botonPausa->setSize(40, 40);
-		botonPausa->setText("P");
+		botonPausa->setText("| |");
 		botonPausa->setPosition(Juego::getAnchoPantalla() - botonPausa->getSize().x*1.5f, botonPausa->getSize().y / 2);
 		botonPausa->setRenderer(Juego::getTheme().getRenderer("Button"));
 		botonPausa->connect("pressed", [&]() {Juego::setEstadoActual(pausa, false); });
@@ -63,9 +66,20 @@ namespace juego
 		colisiones.procesarColisiones(static_cast<Jugador*>(jugador), map);
 		for (int i = 0; i < cantEnemigos; i++)
 		{
-			static_cast<Enemigo*>(enemigo[i])->chequearEnPlataforma(map,i);
-			enemigo[i]->mover();
-			enemigo[i]->actualizar();
+			if (static_cast<Enemigo*>(enemigo[i])->getEstaVivo())
+			{
+				colisiones.procesarColisionesPersonajes(static_cast<Jugador*>(jugador), static_cast<Enemigo*>(enemigo[i]));
+			}
+		}
+		for (int i = 0; i < cantEnemigos; i++)
+		{
+			if (static_cast<Enemigo*>(enemigo[i])->getEstaVivo())
+			{
+				static_cast<Enemigo*>(enemigo[i])->chequearEnPlataforma(map,i);
+				enemigo[i]->mover();
+				enemigo[i]->actualizar();
+			}
+			
 		}
 		jugador->actualizar();
 		posicionarCamara();
@@ -82,7 +96,10 @@ namespace juego
 		jugador->dibujar();
 		for (int i = 0; i < cantEnemigos; i++)
 		{
-			enemigo[i]->dibujar();
+			if (static_cast<Enemigo*>(enemigo[i])->getEstaVivo())
+			{
+				enemigo[i]->dibujar();
+			}
 		}
 	}
 

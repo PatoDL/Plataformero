@@ -4,6 +4,7 @@
 #include "SFML\Graphics.hpp"
 #include "jugador.h"
 #include "mapa.h"
+#include "enemigo.h"
 
 namespace juego {
 	class Colisiones
@@ -20,6 +21,9 @@ namespace juego {
 		bool jugadorEnPlataformaY(Jugador* jug, RectangleShape plataforma);
 		void procesarJugadorLimites(Jugador* jug, Mapa* mapa, float difColisionX,float difColisionY);
 		void procesarColisiones(Jugador* jug, Mapa* mapa);
+		void procesarJugadorEnemigo(Jugador* jug, Enemigo* enemigo);
+		void procesarDashEnemigo(Jugador* jug, Enemigo* enemigo);
+		void procesarColisionesPersonajes(Jugador* jug, Enemigo* enemigo);
 	};
 }
 
