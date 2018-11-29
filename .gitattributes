@@ -4,3 +4,4 @@
 *.aup filter=lfs diff=lfs merge=lfs -text
 *.au filter=lfs diff=lfs merge=lfs -text
 *.auf filter=lfs diff=lfs merge=lfs -text
+*.bfxrsound filter=lfs diff=lfs merge=lfs -text
