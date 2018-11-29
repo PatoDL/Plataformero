@@ -38,6 +38,7 @@ namespace juego
 		void setPosColisionDer(bool col);
 		bool getEnSalto();
 		void setEnSalto(bool salto);
+		void setVelSalto(float vel);
 	};
 }
 

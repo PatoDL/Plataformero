@@ -97,7 +97,7 @@ namespace juego
 
 	void Personaje::aplicarGravedad()
 	{
-		setVelCaida(velCaida + gravedad / 4 * Juego::getFrameTime());
+		setVelCaida(velCaida + gravedad  * Juego::getFrameTime());
 		setY(pos.y + velCaida*Juego::getFrameTime());
 	}
 

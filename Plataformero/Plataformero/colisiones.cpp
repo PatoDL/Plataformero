@@ -18,8 +18,8 @@ namespace juego {
 	{
 		jug->setPosColision({ false,false,false,false });
 
-		static float difColisionX = jug->getCol().getGlobalBounds().width*0.01f;
-		static float difColisionY = jug->getCol().getGlobalBounds().height*0.01f;
+		static float difColisionX = jug->getCol().getGlobalBounds().width*0.009f;
+		static float difColisionY = jug->getCol().getGlobalBounds().height*0.009f;
 
 		for (int i = 0; i < maxPlataformas; i++)
 		{
@@ -35,12 +35,14 @@ namespace juego {
 						jug->setY(plataforma.getGlobalBounds().top - jug->getCol().getSize().y / 2 + difColisionY);
 						jug->setPosColisionPiso(true);
 						jug->setEnSalto(false);
+						jug->setVelCaida(0.0f);
 					}
 					//ARRIBA
 					else if (colisionaArriba(jug, plataforma) && !jugadorEnPlataformaY(jug, plataforma) && jugadorEnPlataformaX(jug, plataforma))
 					{
-						jug->setY(plataforma.getGlobalBounds().top - plataforma.getGlobalBounds().height + jug->getCol().getSize().y / 2 - difColisionY);
+						jug->setY(plataforma.getGlobalBounds().top + plataforma.getGlobalBounds().height + jug->getCol().getSize().y / 2 - difColisionY);
 						jug->setPosColisionTecho(true);
+						jug->setVelSalto(-50.0f);
 					}
 					else
 					{

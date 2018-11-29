@@ -34,11 +34,11 @@ namespace juego
 		src.height = sprite.getLocalBounds().height;
 
 		sprite.setTextureRect(src);
-		
+
 		setColSize({ static_cast<float> (sprite.getTextureRect().width), static_cast<float>(sprite.getTextureRect().height) });
 		sprite.setOrigin(sprite.getTextureRect().width / 2, sprite.getTextureRect().height / 2);
 		setColOrigin(sprite.getOrigin());
-				
+
 		enAire = false;
 		cambio = false;
 
@@ -57,18 +57,18 @@ namespace juego
 	{
 		if (Keyboard::isKeyPressed(Keyboard::Up))
 		{
-			if (!posColision._arriba && !enSalto && posColision._abajo) 
+			if (!posColision._arriba && !enSalto && posColision._abajo)
 			{
 				cambio = true;
 				enAire = true;
 				enSalto = true;
 			}
 			posColision._abajo = false;
-			
+
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Left))
 		{
-			if (!posColision._izq) 
+			if (!posColision._izq)
 			{
 				setX(getPos().x - getVel().x*Juego::getFrameTime());
 			}
@@ -96,7 +96,7 @@ namespace juego
 
 	void Jugador::update()
 	{
-		if(!posColision._abajo && !enSalto)
+		if (!posColision._abajo && !enSalto)
 			aplicarGravedad();
 		sprite.setPosition(pos);
 		Personaje::update();
@@ -140,12 +140,12 @@ namespace juego
 
 	void Jugador::setPosColisionPiso(bool col)
 	{
-		posColision._abajo=col;
+		posColision._abajo = col;
 	}
 
 	void Jugador::setPosColisionTecho(bool col)
 	{
-		posColision._arriba=col;
+		posColision._arriba = col;
 	}
 
 	void Jugador::setPosColisionIzq(bool col)
@@ -166,5 +166,10 @@ namespace juego
 	void Jugador::setEnSalto(bool piso)
 	{
 		enSalto = piso;
+	}
+
+	void Jugador::setVelSalto(float vel)
+	{
+		velSalto = vel;
 	}
 }
