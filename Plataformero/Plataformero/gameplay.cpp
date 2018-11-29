@@ -39,7 +39,7 @@ namespace juego
 		enemy->init();
 		pause = tgui::Button::create();
 		pause->setSize(40, 40);
-		pause->setText("xd");
+		pause->setText("P");
 		pause->setPosition(Juego::getAnchoPantalla() - pause->getSize().x*1.5f, pause->getSize().y / 2);
 		pause->setRenderer(Juego::getTheme().getRenderer("Button"));
 		pause->connect("pressed", [&]() {Juego::setEstadoActual(pausa, false); });
@@ -49,6 +49,7 @@ namespace juego
 	void Gameplay::checkInput()
 	{
 		main->mover();
+		((Jugador*)main)->atacar();
 	}
 
 	void Gameplay::update()
