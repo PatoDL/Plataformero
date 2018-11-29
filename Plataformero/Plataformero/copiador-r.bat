@@ -8,6 +8,8 @@ echo Copiando archivos...
 xcopy "%solutiondir%libs\SFML-2.5.1\bin\sfml-window-2.dll" "%target%" /E /Y /S
 xcopy "%solutiondir%libs\SFML-2.5.1\bin\sfml-system-2.dll" "%target%" /E /Y /S
 xcopy "%solutiondir%libs\SFML-2.5.1\bin\sfml-graphics-2.dll" "%target%" /E /Y /S
+xcopy "%solutiondir%libs\SFML-2.5.1\bin\openal32.dll" "%target%" /E /Y /S
+xcopy "%solutiondir%libs\SFML-2.5.1\bin\sfml-audio-2.dll" "%target%" /E /Y /S
 xcopy "%solutiondir%libs\STP\bin\STP.dll" "%target%" /E /Y /S
 xcopy "%solutiondir%libs\STP\bin\zlib.dll" "%target%" /E /Y /S
 mkdir "%target%res\assets"

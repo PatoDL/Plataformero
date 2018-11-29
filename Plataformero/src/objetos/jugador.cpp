@@ -1,8 +1,8 @@
 #include "jugador.h"
 
-#include "juego/juego.h"
-
 #include "SFML\Graphics.hpp"
+#include "SFML/Audio.hpp""
+#include "juego/juego.h"
 
 using namespace sf;
 
@@ -14,10 +14,13 @@ namespace juego
 	bool caminandoIzq;
 	static float tiempoAnimacion;
 	static float timer;
+	static sf::SoundBuffer bufferDash;
+	static sf::Sound dash;
 
 	Jugador::Jugador(float x, float y, Vector2f v) :Personaje(x, y, v)
 	{
 		tex.loadFromFile("res/assets/char.png");
+		bufferDash.loadFromFile("res/assets/dash.wav");
 
 		pos = { x,y };
 
@@ -37,11 +40,12 @@ namespace juego
 
 	Jugador::~Jugador()
 	{
-
+		
 	}
 
 	void Jugador::inicializar()
 	{
+		dash.setBuffer(bufferDash);
 		setColSize({ static_cast<float> (sprite.getTextureRect().width), static_cast<float>(sprite.getTextureRect().height) });
 		sprite.setOrigin(static_cast<float> (sprite.getTextureRect().width / 2), static_cast<float> ( sprite.getTextureRect().height / 2));
 		setColOrigin(sprite.getOrigin());
@@ -267,6 +271,7 @@ namespace juego
 			haceDash = true;
 			timerDash = 0.0f;
 			timerEntreDash = 2.0f;
+			dash.play();
 		}
 		if (haceDash)
 		{
