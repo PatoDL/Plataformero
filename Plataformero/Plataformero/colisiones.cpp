@@ -4,6 +4,7 @@
 #include "juego.h"
 
 namespace juego {
+
 	Colisiones::Colisiones()
 	{
 		
@@ -15,13 +16,8 @@ namespace juego {
 
 	}
 
-	void Colisiones::procesarJugadorPlataformas(Jugador* jug, Mapa* mapa)
+	void Colisiones::procesarJugadorPlataformas(Jugador* jug, Mapa* mapa, float difColisionX, float difColisionY)
 	{
-		jug->setPosColision({ false,false,false,false });
-
-		static float difColisionX = jug->getCol().getGlobalBounds().width*0.009f;
-		static float difColisionY = jug->getCol().getGlobalBounds().height*0.009f;
-
 		for (int i = 0; i < maxPlataformas; i++)
 		{
 			RectangleShape plataforma = mapa->getPlataforma(i);
@@ -104,5 +100,37 @@ namespace juego {
 	{
 		return (jug->getPos().y - jug->getCol().getSize().y / 6 < plataforma.getPosition().y + plataforma.getSize().y / 2 &&
 			jug->getPos().y + jug->getCol().getSize().y / 6 > plataforma.getPosition().y - plataforma.getSize().y / 2);
+	}
+
+	void Colisiones::procesarJugadorLimites(Jugador* jug, Mapa* mapa, float difColisionX, float difColisionY)
+	{
+		if (jug->getPos().x - jug->getCol().getSize().x / 2 <= 0)
+		{
+			jug->setX(0.0f + jug->getCol().getSize().x / 2 - difColisionX);
+			jug->setPosColisionIzq(true);
+		}
+		
+		if (jug->getPos().x+jug->getCol().getSize().x/2>=mapa->getTileMap()->GetWidth()*mapa->getTileMap()->GetTileWidth())
+		{
+			jug->setX(mapa->getTileMap()->GetWidth() * mapa->getTileMap()->GetTileWidth() - jug->getCol().getSize().x / 2 + difColisionX);
+			jug->setPosColisionDer(true);
+		}
+
+		if (jug->getPos().y > mapa->getTileMap()->GetHeight()*mapa->getTileMap()->GetTileHeight() * 0.95f)
+		{
+			Juego::setEstadoActual(gameover, false);
+		}
+	}
+
+	void Colisiones::procesarColisiones(Jugador* jug, Mapa* mapa)
+	{
+		static float difColisionX = jug->getCol().getGlobalBounds().width*0.009f;
+		static float difColisionY = jug->getCol().getGlobalBounds().height*0.009f;
+
+		jug->setPosColision({ false,false,false,false });
+
+		procesarJugadorPlataformas(jug, mapa, difColisionX, difColisionY);
+		procesarJugadorLimites(jug, mapa, difColisionX, difColisionY);
+
 	}
 }

@@ -13,7 +13,7 @@ namespace juego
 
 	Gameplay::Gameplay()
 	{
-		main = new Jugador(50, 1800, { 150.f,250.f });
+		main = new Jugador(90, 2000, { 150.f,250.f });
 		enemy = new Enemigo(90, 1800, { 100.f,10.f });
 		map = new Mapa;
 		view.setSize(static_cast<float>(Juego::getAnchoPantalla()/2.5f), static_cast<float>(Juego::getAnchoPantalla()/2.5f));
@@ -54,7 +54,7 @@ namespace juego
 
 	void Gameplay::update()
 	{
-		colisiones.procesarJugadorPlataformas((Jugador*)main,map);
+		colisiones.procesarColisiones(static_cast<Jugador*>(main), map);
 		enemy->mover();
 		main->update();
 		posicionarCamara();
