@@ -5,6 +5,8 @@
 
 namespace juego
 {
+
+	static Texture tex;
 	Menu::Menu()
 	{
 		for (int i = 0; i < cantBotones; i++)
@@ -32,7 +34,15 @@ namespace juego
 		version.setFillColor(Color::White);
 		version.setFont(*Juego::getGui()->getFont());
 		version.setPosition((Juego::getAnchoPantalla()-version.getString().getSize()*120/5) - 20, 20);
-		//version.setStyle(sf::Text::Bold | sf::Text::Underlined);
+
+		if (!tex.loadFromFile("res/assets/logo.png"))
+		{
+
+		}
+
+		logo.setTexture(tex);
+		logo.setScale(1.3, 1.3);
+		logo.setPosition(Juego::getAnchoPantalla() / 2 - logo.getTexture()->getSize().x/2*logo.getScale().x, Juego::getAltoPantalla() / 5);
 
 		String* texto[cantBotones];
 		texto[0] = new String("Jugar");
@@ -117,6 +127,7 @@ namespace juego
 	void Menu::dibujar(Juego* juego)
 	{
 		Juego::getWindow()->draw(version);
+		Juego::getWindow()->draw(logo);
 	}
 
 	void Menu::desinicializar()
