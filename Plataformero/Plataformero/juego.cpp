@@ -18,6 +18,8 @@ namespace juego
 
 	sf::Font Juego::_fuente;
 
+	sf::Text Juego::version;
+
 	Pantalla* Juego::pantalla[cantPantallas];
 
 	Time Juego::_dt;
@@ -51,6 +53,12 @@ namespace juego
 			//error
 		}
 		gui->setFont(_fuente);
+
+		version.setString("v0.1");
+		version.setCharacterSize(40);
+		version.setFillColor(sf::Color::White);
+		version.setFont(*Juego::getGui()->getFont());
+		version.setPosition((Juego::getAnchoPantalla() - version.getString().getSize() * 120 / 5) - 20, 20);
 	}
 
 	Juego::~Juego()
@@ -200,5 +208,10 @@ namespace juego
 	sf::Font Juego::getFuente()
 	{
 		return _fuente;
+	}
+
+	void Juego::dibujarVersion()
+	{
+		getWindow()->draw(version);
 	}
 }

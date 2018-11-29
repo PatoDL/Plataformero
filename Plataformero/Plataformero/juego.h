@@ -38,6 +38,7 @@ namespace juego
 		static tgui::Gui* gui;
 		static tgui::Theme theme;
 		static sf::Font _fuente;
+		static sf::Text version;
 	public:
 		Juego();
 		~Juego();
@@ -56,6 +57,7 @@ namespace juego
 		static tgui::Gui* getGui();
 		static tgui::Theme getTheme();
 		static sf::Font getFuente();
+		static void dibujarVersion();
 	};
 }
 

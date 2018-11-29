@@ -15,6 +15,7 @@
     <ClCompile Include="mapa.cpp" />
     <ClCompile Include="gameover.cpp" />
     <ClCompile Include="..\libs\pugi-xml\lib\pugixml.cpp" />
+    <ClCompile Include="creditos.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="colisiones.h" />
@@ -29,5 +30,6 @@
     <ClInclude Include="personaje.h" />
     <ClInclude Include="mapa.h" />
     <ClInclude Include="gameover.h" />
+    <ClInclude Include="creditos.h" />
   </ItemGroup>
 </Project>

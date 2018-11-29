@@ -10,13 +10,13 @@ using namespace sf;
 
 namespace juego
 {
-	const int cantBotones = 3;
+	const int cantBotones = 4;
 
 	class Menu:public Pantalla
 	{
 		tgui::Button::Ptr button[cantBotones];
 		tgui::EditBox::Ptr editBox[cantBotones];
-		sf::Text version;
+		
 		sf::Sprite logo;
 	public:
 		Menu();

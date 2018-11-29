@@ -22,6 +22,7 @@
     <ClCompile Include="..\libs\pugi-xml\lib\pugixml.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="colisiones.cpp" />
+    <ClCompile Include="creditos.cpp" />
     <ClCompile Include="enemigo.cpp" />
     <ClCompile Include="gameover.cpp" />
     <ClCompile Include="gameplay.cpp" />
@@ -36,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="colisiones.h" />
+    <ClInclude Include="creditos.h" />
     <ClInclude Include="enemigo.h" />
     <ClInclude Include="gameover.h" />
     <ClInclude Include="gameplay.h" />

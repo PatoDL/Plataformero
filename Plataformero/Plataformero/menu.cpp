@@ -29,12 +29,6 @@ namespace juego
 			button[i]=tgui::Button::create();
 		}
 
-		version.setString("v0.1");
-		version.setCharacterSize(40);
-		version.setFillColor(Color::White);
-		version.setFont(*Juego::getGui()->getFont());
-		version.setPosition((Juego::getAnchoPantalla()-version.getString().getSize()*120/5) - 20, 20);
-
 		if (!tex.loadFromFile("res/assets/logo.png"))
 		{
 
@@ -47,7 +41,8 @@ namespace juego
 		String* texto[cantBotones];
 		texto[0] = new String("Jugar");
 		texto[1] = new String("Opciones");
-		texto[2] = new String("Salir");
+		texto[2] = new String("Creditos");
+		texto[3] = new String("Salir");
 		tgui::Layout2d* size = new tgui::Layout2d(Vector2f{ 120,60 }); //tamaño estandar
 
 		int distanciaBotones = 60;
@@ -111,7 +106,7 @@ namespace juego
 
 		button[0]->connect("pressed", [&]() { Juego::setEstadoActual(gameplay,false); });
 		button[1]->connect("pressed", [&]() { Juego::setEstadoActual(opciones,false); });
-		button[2]->connect("pressed", [&]() {Juego::setInGame(false); });
+		button[3]->connect("pressed", [&]() {Juego::setInGame(false); });
 	}
 
 	void Menu::chequearInput()
@@ -126,7 +121,7 @@ namespace juego
 
 	void Menu::dibujar(Juego* juego)
 	{
-		Juego::getWindow()->draw(version);
+		Juego::dibujarVersion();
 		Juego::getWindow()->draw(logo);
 	}
 
