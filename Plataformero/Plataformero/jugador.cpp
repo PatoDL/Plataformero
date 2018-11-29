@@ -1,13 +1,10 @@
 #include "jugador.h"
 
-#include <iostream>
 #include "SFML\Graphics.hpp"
 #include "SFML/Graphics/Sprite.hpp"
 #include "SFML/Graphics/Texture.hpp"
 #include "juego.h"
 #include "colisiones.h"
-
-using namespace std;
 
 using namespace sf;
 
@@ -48,6 +45,17 @@ namespace juego
 		posColision = { false,false,false,false };
 		enSalto = false;
 		velSalto = getVel().y;
+		haceDash = false;
+		multiplicadorDash = 7.0f;
+		miraIzq = false;
+		miraDer = true;
+		timerEntreDash = 0.0f;
+		timerPosiciones = 0.0f;
+
+		for (int i = 0; i < cantSprDash; i++)
+		{
+			sprActivo[i] = false;
+		}
 	}
 
 
@@ -67,21 +75,25 @@ namespace juego
 			posColision._abajo = false;
 
 		}
-		if (Keyboard::isKeyPressed(Keyboard::Left))
+		if (Keyboard::isKeyPressed(Keyboard::Left) && !haceDash)
 		{
 			if (!posColision._izq)
 			{
 				setX(getPos().x - getVel().x*Juego::getFrameTime());
 				caminandoIzq = true;
+				miraDer = false;
+				miraIzq = true;
 			}
 			posColision._der = false;
 		}
-		if (Keyboard::isKeyPressed(Keyboard::Right))
+		if (Keyboard::isKeyPressed(Keyboard::Right) && !haceDash)
 		{
 			if (!posColision._der)
 			{
 				setX(getPos().x + getVel().x*Juego::getFrameTime());
 				caminandoDer = true;
+				miraDer = true;
+				miraIzq = false;
 			}
 			posColision._izq = false;
 		}
@@ -105,7 +117,6 @@ namespace juego
 		Personaje::update();
 
 		tiempoAnimacion += Juego::getFrameTime();
-		cout << tiempoAnimacion << endl;
 		
 			if (enSalto)
 			{
@@ -152,7 +163,7 @@ namespace juego
 
 			sprite.setTextureRect(src);
 
-			if (tiempoAnimacion > 0.3f)
+			if (tiempoAnimacion > 0.1f)
 			{
 				tiempoAnimacion = 0;
 			}
@@ -161,6 +172,17 @@ namespace juego
 	void Jugador::draw()
 	{
 		Juego::getWindow()->draw(sprite);
+
+		if (haceDash)
+		{
+			for (int i = 0; i < cantSprDash; i++)
+			{
+				if (sprActivo[i])
+				{
+					Juego::getWindow()->draw(sprDash[i]);
+				}
+			}
+		}
 	}
 
 	Jugador Jugador::getJug()
@@ -211,5 +233,57 @@ namespace juego
 	void Jugador::setVelSalto(float vel)
 	{
 		velSalto = vel;
+	}
+
+	void Jugador::atacar()
+	{
+		if (Keyboard::isKeyPressed(Keyboard::Space) && !haceDash && timerEntreDash<0.0f)
+		{
+			haceDash = true;
+			timerDash = 0.0f;
+			timerEntreDash = 2.0f;
+		}
+		if (haceDash)
+		{
+			static int i = 0;
+			timerDash += Juego::getFrameTime();
+			if (timerDash < 0.15f)
+			{
+				
+				if (miraDer)
+				{
+					setX(getPos().x + getVel().x*Juego::getFrameTime()*multiplicadorDash);
+				}
+				else
+				{
+					setX(getPos().x - getVel().x*Juego::getFrameTime()*multiplicadorDash);
+				}
+				if (timerPosiciones >= 0.15f/cantSprDash*i && i<cantSprDash)
+				{
+					sprDash[i] = sprite;
+					sprActivo[i] = true;
+				}
+				else 
+				{
+					timerPosiciones = timerDash;
+				}
+
+				i++;
+			}
+			else
+			{
+				for (int i = 0; i < cantSprDash; i++)
+				{
+					sprActivo[i] = false;
+				}
+				timerDash = 0.0f;
+				haceDash = false;
+				i = 0;
+			}
+		}
+		else
+		{
+			timerEntreDash -= Juego::getFrameTime();
+		}
 	}
 }

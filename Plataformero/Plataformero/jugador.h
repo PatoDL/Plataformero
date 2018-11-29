@@ -16,6 +16,7 @@ namespace juego
 		bool _arriba;
 	};
 
+	const int cantSprDash = 6;
 
 	class Jugador : public Personaje
 	{
@@ -23,6 +24,15 @@ namespace juego
 		vecColisiones posColision;
 		bool enSalto;
 		float velSalto;
+		bool haceDash;
+		float timerDash;
+		float multiplicadorDash;
+		bool miraIzq;
+		bool miraDer;
+		float timerEntreDash;
+		float timerPosiciones;
+		Sprite sprDash[cantSprDash];	//guarda el sprite y su poosicion para dibujar el dash
+		bool sprActivo[cantSprDash];
 	public:
 		Jugador(float x, float y, sf::Vector2f v);
 		~Jugador();
@@ -39,6 +49,7 @@ namespace juego
 		bool getEnSalto();
 		void setEnSalto(bool salto);
 		void setVelSalto(float vel);
+		void atacar();
 	};
 }
 
