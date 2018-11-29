@@ -46,12 +46,21 @@ namespace juego
 
 	void Enemigo::mover()
 	{
-		setX(getPos().x - getVel().x*Juego::getFrameTime());
+		setX(getPos().x + getVel().x*Juego::getFrameTime());
 	}
 
 	void Enemigo::actualizar()
 	{
 		tiempoAnimacion += Juego::getFrameTime();
+
+		if (getVel().x > 0)
+		{
+			sprite.setScale(-1, 1);
+		}
+		else
+		{
+			sprite.setScale(1, 1);
+		}
 
 		if (tiempoAnimacion < 0.25f)
 		{

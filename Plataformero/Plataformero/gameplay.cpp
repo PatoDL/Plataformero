@@ -147,7 +147,7 @@ namespace juego
 			float posX= map->getPlataforma(map->getPlatConEnemigo(i)).getPosition().x;
 			float posY = map->getPlataforma(map->getPlatConEnemigo(i)).getPosition().y - map->getPlataforma(map->getPlatConEnemigo(i)).getSize().y / 2;
 
-			enemigo[i] = new Enemigo(posX, posY, { 200.0f,200.0f });
+			enemigo[i] = new Enemigo(posX, posY, { -200.0f,200.0f });
 		}
 	}
 }
