@@ -101,6 +101,7 @@ namespace juego
 				pantalla[i]->desinicializar();
 			}
 		}
+		delete gui;
 	}
 
 	RenderWindow* Juego::getWindow()
