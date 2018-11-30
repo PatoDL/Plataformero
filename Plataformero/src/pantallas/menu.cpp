@@ -143,15 +143,9 @@ namespace juego
 		Juego::dibujarVersion();
 	}
 
-	void Menu::mostrarGui()
+	void Menu::desinicializar()
 	{
-		for (int i = 0; i < cantBotones; i++)
-		{
-			if (button[i] != NULL)
-			{
-				button[i]->setVisible(true);
-			}
-		}
+
 	}
 
 	void Menu::esconderGui()
@@ -165,8 +159,18 @@ namespace juego
 		}
 	}
 
-	void Menu::desinicializar()
+	void Menu::mostrarGui()
 	{
-		
+		for (int i = 0; i < cantBotones; i++)
+		{
+			if (button[i] != NULL)
+			{
+				button[i]->setVisible(true);
+			}
+		}
 	}
+
+	
+
+	
 }

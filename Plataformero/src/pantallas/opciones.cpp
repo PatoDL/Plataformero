@@ -15,10 +15,6 @@ namespace juego
 	{
 	}
 
-	static void setSeñal()
-	{
-		
-	}
 
 	void Opciones::inicializar()
 	{

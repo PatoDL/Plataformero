@@ -50,6 +50,15 @@ namespace juego
 		reiniciar();
 	}
 
+	void Gameplay::reiniciar()
+	{
+		jugador->inicializar();
+		for (int i = 0; i < cantEnemigos; i++)
+		{
+			enemigo[i]->inicializar();
+		}
+	}
+
 	void Gameplay::chequearInput()
 	{
 		jugador->mover();
@@ -96,12 +105,13 @@ namespace juego
 		}
 	}
 
-	void Gameplay::reiniciar()
+	void Gameplay::desinicializar()
 	{
-		jugador->inicializar();
+		delete map;
+		delete jugador;
 		for (int i = 0; i < cantEnemigos; i++)
 		{
-			enemigo[i]->inicializar();
+			delete enemigo[i];
 		}
 	}
 
@@ -154,10 +164,7 @@ namespace juego
 		botonPausa->setPosition(Juego::getAnchoPantalla() - botonPausa->getSize().x*1.5f, botonPausa->getSize().y / 2);
 	}
 
-	void Gameplay::desinicializar()
-	{
-		
-	}
+	
 
 	void Gameplay::crearEnemigos(Mapa* map)
 	{

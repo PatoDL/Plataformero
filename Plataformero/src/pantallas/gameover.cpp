@@ -128,6 +128,19 @@ namespace juego
 		
 	}
 
+	
+
+	void Gameover::dibujar()
+	{
+		Juego::getWindow()->draw(fondo);
+		Juego::getWindow()->draw(*resultado);
+	}
+
+	void Gameover::desinicializar()
+	{
+		
+	}
+
 	void Gameover::esconderGui()
 	{
 		for (int i = 0; i < cantBotonesMenu; i++)
@@ -148,16 +161,5 @@ namespace juego
 				botonGO[i]->setVisible(true);
 			}
 		}
-	}
-
-	void Gameover::dibujar()
-	{
-		Juego::getWindow()->draw(fondo);
-		Juego::getWindow()->draw(*resultado);
-	}
-
-	void Gameover::desinicializar()
-	{
-		
 	}
 }

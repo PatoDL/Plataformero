@@ -25,7 +25,6 @@ namespace juego
 		virtual void mover() = 0;
 		void setVidas(int vid);
 		int getVidas();
-		void setCol(sf::Vector2f posi, sf::Vector2f tam, sf::Color color);
 		void setVel(sf::Vector2f v);
 		sf::Vector2f getVel();
 		void setColPos(sf::Vector2f posi);

@@ -33,10 +33,10 @@ namespace juego
 		void desinicializar();
 		void posicionarCamara();
 		void crearEnemigos(Mapa* map);
-		static bool getGanador();
-		static void setGanador(bool g);
 		void esconderGui();
 		void mostrarGui();
+		static bool getGanador();
+		static void setGanador(bool g);
 	};
 }
 #endif

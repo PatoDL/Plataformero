@@ -85,16 +85,17 @@ namespace juego {
 			jug->getPos().y > plataforma.getPosition().y);
 	}
 
-	bool Colisiones::colisionaDer(Jugador* jug, RectangleShape plataforma)
-	{
-		return (jug->getPos().x + jug->getCol().getSize().x / 2 >= plataforma.getPosition().x - plataforma.getSize().x / 2 &&
-			jug->getPos().x < plataforma.getPosition().x);
-	}
 
 	bool Colisiones::colisionaIzq(Jugador* jug, RectangleShape plataforma)
 	{
 		return (jug->getPos().x - jug->getCol().getSize().x / 2 <= plataforma.getPosition().x + plataforma.getSize().x / 2 &&
 			jug->getPos().x > plataforma.getPosition().x);
+	}
+
+	bool Colisiones::colisionaDer(Jugador* jug, RectangleShape plataforma)
+	{
+		return (jug->getPos().x + jug->getCol().getSize().x / 2 >= plataforma.getPosition().x - plataforma.getSize().x / 2 &&
+			jug->getPos().x < plataforma.getPosition().x);
 	}
 
 	bool Colisiones::jugadorEnPlataformaX(Jugador* jug, RectangleShape plataforma)		//chequeo que la pos x del personaje no se puperponga con el alto de la plataforma
