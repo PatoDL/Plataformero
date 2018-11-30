@@ -79,16 +79,21 @@ namespace juego
 
 	void Jugador::mover()
 	{
-		if (Keyboard::isKeyPressed(Keyboard::Up))
+		static bool pulsaSalto = false;
+		if (Keyboard::isKeyPressed(Keyboard::Up)&&!pulsaSalto)
 		{
 			if (!posColision._arriba && !enSalto && posColision._abajo)
 			{
+				pulsaSalto = true;
 				enSalto = true;
 				if(Juego::getHaySonido())
-				salto.play();
+					salto.play();
+				posColision._abajo = false;
 			}
-			posColision._abajo = false;
-
+		}
+		else
+		{
+			pulsaSalto = false;
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Left) && !haceDash)
 		{
