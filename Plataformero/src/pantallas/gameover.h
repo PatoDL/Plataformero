@@ -30,8 +30,10 @@ namespace juego
 		void inicializar();
 		void chequearInput();
 		void actualizar();
-		void dibujar(Juego* juego);
+		void dibujar();
 		void desinicializar();
+		void esconderGui();
+		void mostrarGui();
 	};
 }
 #endif

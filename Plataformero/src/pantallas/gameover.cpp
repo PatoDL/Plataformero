@@ -48,7 +48,7 @@ namespace juego
 		}
 		resultado->setFillColor(sf::Color::Yellow);
 		resultado->setCharacterSize(80);
-		resultado->setPosition(Juego::getAnchoPantalla() / 2 /*- resultado->getString().getSize() / 2 * resultado->getCharacterSize()*/, Juego::getAltoPantalla() / 5);
+		resultado->setPosition(Juego::getAnchoPantalla() / 2 - resultado->getString().getSize() / 2 * resultado->getCharacterSize()/2, Juego::getAltoPantalla() / 5);
 
 		for (int i = 0; i < cantBotonesMenu; i++)
 		{
@@ -121,12 +121,7 @@ namespace juego
 		
 	}
 
-	void Gameover::dibujar(Juego* juego)
-	{
-		Juego::getWindow()->draw(*resultado);
-	}
-
-	void Gameover::desinicializar()
+	void Gameover::esconderGui()
 	{
 		for (int i = 0; i < cantBotonesMenu; i++)
 		{
@@ -135,5 +130,26 @@ namespace juego
 				botonGO[i]->setVisible(false);
 			}
 		}
+	}
+
+	void Gameover::mostrarGui()
+	{
+		for (int i = 0; i < cantBotonesMenu; i++)
+		{
+			if (botonGO[i] != NULL)
+			{
+				botonGO[i]->setVisible(true);
+			}
+		}
+	}
+
+	void Gameover::dibujar()
+	{
+		Juego::getWindow()->draw(*resultado);
+	}
+
+	void Gameover::desinicializar()
+	{
+		
 	}
 }

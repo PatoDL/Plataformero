@@ -118,18 +118,34 @@ namespace juego
 		
 	}
 
-	void Pausa::dibujar(Juego* juego)
+	void Pausa::dibujar()
 	{
 		Juego::getWindow()->draw(fondo);
 	}
 
 	void Pausa::desinicializar()
 	{
+		
+	}
+
+	void Pausa::esconderGui()
+	{
 		for (int i = 0; i < cantBotonesPausa; i++)
 		{
 			if (botonP[i] != NULL)
 			{
 				botonP[i]->setVisible(false);
+			}
+		}
+	}
+
+	void Pausa::mostrarGui()
+	{
+		for (int i = 0; i < cantBotonesPausa; i++)
+		{
+			if (botonP[i] != NULL)
+			{
+				botonP[i]->setVisible(true);
 			}
 		}
 	}

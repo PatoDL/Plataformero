@@ -17,22 +17,7 @@ namespace juego
 		map = new Mapa;
 		map->crearPlataformas();
 		crearEnemigos(map);
-		view.setSize(static_cast<float>(Juego::getAnchoPantalla()/2.5f), static_cast<float>(Juego::getAnchoPantalla()/2.5f));
-		view.setCenter(jugador->getPos());	
-	}
-
-	Gameplay::~Gameplay()
-	{
-		delete jugador;
-		delete map;
-		for (int i = 0; i < cantEnemigos; i++)
-		{
-			delete enemigo[i];
-		}
-	}
-
-	void Gameplay::inicializar()
-	{
+		
 		view.setSize(static_cast<float>(Juego::getAnchoPantalla() / 2.5f), static_cast<float>(Juego::getAnchoPantalla() / 2.5f));
 		view.setCenter(jugador->getPos());
 		jugador->inicializar();
@@ -48,6 +33,21 @@ namespace juego
 		botonPausa->connect("pressed", [&]() {Juego::setEstadoActual(pausa, false); });
 		Juego::getGui()->add(botonPausa);
 		setGanador(false);
+	}
+
+	Gameplay::~Gameplay()
+	{
+		delete jugador;
+		delete map;
+		for (int i = 0; i < cantEnemigos; i++)
+		{
+			delete enemigo[i];
+		}
+	}
+
+	void Gameplay::inicializar()
+	{
+		reiniciar();
 	}
 
 	void Gameplay::chequearInput()
@@ -81,11 +81,11 @@ namespace juego
 		
 	}
 
-	void Gameplay::dibujar(Juego* juego)
+	void Gameplay::dibujar()
 	{
-		juego->getWindow()->setView(view);
+		Juego::getWindow()->setView(view);
 		map->getTileMap()->ShowObjects(false);
-		juego->getWindow()->draw(*map->getTileMap());
+		Juego::getWindow()->draw(*map->getTileMap());
 		jugador->dibujar();
 		for (int i = 0; i < cantEnemigos; i++)
 		{
@@ -93,6 +93,15 @@ namespace juego
 			{
 				enemigo[i]->dibujar();
 			}
+		}
+	}
+
+	void Gameplay::reiniciar()
+	{
+		jugador->inicializar();
+		for (int i = 0; i < cantEnemigos; i++)
+		{
+			enemigo[i]->inicializar();
 		}
 	}
 
@@ -147,7 +156,7 @@ namespace juego
 
 	void Gameplay::desinicializar()
 	{
-		botonPausa->setVisible(false);
+		
 	}
 
 	void Gameplay::crearEnemigos(Mapa* map)
@@ -159,6 +168,17 @@ namespace juego
 
 			enemigo[i] = new Enemigo(posX, posY, { -200.0f,200.0f });
 		}
+	}
+
+	void Gameplay::esconderGui()
+	{
+		botonPausa->setVisible(false);
+		view.setCenter({ static_cast<float>(Juego::getAnchoPantalla() / 2),static_cast<float>(Juego::getAltoPantalla() / 2) });
+	}
+
+	void Gameplay::mostrarGui()
+	{
+		botonPausa->setVisible(true);
 	}
 
 	bool Gameplay::getGanador()

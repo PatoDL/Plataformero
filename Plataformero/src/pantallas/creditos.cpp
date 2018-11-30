@@ -35,13 +35,23 @@ namespace juego
 
 	}
 
-	void Creditos::dibujar(Juego* juego)
+	void Creditos::dibujar()
 	{
 		Juego::dibujarVersion();
 	}
 
 	void Creditos::desinicializar()
 	{
+		
+	}
+
+	void Creditos::esconderGui()
+	{
 		atras->setVisible(false);
+	}
+
+	void Creditos::mostrarGui()
+	{
+		atras->setVisible(true);
 	}
 }

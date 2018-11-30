@@ -14,6 +14,11 @@ namespace juego
 	{
 	}
 
+	static void setSeñal()
+	{
+		
+	}
+
 	void Opciones::inicializar()
 	{
 		atras = Button::create();
@@ -24,6 +29,20 @@ namespace juego
 		atras->setPosition(atras->getSize().x / 2, atras->getSize().y / 2);
 		atras->connect("pressed", [&]() {Juego::setEstadoActual(menu, false); });
 		Juego::getGui()->add(atras);
+
+		sonidoONoff = Button::create();
+		
+		
+		sonidoONoff->setText("Sonido: ON");
+		
+
+		sonidoONoff->setRenderer(Juego::getTheme().getRenderer("Button"));
+		sonidoONoff->setTextSize(40);
+		sonidoONoff->setSize(sonidoONoff->getText().getSize()*120/5, sonidoONoff->getText().getSize() * 60 / 5); //tamaño estandar
+		sonidoONoff->setPosition(Juego::getAnchoPantalla()/2-sonidoONoff->getSize().x/2,
+								Juego::getAltoPantalla()/2-sonidoONoff->getSize().y/2);
+		sonidoONoff->connect("pressed", [&]() {Juego::setHaySonido(!Juego::getHaySonido()); });
+		Juego::getGui()->add(sonidoONoff);
 	}
 
 	void Opciones::chequearInput() 
@@ -33,15 +52,35 @@ namespace juego
 
 	void Opciones::actualizar()
 	{
+		if (Juego::getHaySonido())
+		{
+			sonidoONoff->setText("Sonido: ON");
+		}
+		else
+		{
+			sonidoONoff->setText("Sonido: OFF");
+		}
 	}
 
-	void Opciones::dibujar(Juego* juego)
+	void Opciones::dibujar()
 	{
 
 	}
 
 	void Opciones::desinicializar()
 	{
+		
+	}
+
+	void Opciones::esconderGui()
+	{
 		atras->setVisible(false);
+		sonidoONoff->setVisible(false);
+	}
+
+	void Opciones::mostrarGui()
+	{
+		atras->setVisible(true);
+		sonidoONoff->setVisible(true);
 	}
 }

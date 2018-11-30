@@ -13,6 +13,8 @@ namespace juego
 {
 	bool Juego::_inGame = true;
 
+	bool Juego::haySonido = true;
+
 	tgui::Gui* Juego::gui = new tgui::Gui();
 
 	tgui::Theme Juego::theme;
@@ -30,6 +32,7 @@ namespace juego
 	unsigned int Juego::_altoPantalla = 800;
 
 	RenderWindow *Juego::window = new RenderWindow(VideoMode(_anchoPantalla, _altoPantalla), "Plataformero");
+	View Juego::view;
 
 	Estados Juego::estadoActual = menu;
 	Estados Juego::estadoAnterior = gameplay;
@@ -61,6 +64,9 @@ namespace juego
 		version.setFillColor(sf::Color::White);
 		version.setFont(*Juego::getGui()->getFont());
 		version.setPosition(static_cast<float> ((Juego::getAnchoPantalla() - version.getString().getSize() * 120 / 5)) - 20, 20.0f);
+
+		view.setCenter(_anchoPantalla / 2, _altoPantalla / 2);
+		view.setSize(_anchoPantalla, _altoPantalla);
 	}
 
 	Juego::~Juego()
@@ -71,6 +77,28 @@ namespace juego
 				delete pantalla[i];
 		}
 		delete window;
+	}
+
+	void Juego::inicializar()
+	{
+		for (int i = 0; i < cantPantallas; i++)
+		{
+			if (pantalla[i] != NULL)
+			{
+				pantalla[i]->inicializar();
+			}
+		}
+	}
+
+	void Juego::desinicializar()
+	{
+		for (int i = 0; i < cantPantallas; i++)
+		{
+			if (pantalla[i] != NULL)
+			{
+				pantalla[i]->desinicializar();
+			}
+		}
 	}
 
 	RenderWindow* Juego::getWindow()
@@ -90,8 +118,7 @@ namespace juego
 
 	void Juego::ejecutar(Juego* juego)
 	{
-		pantalla[menu]->inicializar();
-		pantalla[menu]->dibujar(juego);
+		inicializar();
 		while (getInGame())
 		{
 			sf::Event event;
@@ -102,25 +129,26 @@ namespace juego
 
 				gui->handleEvent(event);
 			}
-
-			if (Keyboard::isKeyPressed(Keyboard::Escape))
-			{
-				setInGame(false);
-			}
 			
 			window->clear();
 
-			for (int i = 0; i < cantPantallas; i++)
+			
+			if (pantalla[estadoActual]!=NULL)
 			{
-				if (i == estadoActual && pantalla[i]!=NULL)
+				pantalla[estadoActual]->chequearInput();
+				pantalla[estadoActual]->actualizar();
+				if (estadoActual == pausa)
 				{
-					pantalla[i]->chequearInput();
-					pantalla[i]->actualizar();
-					if (estadoActual == pausa)
+					pantalla[gameplay]->dibujar();
+				}
+				pantalla[estadoActual]->dibujar();
+				pantalla[estadoActual]->mostrarGui();
+				for (int i = 0; i < cantPantallas; i++)
+				{
+					if (i != estadoActual)
 					{
-						pantalla[gameplay]->dibujar(juego);
+						pantalla[i]->esconderGui();
 					}
-					pantalla[i]->dibujar(juego);
 				}
 			}
 			
@@ -130,6 +158,7 @@ namespace juego
 
 			resetClock();
 		}
+		desinicializar();
 	}
 
 	float Juego::getFrameTime() 
@@ -171,33 +200,17 @@ namespace juego
 	{
 		estadoAnterior = estadoActual;
 		estadoActual = e;
-		if (estadoActual != estadoAnterior)
-		{
-			if (e != pausa)
-			{
-				pantalla[estadoAnterior]->desinicializar();
-			}
-			if (estadoActual == gameplay)
-			{
-				if (estadoAnterior != pausa || reinicio)
-				{
-					pantalla[estadoActual]->inicializar();
-				}
-			}
-			else
-			{
-				pantalla[estadoActual]->inicializar();
-			}
 
-			if ((estadoActual == menu && estadoAnterior==gameover && reinicio))
-			{
-				pantalla[gameplay]->inicializar();
-			}
-			else if (estadoActual == menu && estadoAnterior == pausa)
-			{
-				pantalla[gameplay]->desinicializar();
-			}
-			//estadoAnterior = estadoActual;
+		if ((estadoActual==gameplay && estadoAnterior==menu)||
+			(estadoActual==gameplay && estadoAnterior==gameover) ||
+			(estadoAnterior==pausa && estadoActual==gameplay && reinicio))
+		{
+			pantalla[gameplay]->inicializar();
+		}
+
+		if ((estadoAnterior == gameplay && estadoActual != pausa) || (estadoAnterior==pausa && estadoActual!=gameplay))
+		{
+			window->setView(view);
 		}
 	}
 
@@ -219,5 +232,15 @@ namespace juego
 	void Juego::dibujarVersion()
 	{
 		window->draw(version);
+	}
+
+	bool Juego::getHaySonido()
+	{
+		return haySonido;
+	}
+
+	void Juego::setHaySonido(bool b)
+	{
+		haySonido = b;
 	}
 }

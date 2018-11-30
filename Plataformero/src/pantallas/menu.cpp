@@ -130,25 +130,36 @@ namespace juego
 		
 	}
 
-	void Menu::dibujar(Juego* juego)
+	void Menu::dibujar()
 	{
 		Juego::dibujarVersion();
 		Juego::getWindow()->draw(logo);
 	}
 
-	void Menu::desinicializar()
+	void Menu::mostrarGui()
+	{
+		for (int i = 0; i < cantBotones; i++)
+		{
+			if (button[i] != NULL)
+			{
+				button[i]->setVisible(true);
+			}
+		}
+	}
+
+	void Menu::esconderGui()
 	{
 		for (int i = 0; i < cantBotones; i++)
 		{
 			if (button[i] != NULL)
 			{
 				button[i]->setVisible(false);
-				button[i] = NULL;
-			}
-			if (texto[i] != NULL)
-			{
-				texto[i] = NULL;
 			}
 		}
+	}
+
+	void Menu::desinicializar()
+	{
+		
 	}
 }

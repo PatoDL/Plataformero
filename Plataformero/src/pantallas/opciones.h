@@ -12,14 +12,17 @@ namespace juego
 	class Opciones :public Pantalla
 	{
 		Button::Ptr atras;
+		Button::Ptr sonidoONoff;
 	public:
 		Opciones();
 		~Opciones();
 		void inicializar();
 		void chequearInput();
 		void actualizar();
-		void dibujar(Juego* juego);
+		void dibujar();
 		void desinicializar();
+		void esconderGui();
+		void mostrarGui();
 	};
 }
 #endif

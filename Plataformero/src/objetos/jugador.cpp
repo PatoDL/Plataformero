@@ -15,12 +15,15 @@ namespace juego
 	static float tiempoAnimacion;
 	static float timer;
 	static sf::SoundBuffer bufferDash;
+	static sf::SoundBuffer bufferSalto;
 	static sf::Sound dash;
+	static sf::Sound salto;
 
 	Jugador::Jugador(float x, float y, Vector2f v) :Personaje(x, y, v)
 	{
 		tex.loadFromFile("res/assets/char.png");
 		bufferDash.loadFromFile("res/assets/dash.wav");
+		bufferSalto.loadFromFile("res/assets/jump.wav");
 
 		pos = { x,y };
 
@@ -46,6 +49,8 @@ namespace juego
 	void Jugador::inicializar()
 	{
 		dash.setBuffer(bufferDash);
+		salto.setBuffer(bufferSalto);
+		salto.setVolume(25);
 		setColSize({ static_cast<float> (sprite.getTextureRect().width), static_cast<float>(sprite.getTextureRect().height) });
 		sprite.setOrigin(static_cast<float> (sprite.getTextureRect().width / 2), static_cast<float> ( sprite.getTextureRect().height / 2));
 		setColOrigin(sprite.getOrigin());
@@ -79,6 +84,8 @@ namespace juego
 			if (!posColision._arriba && !enSalto && posColision._abajo)
 			{
 				enSalto = true;
+				if(Juego::getHaySonido())
+				salto.play();
 			}
 			posColision._abajo = false;
 
@@ -271,6 +278,7 @@ namespace juego
 			haceDash = true;
 			timerDash = 0.0f;
 			timerEntreDash = 2.0f;
+			if (Juego::getHaySonido())
 			dash.play();
 		}
 		if (haceDash)

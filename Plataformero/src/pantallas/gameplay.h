@@ -26,14 +26,17 @@ namespace juego
 		Gameplay();
 		~Gameplay();
 		void inicializar();
+		void reiniciar();
 		void chequearInput();
 		void actualizar();
-		void dibujar(Juego* juego);
+		void dibujar();
 		void desinicializar();
 		void posicionarCamara();
 		void crearEnemigos(Mapa* map);
 		static bool getGanador();
 		static void setGanador(bool g);
+		void esconderGui();
+		void mostrarGui();
 	};
 }
 #endif
