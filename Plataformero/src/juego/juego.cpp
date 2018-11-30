@@ -61,14 +61,14 @@ namespace juego
 		
 		
 
-		version.setString("v0.1");
+		version.setString("v1.0");
 		version.setCharacterSize(40);
 		version.setFillColor(sf::Color::White);
 		version.setFont(*Juego::getGui()->getFont());
 		version.setPosition(static_cast<float> ((Juego::getAnchoPantalla() - version.getString().getSize() * 120 / 5)) - 20, 20.0f);
 
-		view.setCenter(_anchoPantalla / 2, _altoPantalla / 2);
-		view.setSize(_anchoPantalla, _altoPantalla);
+		view.setCenter(static_cast<float>(_anchoPantalla / 2), static_cast<float>(_altoPantalla / 2));
+		view.setSize(static_cast<float>(_anchoPantalla), static_cast<float>(_altoPantalla));
 	}
 
 	Juego::~Juego()
@@ -101,6 +101,7 @@ namespace juego
 				pantalla[i]->desinicializar();
 			}
 		}
+		delete gui;
 	}
 
 	RenderWindow* Juego::getWindow()

@@ -23,8 +23,8 @@ namespace juego
 		tiempoAnimacion = 0;
 		src.left = 0;
 		src.top = 0;
-		src.width = sprite.getLocalBounds().width / 2;
-		src.height = sprite.getLocalBounds().height;
+		src.width = static_cast<int>(sprite.getLocalBounds().width / 2);
+		src.height = static_cast<int>(sprite.getLocalBounds().height);
 		sprite.setTextureRect(src);
 		sprite.setPosition(pos);
 	}

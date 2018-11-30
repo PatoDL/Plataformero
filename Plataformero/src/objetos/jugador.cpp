@@ -1,7 +1,7 @@
 #include "jugador.h"
 
 #include "SFML\Graphics.hpp"
-#include "SFML/Audio.hpp""
+#include "SFML/Audio.hpp"
 #include "juego/juego.h"
 
 using namespace sf;
@@ -32,8 +32,8 @@ namespace juego
 
 		src.top = 0;
 		src.left = 0;
-		src.width = sprite.getLocalBounds().width / 6;
-		src.height = sprite.getLocalBounds().height;
+		src.width = static_cast<int>(sprite.getLocalBounds().width / 6);
+		src.height = static_cast<int>(sprite.getLocalBounds().height);
 
 		sprite.setTextureRect(src);
 
