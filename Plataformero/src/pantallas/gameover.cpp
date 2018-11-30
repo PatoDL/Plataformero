@@ -55,7 +55,7 @@ namespace juego
 		}
 		resultado->setFillColor(sf::Color::Yellow);
 		resultado->setCharacterSize(80);
-		resultado->setPosition(Juego::getAnchoPantalla() / 2 - resultado->getString().getSize() / 2 * resultado->getCharacterSize()/2, Juego::getAltoPantalla() / 5);
+		resultado->setPosition(static_cast<float>(Juego::getAnchoPantalla() / 2 - resultado->getString().getSize() / 2 * resultado->getCharacterSize()/2), static_cast<float>(Juego::getAltoPantalla() / 5));
 
 		for (int i = 0; i < cantBotonesMenu; i++)
 		{

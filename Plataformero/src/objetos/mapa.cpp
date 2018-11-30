@@ -25,7 +25,7 @@ namespace juego {
 		for (xml_node_iterator i = objeto.begin(); i != objeto.end(), j < maxPlataformas; i++) {
 			static int h = 0;
 			std::string tipo = i->attribute("type").as_string();
-			plataformas[j].setSize(sf::Vector2f(i->attribute("width").as_int(), i->attribute("height").as_int()));
+			plataformas[j].setSize(sf::Vector2f(static_cast<float>(i->attribute("width").as_int()), static_cast<float>( i->attribute("height").as_int())));
 			plataformas[j].setPosition(sf::Vector2f(i->attribute("x").as_int() + plataformas[j].getSize().x / 2, i->attribute("y").as_int() + plataformas[j].getSize().y / 2));
 			plataformas[j].setOrigin(sf::Vector2f(i->attribute("width").as_int() / 2.f, i->attribute("height").as_int() / 2.f));
 			if (tipo == "piso")
