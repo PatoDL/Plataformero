@@ -1,6 +1,12 @@
-## unreleased[2018-11-29]
+## v1.0[2018-11-29]
 ### Added
 -menu logo.
+-some enemies
+-dash attack, that kill enemies
+-a winner/loser message in the game over screen
+-sfx for the dash and jump
+-credits screen
+-image with the controls at the beginning of the level
 
 ## v0.1 [2018-11-28]
 ### Added
