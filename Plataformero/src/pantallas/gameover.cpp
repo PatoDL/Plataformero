@@ -125,7 +125,14 @@ namespace juego
 
 	void Gameover::actualizar()
 	{
-		
+		if (Gameplay::getGanador())
+		{
+			resultado->setString("Ganaste!");
+		}
+		else
+		{
+			resultado->setString("Perdiste");
+		}
 	}
 
 	
