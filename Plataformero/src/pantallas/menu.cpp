@@ -6,7 +6,7 @@
 
 namespace juego
 {
-
+	static Texture fondTex;
 	static Texture tex;
 	static String* texto[cantBotones];
 	static tgui::Layout2d* size = new tgui::Layout2d(Vector2f{ 120,60 }); //tamaño estandar
@@ -47,10 +47,17 @@ namespace juego
 
 		}
 
+		if (!fondTex.loadFromFile("res/assets/fondo_menu.png"))
+		{
+
+		}
+
 		logo.setTexture(tex);
 		logo.setScale(1.3f, 1.3f);
 		logo.setPosition(static_cast<float>(Juego::getAnchoPantalla() / 2 - logo.getTexture()->getSize().x/2*logo.getScale().x), static_cast<float>( Juego::getAltoPantalla() / 5));
 
+		fondo.setTexture(fondTex);
+		fondo.setPosition(0, 0);
 		
 		texto[0] = new String("Jugar");
 		texto[1] = new String("Opciones");
@@ -64,7 +71,6 @@ namespace juego
 				button[i]->setText(*texto[i]);
 
 				button[i]->setRenderer(Juego::getTheme().getRenderer("Button"));
-				//tgui::ButtonRenderer(theme.getRenderer("Button")).setBackgroundColor(sf::Color::Red);
 
 				button[i]->setTextSize(40); //tamaño estandar
 				if (texto[i]->getSize() > 5)
@@ -132,8 +138,9 @@ namespace juego
 
 	void Menu::dibujar()
 	{
-		Juego::dibujarVersion();
+		Juego::getWindow()->draw(fondo);
 		Juego::getWindow()->draw(logo);
+		Juego::dibujarVersion();
 	}
 
 	void Menu::mostrarGui()

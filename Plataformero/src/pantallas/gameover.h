@@ -24,6 +24,7 @@ namespace juego
 	class Gameover:public Pantalla
 	{
 		tgui::Button::Ptr botonGO[cantBotonesMenu];
+		sf::Sprite fondo;
 	public:
 		Gameover();
 		~Gameover();

@@ -44,13 +44,6 @@ namespace juego
 			pantalla[i] = NULL;
 		}
 
-		pantalla[gameplay] = new Gameplay();
-		pantalla[menu] = new Menu();
-		pantalla[opciones] = new Opciones();
-		pantalla[pausa] = new Pausa();
-		pantalla[gameover] = new Gameover();
-		pantalla[creditos] = new Creditos();
-		
 		gui->setTarget(*window);
 		theme.load("res/assets/themes/BabyBlue.txt");
 		if (!_fuente.loadFromFile("res/assets/fuentes/ANTQUAB.ttf"))
@@ -58,6 +51,15 @@ namespace juego
 			//error
 		}
 		gui->setFont(_fuente);
+
+		pantalla[gameplay] = new Gameplay();
+		pantalla[menu] = new Menu();
+		pantalla[opciones] = new Opciones();
+		pantalla[pausa] = new Pausa();
+		pantalla[gameover] = new Gameover();
+		pantalla[creditos] = new Creditos();
+		
+		
 
 		version.setString("v0.1");
 		version.setCharacterSize(40);

@@ -4,6 +4,7 @@
 
 namespace juego
 {
+	static sf::Texture fontex;
 	Opciones::Opciones()
 	{
 		
@@ -21,6 +22,11 @@ namespace juego
 
 	void Opciones::inicializar()
 	{
+		fontex.loadFromFile("res/assets/fondo_gameover.png");
+
+		fondo.setTexture(fontex);
+		fondo.setPosition(0, 0);
+
 		atras = Button::create();
 		atras->setText("Atras");
 		atras->setRenderer(Juego::getTheme().getRenderer("Button"));
@@ -64,12 +70,11 @@ namespace juego
 
 	void Opciones::dibujar()
 	{
-
+		Juego::getWindow()->draw(fondo);
 	}
 
 	void Opciones::desinicializar()
 	{
-		
 	}
 
 	void Opciones::esconderGui()

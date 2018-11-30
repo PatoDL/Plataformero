@@ -13,6 +13,7 @@ namespace juego
 	{
 		Button::Ptr atras;
 		Button::Ptr sonidoONoff;
+		sf::Sprite fondo;
 	public:
 		Opciones();
 		~Opciones();

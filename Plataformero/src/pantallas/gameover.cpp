@@ -6,7 +6,9 @@
 
 namespace juego
 {
+	static Texture fontex;
 	static Text* resultado;
+
 	Gameover::Gameover()
 	{
 		for (int i = 0; i < cantBotonesMenu; i++)
@@ -27,6 +29,11 @@ namespace juego
 
 	void Gameover::inicializar()
 	{
+		fontex.loadFromFile("res/assets/fondo_gameover.png");
+
+		fondo.setTexture(fontex);
+		fondo.setPosition(0, 0);
+
 		resultado = new Text();
 		String* texto[cantBotonesMenu];
 		texto[0] = new String("Volver a Jugar");
@@ -145,6 +152,7 @@ namespace juego
 
 	void Gameover::dibujar()
 	{
+		Juego::getWindow()->draw(fondo);
 		Juego::getWindow()->draw(*resultado);
 	}
 

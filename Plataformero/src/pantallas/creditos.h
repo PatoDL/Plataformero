@@ -3,6 +3,7 @@
 
 #include "pantalla.h"
 
+#include "SFML/Graphics.hpp"
 #include "TGUI/TGUI.hpp"
 
 using namespace tgui;
@@ -11,6 +12,7 @@ namespace juego
 {
 	class Creditos :public Pantalla
 	{
+		sf::Texture fondo;
 		Button::Ptr atras;
 	public:
 		Creditos();

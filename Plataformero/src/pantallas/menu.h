@@ -18,6 +18,7 @@ namespace juego
 		tgui::Button::Ptr button[cantBotones];
 		tgui::EditBox::Ptr editBox[cantBotones];		
 		sf::Sprite logo;
+		sf::Sprite fondo;
 	public:
 		Menu();
 		~Menu();
