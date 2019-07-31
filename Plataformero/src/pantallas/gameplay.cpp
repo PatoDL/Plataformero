@@ -137,7 +137,7 @@ namespace juego
 		{
 			if (jugador->getPos().y <= view.getSize().y / 2)
 			{
-				view.setCenter(map->getTileMap()->GetHeight()*tam_tiles - view.getSize().x / 2, view.getSize().y / 2);
+				view.setCenter(map->getTileMap()->GetWidth()*tam_tiles - view.getSize().x / 2, view.getSize().y / 2);
 			}
 			else if (jugador->getPos().y >= map->getTileMap()->GetHeight()*tam_tiles - view.getSize().y / 2)
 			{
