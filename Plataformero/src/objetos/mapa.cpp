@@ -3,9 +3,9 @@
 namespace juego {
 	Mapa::Mapa()
 	{
-		result = doc.load_file("res/assets/mapa.tmx"); // Locates the file to be used.
+		result = doc.load_file("res/assets/mapa2.tmx"); // Locates the file to be used.
 		objeto = doc.child("map").child("objectgroup");
-		tMap = new TileMap("res/assets/mapa.tmx");
+		tMap = new TileMap("res/assets/mapa2.tmx");
 	}
 
 
@@ -22,7 +22,7 @@ namespace juego {
 	void Mapa::crearPlataformas() 
 	{
 		int j = 0;
-		for (xml_node_iterator i = objeto.begin(); i != objeto.end(), j < maxPlataformas; i++) {
+		for (xml_node_iterator i = objeto.begin(); i != objeto.end()/*, j < maxPlataformas*/; i++) {
 			static int h = 0;
 			std::string tipo = i->attribute("type").as_string();
 			plataformas[j].setSize(sf::Vector2f(static_cast<float>(i->attribute("width").as_int()), static_cast<float>( i->attribute("height").as_int())));
