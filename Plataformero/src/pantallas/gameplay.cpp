@@ -47,6 +47,9 @@ namespace juego
 
 	void Gameplay::reiniciar()
 	{
+		if(jugador==NULL)
+			jugador = new Jugador(0, 0, { 150.f,250.f });
+
 		map = new Mapa(nivel);
 		map->crearPlataformas();
 		crearEnemigos(map);
@@ -67,27 +70,33 @@ namespace juego
 
 	void Gameplay::actualizar()
 	{
-		colisiones.procesarColisiones(static_cast<Jugador*>(jugador), map);
-		for (int i = 0; i < cantEnemigos; i++)
+		if (!ganador)
 		{
-			if (static_cast<Enemigo*>(enemigo[i])->getEstaVivo())
+			colisiones.procesarColisiones(static_cast<Jugador*>(jugador), map);
+			for (int i = 0; i < cantEnemigos; i++)
 			{
-				colisiones.procesarColisionesPersonajes(static_cast<Jugador*>(jugador), static_cast<Enemigo*>(enemigo[i]));
+				if (static_cast<Enemigo*>(enemigo[i])->getEstaVivo())
+				{
+					colisiones.procesarColisionesPersonajes(static_cast<Jugador*>(jugador), static_cast<Enemigo*>(enemigo[i]));
+				}
 			}
+			for (int i = 0; i < cantEnemigos; i++)
+			{
+				if (static_cast<Enemigo*>(enemigo[i])->getEstaVivo())
+				{
+					static_cast<Enemigo*>(enemigo[i])->chequearEnPlataforma(map, i);
+					enemigo[i]->mover();
+					enemigo[i]->actualizar();
+				}
+
+			}
+			jugador->actualizar();
+			posicionarCamara();
 		}
-		for (int i = 0; i < cantEnemigos; i++)
+		else
 		{
-			if (static_cast<Enemigo*>(enemigo[i])->getEstaVivo())
-			{
-				static_cast<Enemigo*>(enemigo[i])->chequearEnPlataforma(map,i);
-				enemigo[i]->mover();
-				enemigo[i]->actualizar();
-			}
-			
+			procesarLlegada();
 		}
-		jugador->actualizar();
-		posicionarCamara();
-		
 	}
 
 	void Gameplay::dibujar()
@@ -203,12 +212,14 @@ namespace juego
 		switch (nivel)
 		{
 		case 1:
-			delete map;
 			nivel++;
+			//desinicializar();
 			inicializar();
+			setGanador(false);
 			break;
 		case 2:
-			setGanador(true);
+			//setGanador(true);
+			desinicializar();
 			nivel = 1;
 			Juego::setEstadoActual(gameover, false);
 			break;

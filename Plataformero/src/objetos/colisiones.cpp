@@ -61,7 +61,7 @@ namespace juego {
 				}
 				else if (mapa->getTipoPlataforma(i) == llegada)
 				{
-					//Gameplay::setGanador(true);
+					Gameplay::setGanador(true);
 					//static_cast<Gameplay*>(gameplay)->procesarLlegada();
 				}
 				else
