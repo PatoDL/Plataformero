@@ -22,6 +22,7 @@ namespace juego
 		tgui::Button::Ptr botonPausa;
 		Colisiones colisiones;
 		static bool ganador;
+		int nivel;
 	public:
 		Gameplay();
 		~Gameplay();
@@ -37,6 +38,7 @@ namespace juego
 		void mostrarGui();
 		static bool getGanador();
 		static void setGanador(bool g);
+		void procesarLlegada();
 	};
 }
 #endif

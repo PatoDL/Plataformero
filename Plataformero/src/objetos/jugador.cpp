@@ -362,4 +362,9 @@ namespace juego
 	{
 		return miraIzq;
 	}
+
+	void Jugador::setPosInicial(Vector2f posIni)
+	{
+		posInicial = posIni;
+	}
 }

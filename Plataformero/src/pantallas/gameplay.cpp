@@ -13,18 +13,13 @@ namespace juego
 
 	Gameplay::Gameplay()
 	{
-		map = new Mapa;
-		map->crearPlataformas();
-		jugador = new Jugador(map->getPosInicial().x, map->getPosInicial().y, { 150.f,250.f });
-		crearEnemigos(map);
+		nivel = 1;
 		
+		jugador = new Jugador(0, 0, { 150.f,250.f });
+
 		view.setSize(static_cast<float>(Juego::getAnchoPantalla() / 2.5f), static_cast<float>(Juego::getAnchoPantalla() / 2.5f));
 		view.setCenter(jugador->getPos());
-		jugador->inicializar();
-		for (int i = 0; i < cantEnemigos; i++)
-		{
-			enemigo[i]->inicializar();
-		}
+
 		botonPausa = tgui::Button::create();
 		botonPausa->setSize(40, 40);
 		botonPausa->setText("| |");
@@ -52,7 +47,12 @@ namespace juego
 
 	void Gameplay::reiniciar()
 	{
-		jugador->inicializar();
+		map = new Mapa(nivel);
+		map->crearPlataformas();
+		crearEnemigos(map);
+		
+		static_cast<Jugador*>(jugador)->setPosInicial(map->getPosInicial());
+		jugador->inicializar();//buscar pos inicial
 		for (int i = 0; i < cantEnemigos; i++)
 		{
 			enemigo[i]->inicializar();
@@ -170,7 +170,7 @@ namespace juego
 	{
 		for (int i = 0; i < cantEnemigos; i++)
 		{
-			float posX= map->getPlataforma(map->getPlatConEnemigo(i)).getPosition().x;
+			float posX = map->getPlataforma(map->getPlatConEnemigo(i)).getPosition().x;
 			float posY = map->getPlataforma(map->getPlatConEnemigo(i)).getPosition().y - map->getPlataforma(map->getPlatConEnemigo(i)).getSize().y / 2;
 
 			enemigo[i] = new Enemigo(posX, posY, { -200.0f,200.0f });
@@ -196,5 +196,22 @@ namespace juego
 	void Gameplay::setGanador(bool g)
 	{
 		ganador = g;
+	}
+
+	void Gameplay::procesarLlegada()
+	{
+		switch (nivel)
+		{
+		case 1:
+			delete map;
+			nivel++;
+			inicializar();
+			break;
+		case 2:
+			setGanador(true);
+			nivel = 1;
+			Juego::setEstadoActual(gameover, false);
+			break;
+		}
 	}
 }

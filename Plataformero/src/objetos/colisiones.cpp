@@ -7,7 +7,7 @@ namespace juego {
 
 	Colisiones::Colisiones()
 	{
-		
+
 	}
 
 
@@ -24,7 +24,7 @@ namespace juego {
 
 			if (plataforma.getGlobalBounds().intersects(jug->getCol().getGlobalBounds()))
 			{
-				if (mapa->getTipoPlataforma(i) == piso) 
+				if (mapa->getTipoPlataforma(i) == piso)
 				{
 					//ABAJO
 					if (colisionaAbajo(jug, plataforma) && !jugadorEnPlataformaY(jug, plataforma) && jugadorEnPlataformaX(jug, plataforma))
@@ -33,7 +33,7 @@ namespace juego {
 						jug->setPosColisionPiso(true);
 						jug->setEnSalto(false);
 						jug->setVelCaida(0.0f);
-						
+
 					}
 					//ARRIBA
 					else if (colisionaArriba(jug, plataforma) && !jugadorEnPlataformaY(jug, plataforma) && jugadorEnPlataformaX(jug, plataforma))
@@ -41,18 +41,18 @@ namespace juego {
 						jug->setY(plataforma.getGlobalBounds().top + plataforma.getGlobalBounds().height + jug->getCol().getSize().y / 2 - difColisionY);
 						jug->setPosColisionTecho(true);
 						jug->setVelSalto(-50.0f);
-						
+
 					}
 					else
 					{
 						//IZQUIERDA
-						if (colisionaIzq(jug, plataforma) && (!jugadorEnPlataformaX(jug, plataforma)||jug->getDash()))
+						if (colisionaIzq(jug, plataforma) && (!jugadorEnPlataformaX(jug, plataforma) || jug->getDash()))
 						{
 							jug->setX(plataforma.getGlobalBounds().left + plataforma.getGlobalBounds().width + jug->getCol().getSize().x / 2 - difColisionX);
 							jug->setPosColisionIzq(true);
 						}
 						//DERECHA
-						else if (colisionaDer(jug, plataforma) && (!jugadorEnPlataformaX(jug, plataforma)||jug->getDash()))
+						else if (colisionaDer(jug, plataforma) && (!jugadorEnPlataformaX(jug, plataforma) || jug->getDash()))
 						{
 							jug->setX(plataforma.getGlobalBounds().left - jug->getCol().getSize().x / 2 + difColisionX);
 							jug->setPosColisionDer(true);
@@ -61,14 +61,14 @@ namespace juego {
 				}
 				else if (mapa->getTipoPlataforma(i) == llegada)
 				{
-					Gameplay::setGanador(true);
-					Juego::setEstadoActual(gameover, false);
+					//Gameplay::setGanador(true);
+					//static_cast<Gameplay*>(gameplay)->procesarLlegada();
 				}
 				else
 				{
 					Juego::setEstadoActual(gameover, false);
 				}
-				
+
 			}
 		}
 	}
@@ -100,7 +100,7 @@ namespace juego {
 
 	bool Colisiones::jugadorEnPlataformaX(Jugador* jug, RectangleShape plataforma)		//chequeo que la pos x del personaje no se puperponga con el alto de la plataforma
 	{
-		return (jug->getPos().x - jug->getCol().getSize().x/8< plataforma.getPosition().x + plataforma.getSize().x / 2 &&
+		return (jug->getPos().x - jug->getCol().getSize().x / 8 < plataforma.getPosition().x + plataforma.getSize().x / 2 &&
 			jug->getPos().x + jug->getCol().getSize().x / 8 > plataforma.getPosition().x - plataforma.getSize().x / 2);
 	}
 
@@ -117,8 +117,8 @@ namespace juego {
 			jug->setX(0.0f + jug->getCol().getSize().x / 2 - difColisionX);
 			jug->setPosColisionIzq(true);
 		}
-		
-		if (jug->getPos().x+jug->getCol().getSize().x/2>=mapa->getTileMap()->GetWidth()*mapa->getTileMap()->GetTileWidth())
+
+		if (jug->getPos().x + jug->getCol().getSize().x / 2 >= mapa->getTileMap()->GetWidth()*mapa->getTileMap()->GetTileWidth())
 		{
 			jug->setX(mapa->getTileMap()->GetWidth() * mapa->getTileMap()->GetTileWidth() - jug->getCol().getSize().x / 2 + difColisionX);
 			jug->setPosColisionDer(true);

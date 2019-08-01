@@ -27,7 +27,7 @@ namespace juego {
 		int platConEnemigo[5];
 		Vector2f posInicial;
 	public:
-		Mapa();
+		Mapa(int nivel);
 		~Mapa();
 		TileMap* getTileMap();
 		void crearPlataformas();

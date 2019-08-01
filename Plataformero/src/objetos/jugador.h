@@ -34,6 +34,7 @@ namespace juego
 		float timerPosiciones;
 		sf::Sprite sprDash[cantSprDash];	//guarda el sprite y su poosicion para dibujar el dash
 		bool sprActivo[cantSprDash];
+		Vector2f posInicial;
 	public:
 		Jugador(float x, float y, sf::Vector2f v);
 		~Jugador();
@@ -57,7 +58,7 @@ namespace juego
 		Sprite getSprDash(int i);
 		bool getSprDashActivo(int i);
 		bool getMiraIzq();
-		Vector2f posInicial;
+		void setPosInicial(Vector2f posIni);
 	};
 }
 

@@ -36,7 +36,6 @@ namespace juego
 
 	void Enemigo::inicializar()
 	{
-		
 		sprite.setTextureRect(src);
 		sprite.setPosition(pos);
 		sprite.setOrigin(sprite.getGlobalBounds().height, (sprite.getGlobalBounds().width / 2));
