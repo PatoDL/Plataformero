@@ -25,6 +25,7 @@ namespace juego {
 		tiposPlataforma tipoPlat[maxPlataformas];
 		bool tieneEnemigo[maxPlataformas];
 		int platConEnemigo[5];
+		Vector2f posInicial;
 	public:
 		Mapa();
 		~Mapa();
@@ -34,6 +35,7 @@ namespace juego {
 		Mapa &getMapa();
 		tiposPlataforma getTipoPlataforma(int i);
 		int getPlatConEnemigo(int i);
+		Vector2f getPosInicial();
 	};
 }
 #endif

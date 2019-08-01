@@ -30,8 +30,10 @@ namespace juego {
 			plataformas[j].setOrigin(sf::Vector2f(i->attribute("width").as_int() / 2.f, i->attribute("height").as_int() / 2.f));
 			if (tipo == "piso")
 				tipoPlat[j] = piso;
-			else if(tipo=="pinches")
+			else if (tipo == "pinches")
 				tipoPlat[j] = pinches;
+			else if (tipo == "inicio")
+				posInicial = plataformas[j].getPosition();
 			else
 				tipoPlat[j] = llegada;
 			if (i->child("properties").child("property").attribute("value").as_bool())
@@ -68,5 +70,10 @@ namespace juego {
 	int Mapa::getPlatConEnemigo(int i)
 	{
 		return platConEnemigo[i];
+	}
+
+	Vector2f Mapa::getPosInicial()
+	{
+		return posInicial;
 	}
 }

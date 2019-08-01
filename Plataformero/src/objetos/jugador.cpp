@@ -26,6 +26,7 @@ namespace juego
 		bufferSalto.loadFromFile("res/assets/jump.wav");
 
 		pos = { x,y };
+		posInicial = pos;
 
 		sprite.setTexture(tex);
 		sprite.setPosition(pos);
@@ -52,10 +53,10 @@ namespace juego
 		salto.setBuffer(bufferSalto);
 		salto.setVolume(25);
 		setColSize({ static_cast<float> (sprite.getTextureRect().width), static_cast<float>(sprite.getTextureRect().height) });
-		sprite.setOrigin(static_cast<float> (sprite.getTextureRect().width / 2), static_cast<float> ( sprite.getTextureRect().height / 2));
+		sprite.setOrigin(static_cast<float> (sprite.getTextureRect().width / 2), static_cast<float> (sprite.getTextureRect().height / 2));
 		setColOrigin(sprite.getOrigin());
 
-		setPos(50, 1800);
+		setPos(posInicial.x, posInicial.y);
 
 		caminandoDer = false;
 		caminandoIzq = false;

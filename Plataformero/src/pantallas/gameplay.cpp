@@ -13,9 +13,9 @@ namespace juego
 
 	Gameplay::Gameplay()
 	{
-		jugador = new Jugador(90, 2000, { 150.f,250.f });
 		map = new Mapa;
 		map->crearPlataformas();
+		jugador = new Jugador(map->getPosInicial().x, map->getPosInicial().y, { 150.f,250.f });
 		crearEnemigos(map);
 		
 		view.setSize(static_cast<float>(Juego::getAnchoPantalla() / 2.5f), static_cast<float>(Juego::getAnchoPantalla() / 2.5f));

@@ -57,6 +57,7 @@ namespace juego
 		Sprite getSprDash(int i);
 		bool getSprDashActivo(int i);
 		bool getMiraIzq();
+		Vector2f posInicial;
 	};
 }
 
