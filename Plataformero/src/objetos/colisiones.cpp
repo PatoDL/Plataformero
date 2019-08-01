@@ -62,10 +62,10 @@ namespace juego {
 				else if (mapa->getTipoPlataforma(i) == llegada)
 				{
 					Gameplay::setGanador(true);
-					//static_cast<Gameplay*>(gameplay)->procesarLlegada();
 				}
 				else
 				{
+					Gameplay::setNivel(1);
 					Juego::setEstadoActual(gameover, false);
 				}
 
@@ -127,6 +127,7 @@ namespace juego {
 		if (jug->getPos().y > mapa->getTileMap()->GetHeight()*mapa->getTileMap()->GetTileHeight() * 0.95f)
 		{
 			Juego::setEstadoActual(gameover, false);
+			Gameplay::setNivel(1);
 		}
 	}
 
@@ -146,6 +147,7 @@ namespace juego {
 		if (jug->getCol().getGlobalBounds().intersects(enemigo->getCol().getGlobalBounds()))
 		{
 			Juego::setEstadoActual(gameover, false);
+			Gameplay::setNivel(1);
 		}
 		
 	}

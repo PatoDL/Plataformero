@@ -81,16 +81,18 @@ namespace juego
 	void Jugador::mover()
 	{
 		static bool pulsaSalto = false;
-		if (Keyboard::isKeyPressed(Keyboard::Up)&&!pulsaSalto)
+		if (Keyboard::isKeyPressed(Keyboard::Up) && !pulsaSalto)
 		{
-			if (!posColision._arriba && !enSalto && posColision._abajo)
-			{
+			//if (!posColision._arriba && !enSalto && posColision._abajo)
+			//{
 				pulsaSalto = true;
 				enSalto = true;
 				if(Juego::getHaySonido())
 					salto.play();
 				posColision._abajo = false;
-			}
+				//
+				velSalto = getVel().y;
+			//}
 		}
 		else
 		{
@@ -283,7 +285,7 @@ namespace juego
 		{
 			haceDash = true;
 			timerDash = 0.0f;
-			timerEntreDash = 2.0f;
+			//timerEntreDash = 2.0f; PRUEBA
 			if (Juego::getHaySonido())
 			dash.play();
 		}

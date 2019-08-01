@@ -10,11 +10,10 @@ namespace juego
 	const int tam_tiles = 32;
 
 	bool Gameplay::ganador = false;
+	int Gameplay::nivel = 1;
 
 	Gameplay::Gameplay()
-	{
-		nivel = 1;
-		
+	{		
 		jugador = new Jugador(0, 0, { 150.f,250.f });
 
 		view.setSize(static_cast<float>(Juego::getAnchoPantalla() / 2.5f), static_cast<float>(Juego::getAnchoPantalla() / 2.5f));
@@ -53,9 +52,10 @@ namespace juego
 		map = new Mapa(nivel);
 		map->crearPlataformas();
 		crearEnemigos(map);
+		ganador = false;
 		
 		static_cast<Jugador*>(jugador)->setPosInicial(map->getPosInicial());
-		jugador->inicializar();//buscar pos inicial
+		jugador->inicializar();
 		for (int i = 0; i < cantEnemigos; i++)
 		{
 			enemigo[i]->inicializar();
@@ -207,6 +207,11 @@ namespace juego
 		ganador = g;
 	}
 
+	void Gameplay::setNivel(int n)
+	{
+		nivel = n;
+	}
+
 	void Gameplay::procesarLlegada()
 	{
 		switch (nivel)
@@ -219,7 +224,7 @@ namespace juego
 			break;
 		case 2:
 			//setGanador(true);
-			desinicializar();
+			//desinicializar();
 			nivel = 1;
 			Juego::setEstadoActual(gameover, false);
 			break;
