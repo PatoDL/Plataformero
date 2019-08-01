@@ -90,7 +90,7 @@ namespace juego
 				if(Juego::getHaySonido())
 					salto.play();
 				posColision._abajo = false;
-				//
+				//MODO TESTING
 				velSalto = getVel().y;
 			//}
 		}

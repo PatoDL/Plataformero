@@ -117,7 +117,6 @@ namespace juego
 	void Gameplay::desinicializar()
 	{
 		delete map;
-		delete jugador;
 		for (int i = 0; i < cantEnemigos; i++)
 		{
 			delete enemigo[i];
@@ -218,13 +217,12 @@ namespace juego
 		{
 		case 1:
 			nivel++;
-			//desinicializar();
+			desinicializar();
 			inicializar();
 			setGanador(false);
 			break;
 		case 2:
-			//setGanador(true);
-			//desinicializar();
+			desinicializar();
 			nivel = 1;
 			Juego::setEstadoActual(gameover, false);
 			break;
