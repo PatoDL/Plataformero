@@ -71,6 +71,10 @@ namespace juego
 		miraDer = true;
 		timerEntreDash = 0.0f;
 		timerPosiciones = 0.0f;
+		saltosMax = 2;
+		saltosHechos = 0;
+		cooldownEntreSalto = 0.2f;
+		timerEntreSalto = 0.f;
 
 		for (int i = 0; i < cantSprDash; i++)
 		{
@@ -80,29 +84,29 @@ namespace juego
 
 	void Jugador::mover()
 	{
-		static bool pulsaSalto = false;
-		if (Keyboard::isKeyPressed(Keyboard::Up) && !pulsaSalto)
+		//static bool pulsaSalto = false;
+		timerEntreSalto += Juego::getFrameTime();
+		if (Keyboard::isKeyPressed(Keyboard::Up) && saltosHechos < saltosMax && timerEntreSalto > cooldownEntreSalto)
 		{
-			//if (!posColision._arriba && !enSalto && posColision._abajo)
-			//{
-				pulsaSalto = true;
-				enSalto = true;
-				if(Juego::getHaySonido())
-					salto.play();
-				posColision._abajo = false;
+			if (!posColision._arriba && !enSalto && posColision._abajo)
+			{
+				timerEntreSalto = 0.f;
+				saltar();
 				//MODO TESTING
+				//velSalto = getVel().y;
+			}
+			else if(saltosHechos == 1)
+			{
 				velSalto = getVel().y;
-			//}
+				saltar();
+			}
 		}
-		else
-		{
-			pulsaSalto = false;
-		}
+
 		if (Keyboard::isKeyPressed(Keyboard::Left) && !haceDash)
 		{
 			if (!posColision._izq)
 			{
-				setX(getPos().x - getVel().x*Juego::getFrameTime());
+				setX(getPos().x - getVel().x * Juego::getFrameTime());
 				caminandoIzq = true;
 				miraDer = false;
 				miraIzq = true;
@@ -113,7 +117,7 @@ namespace juego
 		{
 			if (!posColision._der)
 			{
-				setX(getPos().x + getVel().x*Juego::getFrameTime());
+				setX(getPos().x + getVel().x * Juego::getFrameTime());
 				caminandoDer = true;
 				miraDer = true;
 				miraIzq = false;
@@ -130,6 +134,15 @@ namespace juego
 		{
 			velSalto = getVel().y;
 		}
+	}
+
+	void Jugador::saltar()
+	{
+		enSalto = true;
+		if (Juego::getHaySonido())
+			salto.play();
+		posColision._abajo = false;
+		saltosHechos++;
 	}
 
 	void Jugador::actualizar()
@@ -149,15 +162,15 @@ namespace juego
 			else if (caminandoDer)
 			{
 				sprite.setScale(1, 1);
-				if (tiempoAnimacion<0.10f)
+				if (tiempoAnimacion < 0.10f)
 				{
 					src.left = src.width;
 				}
-				else if (tiempoAnimacion<0.20f)
+				else if (tiempoAnimacion < 0.20f)
 				{
 					src.left = src.width * 2;
 				}
-				else if (tiempoAnimacion<0.30f)
+				else if (tiempoAnimacion < 0.30f)
 				{
 					src.left = src.width * 3;
 				}
@@ -169,15 +182,15 @@ namespace juego
 			else if (caminandoIzq)
 			{
 				sprite.setScale(-1, 1);
-				if (tiempoAnimacion<0.10f)
+				if (tiempoAnimacion < 0.10f)
 				{
 					src.left = src.width;
 				}
-				else if (tiempoAnimacion<0.20f)
+				else if (tiempoAnimacion < 0.20f)
 				{
 					src.left = src.width * 2;
 				}
-				else if (tiempoAnimacion<0.30f)
+				else if (tiempoAnimacion < 0.30f)
 				{
 					src.left = src.width * 3;
 				}
@@ -207,7 +220,7 @@ namespace juego
 			{
 				tiempoAnimacion = 0;
 			}
-			if (timer > 2&&timer<2.2f)
+			if (timer > 2 && timer < 2.2f)
 			{
 				enSalto = false;
 			}
@@ -247,6 +260,7 @@ namespace juego
 	void Jugador::setPosColisionPiso(bool col)
 	{
 		posColision._abajo = col;
+		saltosHechos = 0;
 	}
 
 	void Jugador::setPosColisionTecho(bool col)
@@ -285,7 +299,8 @@ namespace juego
 		{
 			haceDash = true;
 			timerDash = 0.0f;
-			//timerEntreDash = 2.0f; PRUEBA
+			//MODO TESTING
+			//timerEntreDash = 2.0f; 
 			if (Juego::getHaySonido())
 			dash.play();
 		}

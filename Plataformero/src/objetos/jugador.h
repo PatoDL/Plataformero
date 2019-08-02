@@ -35,11 +35,16 @@ namespace juego
 		sf::Sprite sprDash[cantSprDash];	//guarda el sprite y su poosicion para dibujar el dash
 		bool sprActivo[cantSprDash];
 		Vector2f posInicial;
+		int saltosHechos;
+		int saltosMax;
+		float cooldownEntreSalto;
+		float timerEntreSalto;
 	public:
 		Jugador(float x, float y, sf::Vector2f v);
 		~Jugador();
 		void inicializar();
 		void mover();
+		void saltar();
 		void actualizar();
 		void dibujar();
 		Jugador getJug();
