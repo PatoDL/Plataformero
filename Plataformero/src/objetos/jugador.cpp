@@ -299,8 +299,7 @@ namespace juego
 		{
 			haceDash = true;
 			timerDash = 0.0f;
-			//MODO TESTING
-			//timerEntreDash = 2.0f; 
+			timerEntreDash = 0.5f; 
 			if (Juego::getHaySonido())
 			dash.play();
 		}

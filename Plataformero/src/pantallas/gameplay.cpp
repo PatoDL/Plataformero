@@ -98,6 +98,13 @@ namespace juego
 			{
 				if (static_cast<Mariposa*>(mariposas[i])->getEstaVivo())
 				{
+					colisiones.procesarColisionesPersonajes(static_cast<Jugador*>(jugador), static_cast<Mariposa*>(mariposas[i]));
+				}
+			}
+			for (int i = 0; i < cantMariposas; i++)
+			{
+				if (static_cast<Mariposa*>(mariposas[i])->getEstaVivo())
+				{
 					static_cast<Mariposa*>(mariposas[i])->chequearEnLimitesMapa(map, i);
 					mariposas[i]->mover();
 					mariposas[i]->actualizar();

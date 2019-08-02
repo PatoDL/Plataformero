@@ -142,17 +142,16 @@ namespace juego {
 		procesarJugadorLimites(jug, mapa, difColisionX, difColisionY);
 	}
 
-	void Colisiones::procesarJugadorEnemigo(Jugador* jug, Escarabajo* escarabajos)
+	void Colisiones::procesarJugadorEnemigo(Jugador* jug, Personaje* enemigos)
 	{
-		if (jug->getCol().getGlobalBounds().intersects(escarabajos->getCol().getGlobalBounds()))
+		if (jug->getCol().getGlobalBounds().intersects(enemigos->getCol().getGlobalBounds()))
 		{
 			Juego::setEstadoActual(gameover, false);
 			Gameplay::setNivel(1);
 		}
-		
 	}
 
-	void Colisiones::procesarDashEnemigo(Jugador* jug, Escarabajo* escarabajos)
+	void Colisiones::procesarDashEnemigo(Jugador* jug, Personaje* enemigos)
 	{
 		RectangleShape colliderDash;
 
@@ -168,21 +167,21 @@ namespace juego {
 		}
 		
 
-		if (colliderDash.getGlobalBounds().intersects(escarabajos->getCol().getGlobalBounds())) 
+		if (colliderDash.getGlobalBounds().intersects(enemigos->getCol().getGlobalBounds())) 
 		{
-			escarabajos->setEstaVivo(false);
+			static_cast<Escarabajo*>(enemigos)->setEstaVivo(false);
 		}
 	}
 
-	void Colisiones::procesarColisionesPersonajes(Jugador* jug, Escarabajo* escarabajos)
+	void Colisiones::procesarColisionesPersonajes(Jugador* jug, Personaje* enemigos)
 	{
 		if (jug->getDash()&&jug->getSprDashActivo(0))
 		{
-			procesarDashEnemigo(jug, escarabajos);
+			procesarDashEnemigo(jug, enemigos);
 		}
 		else
 		{
-			procesarJugadorEnemigo(jug, escarabajos);
+			procesarJugadorEnemigo(jug, enemigos);
 		}
 	}
 

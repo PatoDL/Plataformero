@@ -23,9 +23,9 @@ namespace juego {
 		bool jugadorEnPlataformaY(Jugador* jug, RectangleShape plataforma);
 		void procesarJugadorLimites(Jugador* jug, Mapa* mapa, float difColisionX,float difColisionY);
 		void procesarColisiones(Jugador* jug, Mapa* mapa);
-		void procesarJugadorEnemigo(Jugador* jug, Escarabajo* escarabajos);
-		void procesarDashEnemigo(Jugador* jug, Escarabajo* escarabajos);
-		void procesarColisionesPersonajes(Jugador* jug, Escarabajo* escarabajos);
+		void procesarJugadorEnemigo(Jugador* jug, Personaje* enemigos);
+		void procesarDashEnemigo(Jugador* jug, Personaje* enemigos);
+		void procesarColisionesPersonajes(Jugador* jug, Personaje* enemigos);
 	};
 }
 
