@@ -1,4 +1,4 @@
-#include "enemigo.h"
+#include "mariposa.h"
 
 #include "juego/juego.h"
 
@@ -12,11 +12,11 @@ namespace juego
 	static float tiempoAnimacion;
 	static IntRect src;
 
-	Escarabajo::Escarabajo(float x, float y, Vector2f v) :Personaje(x, y, v)
+	Mariposa::Mariposa(float x, float y, Vector2f v) :Personaje(x, y, v)
 	{
 		setColSize({40.0f, 40.0f});
 		setColColor(Color::Red);
-		if (!tex.loadFromFile("res/assets/bug.png"))
+		if (!tex.loadFromFile("res/assets/butterfly.png"))
 		{
 		}
 		sprite.setTexture(tex);
@@ -30,11 +30,11 @@ namespace juego
 	}
 
 
-	Escarabajo::~Escarabajo()
+	Mariposa::~Mariposa()
 	{
 	}
 
-	void Escarabajo::inicializar()
+	void Mariposa::inicializar()
 	{
 		sprite.setTextureRect(src);
 		sprite.setPosition(pos);
@@ -43,23 +43,14 @@ namespace juego
 		estaVivo = true;
 	}
 
-	void Escarabajo::mover()
+	void Mariposa::mover()
 	{
-		setX(getPos().x + getVel().x*Juego::getFrameTime());
+		setY(getPos().y + getVel().y*Juego::getFrameTime());
 	}
 
-	void Escarabajo::actualizar()
+	void Mariposa::actualizar()
 	{
 		tiempoAnimacion += Juego::getFrameTime();
-
-		if (getVel().x > 0)
-		{
-			sprite.setScale(-1, 1);
-		}
-		else
-		{
-			sprite.setScale(1, 1);
-		}
 
 		if (tiempoAnimacion < 0.25f)
 		{
@@ -81,26 +72,26 @@ namespace juego
 		setColPos(pos);
 	}
 
-	void Escarabajo::dibujar()
+	void Mariposa::dibujar()
 	{
 		Juego::getWindow()->draw(sprite);
 	}
 
-	void Escarabajo::chequearEnPlataforma(Mapa* map, int i)
-	{
-		if (getPos().x - getCol().getGlobalBounds().width/2 <= map->getPlataforma(map->getPlatConEnemigo(i)).getGlobalBounds().left || 
-			getPos().x + getCol().getGlobalBounds().width / 2 >= map->getPlataforma(map->getPlatConEnemigo(i)).getGlobalBounds().left+ map->getPlataforma(map->getPlatConEnemigo(i)).getGlobalBounds().width)
-		{
-			setVel({ getVel().x*-1, getVel().y });
-		}
-	}
-
-	bool Escarabajo::getEstaVivo()
+	bool Mariposa::getEstaVivo()
 	{
 		return estaVivo;
 	}
 
-	void Escarabajo::setEstaVivo(bool vivo)
+	void Mariposa::chequearEnLimitesMapa(Mapa* map, int i)
+	{
+		if (getPos().y>=map->getTileMap()->GetHeight()*map->getTileMap()->GetTileHeight() || getPos().y <= 0)
+		{
+			setVel({ getVel().x, getVel().y*-1 });
+		}
+		
+	}
+
+	void Mariposa::setEstaVivo(bool vivo)
 	{
 		estaVivo = vivo;
 	}

@@ -44,6 +44,9 @@
     <ClCompile Include="..\src\objetos\personaje.cpp">
       <Filter>src\Objetos</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\objetos\mariposa.cpp">
+      <Filter>src\Objetos</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\juego\juego.h">
@@ -83,6 +86,9 @@
       <Filter>src\Objetos</Filter>
     </ClInclude>
     <ClInclude Include="..\src\objetos\personaje.h">
+      <Filter>src\Objetos</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\objetos\mariposa.h">
       <Filter>src\Objetos</Filter>
     </ClInclude>
   </ItemGroup>

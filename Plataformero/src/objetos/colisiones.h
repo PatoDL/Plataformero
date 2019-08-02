@@ -4,6 +4,7 @@
 #include "jugador.h"
 #include "mapa.h"
 #include "enemigo.h"
+#include "mariposa.h"
 
 #include "SFML\Graphics.hpp"
 
@@ -22,9 +23,9 @@ namespace juego {
 		bool jugadorEnPlataformaY(Jugador* jug, RectangleShape plataforma);
 		void procesarJugadorLimites(Jugador* jug, Mapa* mapa, float difColisionX,float difColisionY);
 		void procesarColisiones(Jugador* jug, Mapa* mapa);
-		void procesarJugadorEnemigo(Jugador* jug, Enemigo* enemigo);
-		void procesarDashEnemigo(Jugador* jug, Enemigo* enemigo);
-		void procesarColisionesPersonajes(Jugador* jug, Enemigo* enemigo);
+		void procesarJugadorEnemigo(Jugador* jug, Escarabajo* escarabajos);
+		void procesarDashEnemigo(Jugador* jug, Escarabajo* escarabajos);
+		void procesarColisionesPersonajes(Jugador* jug, Escarabajo* escarabajos);
 	};
 }
 

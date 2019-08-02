@@ -16,7 +16,8 @@ namespace juego
 	class Gameplay : public Pantalla
 	{
 		Personaje* jugador;
-		Personaje* enemigo[cantEnemigos];
+		Personaje* escarabajos[cantEscarabajos];
+		Personaje* mariposas[cantMariposas];
 		View view;
 		Mapa* map;
 		tgui::Button::Ptr botonPausa;

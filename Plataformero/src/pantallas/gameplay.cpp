@@ -33,9 +33,9 @@ namespace juego
 	{
 		delete jugador;
 		delete map;
-		for (int i = 0; i < cantEnemigos; i++)
+		for (int i = 0; i < cantEscarabajos; i++)
 		{
-			delete enemigo[i];
+			delete escarabajos[i];
 		}
 	}
 
@@ -56,9 +56,13 @@ namespace juego
 		
 		static_cast<Jugador*>(jugador)->setPosInicial(map->getPosInicial());
 		jugador->inicializar();
-		for (int i = 0; i < cantEnemigos; i++)
+		for (int i = 0; i < cantEscarabajos; i++)
 		{
-			enemigo[i]->inicializar();
+			escarabajos[i]->inicializar();
+		}
+		for (int i = 0; i < cantMariposas; i++)
+		{
+			mariposas[i]->inicializar();
 		}
 	}
 
@@ -73,23 +77,33 @@ namespace juego
 		if (!ganador)
 		{
 			colisiones.procesarColisiones(static_cast<Jugador*>(jugador), map);
-			for (int i = 0; i < cantEnemigos; i++)
+			for (int i = 0; i < cantEscarabajos; i++)
 			{
-				if (static_cast<Enemigo*>(enemigo[i])->getEstaVivo())
+				if (static_cast<Escarabajo*>(escarabajos[i])->getEstaVivo())
 				{
-					colisiones.procesarColisionesPersonajes(static_cast<Jugador*>(jugador), static_cast<Enemigo*>(enemigo[i]));
+					colisiones.procesarColisionesPersonajes(static_cast<Jugador*>(jugador), static_cast<Escarabajo*>(escarabajos[i]));
 				}
 			}
-			for (int i = 0; i < cantEnemigos; i++)
+			for (int i = 0; i < cantEscarabajos; i++)
 			{
-				if (static_cast<Enemigo*>(enemigo[i])->getEstaVivo())
+				if (static_cast<Escarabajo*>(escarabajos[i])->getEstaVivo())
 				{
-					static_cast<Enemigo*>(enemigo[i])->chequearEnPlataforma(map, i);
-					enemigo[i]->mover();
-					enemigo[i]->actualizar();
+					static_cast<Escarabajo*>(escarabajos[i])->chequearEnPlataforma(map, i);
+					escarabajos[i]->mover();
+					escarabajos[i]->actualizar();
 				}
 
 			}
+			for (int i = 0; i < cantMariposas; i++)
+			{
+				if (static_cast<Mariposa*>(mariposas[i])->getEstaVivo())
+				{
+					static_cast<Mariposa*>(mariposas[i])->chequearEnLimitesMapa(map, i);
+					mariposas[i]->mover();
+					mariposas[i]->actualizar();
+				}
+			}
+
 			jugador->actualizar();
 			posicionarCamara();
 		}
@@ -105,11 +119,18 @@ namespace juego
 		map->getTileMap()->ShowObjects(false);
 		Juego::getWindow()->draw(*map->getTileMap());
 		jugador->dibujar();
-		for (int i = 0; i < cantEnemigos; i++)
+		for (int i = 0; i < cantEscarabajos; i++)
 		{
-			if (static_cast<Enemigo*>(enemigo[i])->getEstaVivo())
+			if (static_cast<Escarabajo*>(escarabajos[i])->getEstaVivo())
 			{
-				enemigo[i]->dibujar();
+				escarabajos[i]->dibujar();
+			}
+		}
+		for (int i = 0; i < cantMariposas; i++)
+		{
+			if (static_cast<Mariposa*>(mariposas[i])->getEstaVivo())
+			{
+				mariposas[i]->dibujar();
 			}
 		}
 	}
@@ -117,9 +138,13 @@ namespace juego
 	void Gameplay::desinicializar()
 	{
 		delete map;
-		for (int i = 0; i < cantEnemigos; i++)
+		for (int i = 0; i < cantEscarabajos; i++)
 		{
-			delete enemigo[i];
+			delete escarabajos[i];
+		}
+		for (int i = 0; i < cantMariposas; i++)
+		{
+			delete mariposas[i];
 		}
 	}
 
@@ -176,12 +201,18 @@ namespace juego
 
 	void Gameplay::crearEnemigos(Mapa* map)
 	{
-		for (int i = 0; i < cantEnemigos; i++)
+		for (int i = 0; i < cantEscarabajos; i++)
 		{
 			float posX = map->getPlataforma(map->getPlatConEnemigo(i)).getPosition().x;
 			float posY = map->getPlataforma(map->getPlatConEnemigo(i)).getPosition().y - map->getPlataforma(map->getPlatConEnemigo(i)).getSize().y / 2;
 
-			enemigo[i] = new Enemigo(posX, posY, { -200.0f,200.0f });
+			escarabajos[i] = new Escarabajo(posX, posY, { -200.0f,200.0f });
+		}
+		for (int i = 0; i < cantMariposas; i++)
+		{
+			float posX = map->getTileMap()->GetWidth()*map->getTileMap()->GetTileWidth() / 4 * i + 1;
+			float posY = map->getTileMap()->GetHeight()*map->getTileMap()->GetTileHeight() / 2;
+			mariposas[i] = new Mariposa(posX, posY, { -200.0f,200.0f });
 		}
 	}
 
