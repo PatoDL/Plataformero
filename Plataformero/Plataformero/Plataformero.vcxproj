@@ -23,11 +23,14 @@
     <ClCompile Include="..\src\juego\juego.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\objetos\colisiones.cpp" />
+    <ClCompile Include="..\src\objetos\dobleSalto.cpp" />
     <ClCompile Include="..\src\objetos\enemigo.cpp" />
+    <ClCompile Include="..\src\objetos\item.cpp" />
     <ClCompile Include="..\src\objetos\jugador.cpp" />
     <ClCompile Include="..\src\objetos\mapa.cpp" />
     <ClCompile Include="..\src\objetos\mariposa.cpp" />
     <ClCompile Include="..\src\objetos\personaje.cpp" />
+    <ClCompile Include="..\src\objetos\vidaExtra.cpp" />
     <ClCompile Include="..\src\pantallas\creditos.cpp" />
     <ClCompile Include="..\src\pantallas\gameover.cpp" />
     <ClCompile Include="..\src\pantallas\gameplay.cpp" />
@@ -39,11 +42,14 @@
   <ItemGroup>
     <ClInclude Include="..\src\juego\juego.h" />
     <ClInclude Include="..\src\objetos\colisiones.h" />
+    <ClInclude Include="..\src\objetos\dobleSalto.h" />
     <ClInclude Include="..\src\objetos\enemigo.h" />
+    <ClInclude Include="..\src\objetos\item.h" />
     <ClInclude Include="..\src\objetos\jugador.h" />
     <ClInclude Include="..\src\objetos\mapa.h" />
     <ClInclude Include="..\src\objetos\mariposa.h" />
     <ClInclude Include="..\src\objetos\personaje.h" />
+    <ClInclude Include="..\src\objetos\vidaExtra.h" />
     <ClInclude Include="..\src\pantallas\creditos.h" />
     <ClInclude Include="..\src\pantallas\gameover.h" />
     <ClInclude Include="..\src\pantallas\gameplay.h" />

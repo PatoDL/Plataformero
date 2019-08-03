@@ -47,6 +47,15 @@
     <ClCompile Include="..\src\objetos\mariposa.cpp">
       <Filter>src\Objetos</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\objetos\item.cpp">
+      <Filter>src\Objetos</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\objetos\vidaExtra.cpp">
+      <Filter>src\Objetos</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\objetos\dobleSalto.cpp">
+      <Filter>src\Objetos</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\juego\juego.h">
@@ -89,6 +98,15 @@
       <Filter>src\Objetos</Filter>
     </ClInclude>
     <ClInclude Include="..\src\objetos\mariposa.h">
+      <Filter>src\Objetos</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\objetos\item.h">
+      <Filter>src\Objetos</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\objetos\vidaExtra.h">
+      <Filter>src\Objetos</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\objetos\dobleSalto.h">
       <Filter>src\Objetos</Filter>
     </ClInclude>
   </ItemGroup>

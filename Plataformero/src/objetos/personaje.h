@@ -15,13 +15,13 @@ namespace juego
 	private:
 		int cantVidas;
 		sf::Vector2f vel;
-		const float gravedad=98.0f*4;
+		const float gravedad = 98.0f * 4;
 		float velCaida;
 		RectangleShape collider;
 	public:
 		Personaje(float x, float y/*, Sprite spr*/,sf::Vector2f v);
-		~Personaje();
-		virtual void inicializar()=0;
+		virtual ~Personaje();
+		virtual void inicializar() = 0;
 		virtual void mover() = 0;
 		void setVidas(int vid);
 		int getVidas();

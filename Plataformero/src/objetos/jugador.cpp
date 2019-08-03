@@ -84,7 +84,6 @@ namespace juego
 
 	void Jugador::mover()
 	{
-		//static bool pulsaSalto = false;
 		timerEntreSalto += Juego::getFrameTime();
 		if (Keyboard::isKeyPressed(Keyboard::Up) && saltosHechos < saltosMax && timerEntreSalto > cooldownEntreSalto)
 		{

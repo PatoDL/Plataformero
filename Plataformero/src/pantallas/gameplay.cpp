@@ -35,7 +35,13 @@ namespace juego
 		delete map;
 		for (int i = 0; i < cantEscarabajos; i++)
 		{
-			delete escarabajos[i];
+			if(escarabajos[i] != NULL)
+				delete escarabajos[i];
+		}
+		for (int i = 0; i < cantMariposas; i++)
+		{
+			if (escarabajos[i] != NULL)
+				delete mariposas[i];
 		}
 	}
 
@@ -147,11 +153,13 @@ namespace juego
 		delete map;
 		for (int i = 0; i < cantEscarabajos; i++)
 		{
-			delete escarabajos[i];
+			if (escarabajos[i] != NULL)
+				delete escarabajos[i];
 		}
 		for (int i = 0; i < cantMariposas; i++)
 		{
-			delete mariposas[i];
+			if (escarabajos[i] != NULL)
+				delete mariposas[i];
 		}
 	}
 
