@@ -9,10 +9,15 @@ namespace juego
 	{
 	protected:
 		sf::Sprite sprite;
+	private:
+		sf::RectangleShape collider;
+		bool activo;
 	public:
 		Item();
-		virtual ~Item();
 		void setPosition(sf::Vector2f pos);
+		void activar();
+		void desactivar();
+		void dibujar();
 	};
 }
 

@@ -4,6 +4,8 @@
 #include "juego/juego.h"
 #include "objetos/enemigo.h"
 #include "objetos/mapa.h"
+#include "objetos/vidaExtra.h"
+#include "objetos/dobleSalto.h"
 
 namespace juego
 {
@@ -58,6 +60,7 @@ namespace juego
 		map = new Mapa(nivel);
 		map->crearPlataformas();
 		crearEnemigos(map);
+		crearItems(map);
 		ganador = false;
 		
 		static_cast<Jugador*>(jugador)->setPosInicial(map->getPosInicial());
@@ -146,6 +149,8 @@ namespace juego
 				mariposas[i]->dibujar();
 			}
 		}
+		vidaExtra->dibujar();
+		dobleSalto->dibujar();
 	}
 
 	void Gameplay::desinicializar()
@@ -225,16 +230,31 @@ namespace juego
 		}
 		for (int i = 0; i < cantMariposas; i++)
 		{
-			float posX = map->getTileMap()->GetWidth()*map->getTileMap()->GetTileWidth() / 4 * i + 1;
-			float posY = map->getTileMap()->GetHeight()*map->getTileMap()->GetTileHeight() / 2;
+			float posX = map->getTileMap()->GetWidth() * map->getTileMap()->GetTileWidth() / 4 * i + 1;
+			float posY = map->getTileMap()->GetHeight() * map->getTileMap()->GetTileHeight() / 2;
 			mariposas[i] = new Mariposa(posX, posY, { -200.0f,200.0f });
 		}
+	}
+
+	void Gameplay::crearItems(Mapa* map)
+	{
+		float posX = map->getPlataforma(map->getPlatConVidaExtra()).getPosition().x;
+		float posY = map->getPlataforma(map->getPlatConVidaExtra()).getPosition().y - map->getPlataforma(map->getPlatConVidaExtra()).getSize().y / 2;
+
+		vidaExtra = new VidaExtra();
+		vidaExtra->setPosition({ posX, posY });
+
+		posX = map->getPlataforma(map->getPlatConDobleSalto()).getPosition().x;
+		posY = map->getPlataforma(map->getPlatConDobleSalto()).getPosition().y - map->getPlataforma(map->getPlatConDobleSalto()).getSize().y / 2;
+
+		dobleSalto = new DobleSalto();
+		dobleSalto->setPosition({ posX, posY });
 	}
 
 	void Gameplay::esconderGui()
 	{
 		botonPausa->setVisible(false);
-		view.setCenter({ static_cast<float>(Juego::getAnchoPantalla() / 2),static_cast<float>(Juego::getAltoPantalla() / 2) });
+		view.setCenter({ static_cast<float>(Juego::getAnchoPantalla() / 2), static_cast<float>(Juego::getAltoPantalla() / 2) });
 	}
 
 	void Gameplay::mostrarGui()

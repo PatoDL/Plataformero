@@ -24,7 +24,7 @@ namespace juego {
 
 			if (plataforma.getGlobalBounds().intersects(jug->getCol().getGlobalBounds()))
 			{
-				if (mapa->getTipoPlataforma(i) == piso)
+				if (mapa->getTipoPlataforma(i) == piso || mapa->getTipoPlataforma(i) == vidaExtra || mapa->getTipoPlataforma(i) == dobleSalto)
 				{
 					//ABAJO
 					if (colisionaAbajo(jug, plataforma) && !jugadorEnPlataformaY(jug, plataforma) && jugadorEnPlataformaX(jug, plataforma))
@@ -133,8 +133,8 @@ namespace juego {
 
 	void Colisiones::procesarColisiones(Jugador* jug, Mapa* mapa)
 	{
-		static float difColisionX = jug->getCol().getGlobalBounds().width*0.009f;
-		static float difColisionY = jug->getCol().getGlobalBounds().height*0.009f;
+		static float difColisionX = jug->getCol().getGlobalBounds().width * 0.009f;
+		static float difColisionY = jug->getCol().getGlobalBounds().height * 0.009f;
 
 		jug->setPosColision({ false,false,false,false });
 

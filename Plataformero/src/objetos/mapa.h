@@ -12,7 +12,7 @@ using namespace sf;
 const int maxPlataformas = 300;
 
 namespace juego {
-	enum tiposPlataforma{piso,pinches, llegada};
+	enum tiposPlataforma{piso, pinches, llegada, vidaExtra, dobleSalto};
 
 	class Mapa
 	{
@@ -25,6 +25,8 @@ namespace juego {
 		tiposPlataforma tipoPlat[maxPlataformas];
 		bool tieneEnemigo[maxPlataformas];
 		int platConEnemigo[5];
+		int platConVidaExtra;
+		int platConDobleSalto;
 		Vector2f posInicial;
 	public:
 		Mapa(int nivel);
@@ -35,6 +37,8 @@ namespace juego {
 		Mapa &getMapa();
 		tiposPlataforma getTipoPlataforma(int i);
 		int getPlatConEnemigo(int i);
+		int getPlatConVidaExtra();
+		int getPlatConDobleSalto();
 		Vector2f getPosInicial();
 	};
 }

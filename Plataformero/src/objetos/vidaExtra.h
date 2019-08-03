@@ -7,7 +7,8 @@ namespace juego
 {
 	class VidaExtra : public Item
 	{
-
+	public:
+		VidaExtra();
 	};
 }
 

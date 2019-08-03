@@ -7,7 +7,8 @@ namespace juego
 {
 	class DobleSalto : public Item
 	{
-
+	public:
+		DobleSalto();
 	};
 }
 

@@ -4,7 +4,7 @@
 #include "pantallas/pantalla.h"
 #include "objetos/personaje.h"
 #include "juego/juego.h"
-
+#include "objetos/item.h"
 #include "objetos/mapa.h"
 #include "objetos/colisiones.h"
 
@@ -18,6 +18,8 @@ namespace juego
 		Personaje* jugador;
 		Personaje* escarabajos[cantEscarabajos];
 		Personaje* mariposas[cantMariposas];
+		Item* vidaExtra;
+		Item* dobleSalto;
 		View view;
 		Mapa* map;
 		tgui::Button::Ptr botonPausa;
@@ -35,6 +37,7 @@ namespace juego
 		void desinicializar();
 		void posicionarCamara();
 		void crearEnemigos(Mapa* map);
+		void crearItems(Mapa* map);
 		void esconderGui();
 		void mostrarGui();
 		static bool getGanador();

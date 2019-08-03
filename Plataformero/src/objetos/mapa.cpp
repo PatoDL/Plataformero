@@ -45,6 +45,16 @@ namespace juego {
 					tipoPlat[j] = pinches;
 				else if (tipo == "inicio")
 					posInicial = plataformas[j].getPosition();
+				else if (tipo == "dobleSalto")
+				{
+					tipoPlat[j] = dobleSalto;
+					platConDobleSalto = j;
+				}
+				else if (tipo == "vidaExtra")
+				{
+					tipoPlat[j] = vidaExtra;
+					platConVidaExtra = j;
+				}
 				else
 					tipoPlat[j] = llegada;
 				if (i->child("properties").child("property").attribute("value").as_bool())
@@ -83,6 +93,17 @@ namespace juego {
 	{
 		return platConEnemigo[i];
 	}
+
+	int Mapa::getPlatConDobleSalto()
+	{
+		return platConDobleSalto;
+	}
+
+	int Mapa::getPlatConVidaExtra()
+	{
+		return platConVidaExtra;
+	}
+
 
 	Vector2f Mapa::getPosInicial()
 	{
