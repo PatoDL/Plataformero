@@ -120,6 +120,8 @@ namespace juego
 				}
 			}
 
+			colisiones.procesarColisionesConItems(static_cast<Jugador*>(jugador), vidaExtra, dobleSalto);
+
 			jugador->actualizar();
 			posicionarCamara();
 		}
@@ -166,6 +168,8 @@ namespace juego
 			if (escarabajos[i] != NULL)
 				delete mariposas[i];
 		}
+		delete dobleSalto;
+		delete vidaExtra;
 	}
 
 	void Gameplay::posicionarCamara()
@@ -242,13 +246,13 @@ namespace juego
 		float posY = map->getPlataforma(map->getPlatConVidaExtra()).getPosition().y - map->getPlataforma(map->getPlatConVidaExtra()).getSize().y / 2;
 
 		vidaExtra = new VidaExtra();
-		vidaExtra->setPosition({ posX, posY });
+		vidaExtra->inicializar({ posX, posY });
 
 		posX = map->getPlataforma(map->getPlatConDobleSalto()).getPosition().x;
 		posY = map->getPlataforma(map->getPlatConDobleSalto()).getPosition().y - map->getPlataforma(map->getPlatConDobleSalto()).getSize().y / 2;
 
 		dobleSalto = new DobleSalto();
-		dobleSalto->setPosition({ posX, posY });
+		dobleSalto->inicializar({ posX, posY });
 	}
 
 	void Gameplay::esconderGui()

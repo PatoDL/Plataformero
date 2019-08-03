@@ -2,6 +2,9 @@
 
 #include "juego/juego.h"
 #include "pantallas/gameplay.h"
+#include "objetos/dobleSalto.h"
+#include "objetos/vidaExtra.h"
+#include "objetos/item.h"
 
 namespace juego {
 
@@ -24,7 +27,7 @@ namespace juego {
 
 			if (plataforma.getGlobalBounds().intersects(jug->getCol().getGlobalBounds()))
 			{
-				if (mapa->getTipoPlataforma(i) == piso || mapa->getTipoPlataforma(i) == vidaExtra || mapa->getTipoPlataforma(i) == dobleSalto)
+				if (mapa->getTipoPlataforma(i) == piso)
 				{
 					//ABAJO
 					if (colisionaAbajo(jug, plataforma) && !jugadorEnPlataformaY(jug, plataforma) && jugadorEnPlataformaX(jug, plataforma))
@@ -63,10 +66,19 @@ namespace juego {
 				{
 					Gameplay::setGanador(true);
 				}
-				else
+				else if (mapa->getTipoPlataforma(i) == pinches)
 				{
-					Gameplay::setNivel(1);
-					Juego::setEstadoActual(gameover, false);
+					if (jug->getVidas() == 1)
+					{
+						Gameplay::setNivel(1);
+						Juego::setEstadoActual(gameover, false);
+					}
+					else
+					{
+						jug->setVidas(jug->getVidas() - 1);
+						Juego::setEstadoActual(gameover, false);
+						Juego::setEstadoActual(gameplay, false);
+					}
 				}
 
 			}
@@ -126,8 +138,17 @@ namespace juego {
 
 		if (jug->getPos().y > mapa->getTileMap()->GetHeight()*mapa->getTileMap()->GetTileHeight() * 0.95f)
 		{
-			Juego::setEstadoActual(gameover, false);
-			Gameplay::setNivel(1);
+			if (jug->getVidas() == 1)
+			{
+				Gameplay::setNivel(1);
+				Juego::setEstadoActual(gameover, false);
+			}
+			else
+			{
+				jug->setVidas(jug->getVidas() - 1);
+				Juego::setEstadoActual(gameover, false);
+				Juego::setEstadoActual(gameplay, false);
+			}
 		}
 	}
 
@@ -146,8 +167,17 @@ namespace juego {
 	{
 		if (jug->getCol().getGlobalBounds().intersects(enemigos->getCol().getGlobalBounds()))
 		{
-			Juego::setEstadoActual(gameover, false);
-			Gameplay::setNivel(1);
+			if (jug->getVidas() == 1)
+			{
+				Gameplay::setNivel(1);
+				Juego::setEstadoActual(gameover, false);
+			}
+			else
+			{
+				jug->setVidas(jug->getVidas() - 1);
+				Juego::setEstadoActual(gameover, false);
+				Juego::setEstadoActual(gameplay, false);
+			}
 		}
 	}
 
@@ -166,7 +196,6 @@ namespace juego {
 			colliderDash.setSize({ jug->getCol().getGlobalBounds().left + jug->getCol().getGlobalBounds().width - jug->getSprDash(0).getGlobalBounds().left, jug->getCol().getGlobalBounds().height });
 		}
 		
-
 		if (colliderDash.getGlobalBounds().intersects(enemigos->getCol().getGlobalBounds())) 
 		{
 			static_cast<Escarabajo*>(enemigos)->setEstaVivo(false);
@@ -175,7 +204,7 @@ namespace juego {
 
 	void Colisiones::procesarColisionesPersonajes(Jugador* jug, Personaje* enemigos)
 	{
-		if (jug->getDash()&&jug->getSprDashActivo(0))
+		if (jug->getDash() && jug->getSprDashActivo(0))
 		{
 			procesarDashEnemigo(jug, enemigos);
 		}
@@ -185,4 +214,18 @@ namespace juego {
 		}
 	}
 
+	void Colisiones::procesarColisionesConItems(Jugador* jug, Item* vidaExtra, Item* dobleSalto)
+	{
+		if (jug->getCol().getGlobalBounds().intersects(vidaExtra->getCol().getGlobalBounds()))
+		{
+			vidaExtra->desactivar();
+			jug->setVidas(jug->getVidas() + 1);
+		}
+
+		if (jug->getCol().getGlobalBounds().intersects(dobleSalto->getCol().getGlobalBounds()))
+		{
+			dobleSalto->desactivar();
+			jug->activarDobleSalto();
+		}
+	}
 }

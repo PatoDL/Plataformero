@@ -64,6 +64,7 @@ namespace juego
 		bool getSprDashActivo(int i);
 		bool getMiraIzq();
 		void setPosInicial(Vector2f posIni);
+		void activarDobleSalto();
 	};
 }
 

@@ -14,10 +14,11 @@ namespace juego
 		bool activo;
 	public:
 		Item();
-		void setPosition(sf::Vector2f pos);
+		void inicializar(sf::Vector2f pos);
 		void activar();
 		void desactivar();
 		void dibujar();
+		sf::RectangleShape getCol();
 	};
 }
 

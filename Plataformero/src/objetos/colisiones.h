@@ -5,6 +5,7 @@
 #include "mapa.h"
 #include "enemigo.h"
 #include "mariposa.h"
+#include "item.h"
 
 #include "SFML\Graphics.hpp"
 
@@ -26,6 +27,7 @@ namespace juego {
 		void procesarJugadorEnemigo(Jugador* jug, Personaje* enemigos);
 		void procesarDashEnemigo(Jugador* jug, Personaje* enemigos);
 		void procesarColisionesPersonajes(Jugador* jug, Personaje* enemigos);
+		void procesarColisionesConItems(Jugador* jug, Item* vidaExtra, Item* dobleSalto);
 	};
 }
 

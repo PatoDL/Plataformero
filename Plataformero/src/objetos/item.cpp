@@ -9,8 +9,10 @@ namespace juego
 		activo = true;
 	}
 
-	void Item::setPosition(sf::Vector2f pos)
+	void Item::inicializar(sf::Vector2f pos)
 	{
+		collider.setSize({ 40.f, 40.f });
+		collider.setOrigin(sprite.getOrigin());
 		sprite.setPosition(pos);
 		collider.setPosition(pos);
 	}
@@ -29,5 +31,10 @@ namespace juego
 	{
 		if(activo)
 			Juego::getWindow()->draw(sprite);
+	}
+
+	RectangleShape Item::getCol()
+	{
+		return collider;
 	}
 }

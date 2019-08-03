@@ -71,7 +71,7 @@ namespace juego
 		miraDer = true;
 		timerEntreDash = 0.0f;
 		timerPosiciones = 0.0f;
-		saltosMax = 2;
+		saltosMax = 1;
 		saltosHechos = 0;
 		cooldownEntreSalto = 0.2f;
 		timerEntreSalto = 0.f;
@@ -381,5 +381,10 @@ namespace juego
 	void Jugador::setPosInicial(Vector2f posIni)
 	{
 		posInicial = posIni;
+	}
+
+	void Jugador::activarDobleSalto()
+	{
+		saltosMax = 2;
 	}
 }
