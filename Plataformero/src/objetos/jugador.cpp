@@ -75,7 +75,7 @@ namespace juego
 		timerEntreDash = 0.0f;
 		timerPosiciones = 0.0f;
 		saltosHechos = 0;
-		cooldownEntreSalto = 0.2f;
+		cooldownEntreSalto = 0.25f;
 		timerEntreSalto = 0.f;
 
 		for (int i = 0; i < cantSprDash; i++)
