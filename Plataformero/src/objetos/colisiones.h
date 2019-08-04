@@ -28,6 +28,7 @@ namespace juego {
 		void procesarDashEnemigo(Jugador* jug, Personaje* enemigos);
 		void procesarColisionesPersonajes(Jugador* jug, Personaje* enemigos);
 		void procesarColisionesConItems(Jugador* jug, Item* vidaExtra, Item* dobleSalto);
+		void perderVida(Jugador* jug);
 	};
 }
 

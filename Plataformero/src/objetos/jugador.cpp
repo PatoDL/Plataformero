@@ -38,6 +38,7 @@ namespace juego
 		src.height = static_cast<int>(sprite.getLocalBounds().height);
 
 		sprite.setTextureRect(src);
+		saltosMax = 1;
 
 		inicializar();
 	}
@@ -72,7 +73,6 @@ namespace juego
 		miraDer = true;
 		timerEntreDash = 0.0f;
 		timerPosiciones = 0.0f;
-		saltosMax = 1;
 		saltosHechos = 0;
 		cooldownEntreSalto = 0.2f;
 		timerEntreSalto = 0.f;
@@ -81,6 +81,16 @@ namespace juego
 		{
 			sprActivo[i] = false;
 		}
+	}
+
+	void Jugador::resetearSaltos()
+	{
+		saltosMax = 1;
+	}
+
+	void Jugador::resetearVidas()
+	{
+		setVidas(1);
 	}
 
 	void Jugador::mover()
@@ -92,8 +102,6 @@ namespace juego
 			{
 				timerEntreSalto = 0.f;
 				saltar();
-				//MODO TESTING
-				//velSalto = getVel().y;
 			}
 			else if(saltosHechos == 1)
 			{

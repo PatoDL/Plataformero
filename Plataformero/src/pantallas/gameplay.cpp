@@ -76,10 +76,12 @@ namespace juego
 		map->crearPlataformas();
 		crearEnemigos(map);
 		crearItems(map);
-		ganador = false;
 		
 		static_cast<Jugador*>(jugador)->setPosInicial(map->getPosInicial());
 		jugador->inicializar();
+
+		ganador = false;
+
 		for (int i = 0; i < cantEscarabajos; i++)
 		{
 			escarabajos[i]->inicializar();
@@ -139,7 +141,7 @@ namespace juego
 
 			jugador->actualizar();
 			posicionarCamara();
-			vidasUI.setPosition(view.getCenter().x-200.0f,view.getCenter().y - 200.0f);
+			vidasUI.setPosition(view.getCenter().x - 200.0f,view.getCenter().y - 200.0f);
 			
 			vidas.setString("x" + std::to_string(jugador->getVidas()));
 			vidas.setCharacterSize(20);
@@ -316,6 +318,8 @@ namespace juego
 		case 2:
 			desinicializar();
 			nivel = 1;
+			static_cast<Jugador*>(jugador)->resetearSaltos();
+			static_cast<Jugador*>(jugador)->resetearVidas();
 			Juego::setEstadoActual(gameover, false);
 			break;
 		}

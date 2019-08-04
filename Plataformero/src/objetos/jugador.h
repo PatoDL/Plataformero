@@ -43,6 +43,8 @@ namespace juego
 		Jugador(float x, float y, sf::Vector2f v);
 		~Jugador();
 		void inicializar();
+		void resetearSaltos();
+		void resetearVidas();
 		void mover();
 		void saltar();
 		void actualizar();

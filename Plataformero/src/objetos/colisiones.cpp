@@ -68,17 +68,7 @@ namespace juego {
 				}
 				else if (mapa->getTipoPlataforma(i) == pinches)
 				{
-					if (jug->getVidas() == 1)
-					{
-						Gameplay::setNivel(1);
-						Juego::setEstadoActual(gameover, false);
-					}
-					else
-					{
-						jug->setVidas(jug->getVidas() - 1);
-						Juego::setEstadoActual(gameover, false);
-						Juego::setEstadoActual(gameplay, false);
-					}
+					perderVida(jug);
 				}
 
 			}
@@ -138,17 +128,7 @@ namespace juego {
 
 		if (jug->getPos().y > mapa->getTileMap()->GetHeight()*mapa->getTileMap()->GetTileHeight() * 0.95f)
 		{
-			if (jug->getVidas() == 1)
-			{
-				Gameplay::setNivel(1);
-				Juego::setEstadoActual(gameover, false);
-			}
-			else
-			{
-				jug->setVidas(jug->getVidas() - 1);
-				Juego::setEstadoActual(gameover, false);
-				Juego::setEstadoActual(gameplay, false);
-			}
+			perderVida(jug);
 		}
 	}
 
@@ -167,17 +147,7 @@ namespace juego {
 	{
 		if (jug->getCol().getGlobalBounds().intersects(enemigos->getCol().getGlobalBounds()))
 		{
-			if (jug->getVidas() == 1)
-			{
-				Gameplay::setNivel(1);
-				Juego::setEstadoActual(gameover, false);
-			}
-			else
-			{
-				jug->setVidas(jug->getVidas() - 1);
-				Juego::setEstadoActual(gameover, false);
-				Juego::setEstadoActual(gameplay, false);
-			}
+			perderVida(jug);
 		}
 	}
 
@@ -228,6 +198,23 @@ namespace juego {
 		{
 			dobleSalto->desactivar();
 			jug->activarDobleSalto();
+		}
+	}
+
+	void Colisiones::perderVida(Jugador* jug)
+	{
+		if (jug->getVidas() == 1)
+		{
+			Gameplay::setNivel(1);
+			static_cast<Jugador*>(jug)->resetearSaltos();
+			Juego::setEstadoActual(gameover, false);
+		}
+		else
+		{
+			jug->setVidas(jug->getVidas() - 1);
+			static_cast<Jugador*>(jug)->resetearSaltos();
+			Juego::setEstadoActual(gameover, false);
+			Juego::setEstadoActual(gameplay, false);
 		}
 	}
 }
