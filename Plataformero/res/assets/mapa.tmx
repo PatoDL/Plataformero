@@ -689,8 +689,8 @@
   </object>
   <object id="127" type="llegada" x="3136" y="512" width="64" height="32"/>
   <object id="131" type="inicio" x="46.6667" y="2029.33"/>
-  <object id="132" type="dobleSalto" x="1124.18" y="1511.51" width="23.3333" height="24"/>
+  <object id="132" type="dobleSalto" x="1123.24" y="1515.01" width="23.3333" height="21"/>
   <object id="134" type="vidaExtra" x="664.586" y="657.052" width="15" height="15"/>
-  <object id="135" x="640.25" y="672.25" width="63.75" height="31.75"/>
+  <object id="135" type="piso" x="640.25" y="672.25" width="63.75" height="31.75"/>
  </objectgroup>
 </map>

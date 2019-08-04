@@ -61,7 +61,7 @@ namespace juego
 		
 		
 
-		version.setString("v1.0");
+		version.setString("v2.0");
 		version.setCharacterSize(40);
 		version.setFillColor(sf::Color::White);
 		version.setFont(*Juego::getGui()->getFont());

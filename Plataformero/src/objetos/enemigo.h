@@ -14,6 +14,7 @@ namespace juego
 	{
 	private:
 		bool estaVivo;
+		IntRect src;
 	public:
 		Escarabajo(float x, float y,sf::Vector2f v);
 		~Escarabajo();

@@ -14,7 +14,6 @@ namespace juego
 
 	Mariposa::Mariposa(float x, float y, Vector2f v) :Personaje(x, y, v)
 	{
-		setColSize({40.0f, 40.0f});
 		setColColor(Color::Red);
 		if (!tex.loadFromFile("res/assets/butterfly.png"))
 		{
@@ -25,6 +24,7 @@ namespace juego
 		src.top = 0;
 		src.width = static_cast<int>(sprite.getLocalBounds().width / 2);
 		src.height = static_cast<int>(sprite.getLocalBounds().height);
+		setColSize({ static_cast<float>(src.width),static_cast<float>(src.height) });
 		sprite.setTextureRect(src);
 		sprite.setPosition(pos);
 	}
@@ -38,8 +38,8 @@ namespace juego
 	{
 		sprite.setTextureRect(src);
 		sprite.setPosition(pos);
-		sprite.setOrigin(sprite.getGlobalBounds().height, (sprite.getGlobalBounds().width / 2));
-		setColOrigin(sprite.getOrigin());
+		sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height);
+		setColOrigin({ static_cast<float>(src.width) / 2.f ,static_cast<float>(src.height) });
 		estaVivo = true;
 	}
 

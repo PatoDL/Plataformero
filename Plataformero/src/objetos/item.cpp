@@ -33,6 +33,11 @@ namespace juego
 			Juego::getWindow()->draw(sprite);
 	}
 
+	bool Item::estaActivo()
+	{
+		return activo;
+	}
+
 	RectangleShape Item::getCol()
 	{
 		return collider;

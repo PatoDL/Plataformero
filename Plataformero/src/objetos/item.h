@@ -18,6 +18,7 @@ namespace juego
 		void activar();
 		void desactivar();
 		void dibujar();
+		bool estaActivo();
 		sf::RectangleShape getCol();
 	};
 }

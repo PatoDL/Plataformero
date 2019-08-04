@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="100" height="75" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="247">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="right-down" width="100" height="75" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="249">
  <tileset firstgid="1" name="New Piskel" tilewidth="32" tileheight="32" tilecount="18" columns="18">
   <image source="New Piskel.png" width="576" height="32"/>
  </tileset>
@@ -417,7 +417,7 @@
     <property name="enemigo" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="56" type="piso" x="2177.5" y="1500.83" width="94" height="33">
+  <object id="56" type="piso" x="2176.05" y="1503.74" width="96.1818" height="31.5455">
    <properties>
     <property name="enemigo" type="bool" value="false"/>
    </properties>
@@ -1338,5 +1338,6 @@
    </properties>
   </object>
   <object id="246" type="dobleSalto" x="1091.5" y="803" width="23" height="23.5"/>
+  <object id="247" type="vidaExtra" x="2209.45" y="1484.18" width="25.0909" height="19.0909"/>
  </objectgroup>
 </map>

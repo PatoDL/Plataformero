@@ -216,13 +216,15 @@ namespace juego {
 
 	void Colisiones::procesarColisionesConItems(Jugador* jug, Item* vidaExtra, Item* dobleSalto)
 	{
-		if (jug->getCol().getGlobalBounds().intersects(vidaExtra->getCol().getGlobalBounds()))
+		if (jug->getCol().getGlobalBounds().intersects(vidaExtra->getCol().getGlobalBounds())
+			&& vidaExtra->estaActivo())
 		{
 			vidaExtra->desactivar();
 			jug->setVidas(jug->getVidas() + 1);
 		}
 
-		if (jug->getCol().getGlobalBounds().intersects(dobleSalto->getCol().getGlobalBounds()))
+		if (jug->getCol().getGlobalBounds().intersects(dobleSalto->getCol().getGlobalBounds())
+			&& dobleSalto->estaActivo())
 		{
 			dobleSalto->desactivar();
 			jug->activarDobleSalto();
