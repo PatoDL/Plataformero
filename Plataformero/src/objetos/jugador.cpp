@@ -142,6 +142,7 @@ namespace juego
 
 	void Jugador::saltar()
 	{
+		setY(getPos().y - 2.f);
 		velSalto = getVel().y;
 		enSalto = true;
 		if (Juego::getHaySonido())

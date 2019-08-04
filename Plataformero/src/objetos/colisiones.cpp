@@ -42,6 +42,7 @@ namespace juego {
 					else if (colisionaArriba(jug, plataforma) && !jugadorEnPlataformaY(jug, plataforma) && jugadorEnPlataformaX(jug, plataforma))
 					{
 						jug->setY(plataforma.getGlobalBounds().top + plataforma.getGlobalBounds().height + jug->getCol().getSize().y / 2 - difColisionY);
+						jug->setY(jug->getPos().y + 10.f);
 						jug->setPosColisionTecho(true);
 						jug->setVelSalto(-50.0f);
 
