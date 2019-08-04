@@ -34,6 +34,16 @@ namespace juego
 		botonPausa->connect("pressed", [&]() {Juego::setEstadoActual(pausa, false); });
 		Juego::getGui()->add(botonPausa);
 		setGanador(false);
+
+		vidasUITex.loadFromFile("res/assets/1up.png");
+
+		vidasUI.setTexture(vidasUITex);
+
+		vidasUI.setOrigin(vidasUI.getTextureRect().width / 2, vidasUI.getTextureRect().height / 2);
+
+		vidas.setFont(*Juego::getGui()->getFont());
+		vidas.setFillColor(Color::Red);
+		vidas.setOrigin(vidas.getLocalBounds().width / 2, vidas.getLocalBounds().height / 2);
 	}
 
 	Gameplay::~Gameplay()
@@ -61,16 +71,6 @@ namespace juego
 	{
 		if(jugador==NULL)
 			jugador = new Jugador(0, 0, { 150.f,250.f });
-
-		vidasUITex.loadFromFile("res/assets/1up.png");
-
-		vidasUI.setTexture(vidasUITex);
-
-		vidasUI.setOrigin(vidasUI.getTextureRect().width/2, vidasUI.getTextureRect().height / 2);
-
-		vidas.setFont(*Juego::getGui()->getFont());
-		vidas.setFillColor(Color::Red);
-		vidas.setOrigin(vidas.getLocalBounds().width / 2, vidas.getLocalBounds().height / 2);
 
 		map = new Mapa(nivel);
 		map->crearPlataformas();
