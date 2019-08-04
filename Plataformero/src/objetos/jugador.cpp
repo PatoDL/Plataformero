@@ -138,14 +138,11 @@ namespace juego
 			velSalto -= getGravedad() * Juego::getFrameTime();
 			setY(getPos().y - velSalto * Juego::getFrameTime());
 		}
-		else
-		{
-			velSalto = getVel().y;
-		}
 	}
 
 	void Jugador::saltar()
 	{
+		velSalto = getVel().y;
 		enSalto = true;
 		if (Juego::getHaySonido())
 			salto.play();
@@ -165,7 +162,7 @@ namespace juego
 		
 			if (enSalto)
 			{
-				src.left = src.width*4;
+				src.left = src.width * 4;
 			}
 			else if (caminandoDer)
 			{
