@@ -14,6 +14,11 @@ namespace juego
 	bool Gameplay::ganador = false;
 	int Gameplay::nivel = 1;
 
+	Texture vidasUITex;
+
+	Sprite vidasUI;
+	Text vidas;
+
 	Gameplay::Gameplay()
 	{		
 		jugador = new Jugador(0, 0, { 150.f,250.f });
@@ -56,6 +61,16 @@ namespace juego
 	{
 		if(jugador==NULL)
 			jugador = new Jugador(0, 0, { 150.f,250.f });
+
+		vidasUITex.loadFromFile("res/assets/1up.png");
+
+		vidasUI.setTexture(vidasUITex);
+
+		vidasUI.setOrigin(vidasUI.getTextureRect().width/2, vidasUI.getTextureRect().height / 2);
+
+		vidas.setFont(*Juego::getGui()->getFont());
+		vidas.setFillColor(Color::Red);
+		vidas.setOrigin(vidas.getLocalBounds().width / 2, vidas.getLocalBounds().height / 2);
 
 		map = new Mapa(nivel);
 		map->crearPlataformas();
@@ -124,6 +139,11 @@ namespace juego
 
 			jugador->actualizar();
 			posicionarCamara();
+			vidasUI.setPosition(view.getCenter().x-200.0f,view.getCenter().y - 200.0f);
+			
+			vidas.setString("x" + std::to_string(jugador->getVidas()));
+			vidas.setCharacterSize(20);
+			vidas.setPosition(vidasUI.getPosition().x + 10.0f, vidasUI.getPosition().y);
 		}
 		else
 		{
@@ -153,6 +173,8 @@ namespace juego
 		}
 		vidaExtra->dibujar();
 		dobleSalto->dibujar();
+		Juego::getWindow()->draw(vidasUI);
+		Juego::getWindow()->draw(vidas);
 	}
 
 	void Gameplay::desinicializar()
