@@ -10,6 +10,7 @@ namespace juego
 
 	VidaExtra::VidaExtra()
 	{
+		//Texture tex;
 		if (!tex.loadFromFile("res/assets/1up.png"))
 		{
 		}

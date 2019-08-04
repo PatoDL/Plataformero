@@ -28,6 +28,7 @@ namespace juego
 		pos = { x,y };
 		posInicial = pos;
 
+
 		sprite.setTexture(tex);
 		sprite.setPosition(pos);
 
