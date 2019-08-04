@@ -31,6 +31,7 @@ namespace juego
 		bool miraIzq;
 		bool miraDer;
 		float timerEntreDash;
+		float duracionDash;
 		float timerPosiciones;
 		sf::Sprite sprDash[cantSprDash];	//guarda el sprite y su poosicion para dibujar el dash
 		bool sprActivo[cantSprDash];

@@ -39,6 +39,7 @@ namespace juego
 
 		sprite.setTextureRect(src);
 		saltosMax = 1;
+		duracionDash = 0.1f;
 
 		inicializar();
 	}
@@ -66,7 +67,7 @@ namespace juego
 		timer = 0.0f;
 		posColision = { false,false,false,false };
 		enSalto = true;
-		velSalto = getVel().y;
+		velSalto = 0;
 		haceDash = false;
 		multiplicadorDash = 7.0f;
 		miraIzq = false;
@@ -105,7 +106,6 @@ namespace juego
 			}
 			else if(saltosHechos == 1)
 			{
-				velSalto = getVel().y;
 				saltar();
 			}
 		}
@@ -304,7 +304,7 @@ namespace juego
 		{
 			haceDash = true;
 			timerDash = 0.0f;
-			timerEntreDash = 0.5f; 
+			timerEntreDash = duracionDash; 
 			if (Juego::getHaySonido())
 			dash.play();
 		}
@@ -312,7 +312,7 @@ namespace juego
 		{
 			static int i = 0;
 			timerDash += Juego::getFrameTime();
-			if (timerDash < 0.1f)
+			if (timerDash < duracionDash)
 			{
 				
 				if (miraDer)
@@ -325,7 +325,7 @@ namespace juego
 					if(!posColision._izq)
 						setX(getPos().x - getVel().x*Juego::getFrameTime()*multiplicadorDash);
 				}
-				if (timerPosiciones >= 0.1f/cantSprDash*i && i<cantSprDash)
+				if (timerPosiciones >= duracionDash / cantSprDash * i && i < cantSprDash)
 				{
 					sprDash[i] = sprite;
 					sprActivo[i] = true;

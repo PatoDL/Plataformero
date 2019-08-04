@@ -128,7 +128,7 @@ namespace juego {
 
 		if (jug->getPos().y > mapa->getTileMap()->GetHeight()*mapa->getTileMap()->GetTileHeight() * 0.95f)
 		{
-			perderVida(jug);
+			//perderVida(jug);
 		}
 	}
 
